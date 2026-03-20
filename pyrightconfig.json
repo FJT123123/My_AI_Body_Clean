@@ -1,0 +1,20 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "include": [
+    "openclaw_continuity.py",
+    "iflow_adapter.py",
+    "workspace"
+  ],
+  "extraPaths": [
+    ".",
+    "workspace",
+    ".venv/lib/python3.12/site-packages",
+    "venv/lib/python3.12/site-packages"
+  ],
+  "exclude": [
+    "venv_libressl_backup_20260313",
+    "__pycache__"
+  ],
+  "typeCheckingMode": "basic"
+}

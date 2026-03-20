@@ -1,0 +1,48 @@
+# Environment and Virtual Environments
+venv/
+.env
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+
+# Test and validation artifacts (directories)
+*_results/
+*_output/
+*_frames/
+test_*/
+*test/
+*_validation/
+*_analysis/
+*_validation_simple/
+*_60fps/
+*_720p/
+PLAN/
+AAA/
+
+# Test and validation artifacts (files)
+test_*.txt
+test_*.py
+temp_*.py
+debug_*.py
+*.mp4
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.db
+test_*.json
+debug_*.json
+temp_*.json
+
+# Repository-specific ignores
+environment_baseline.json
+openclaw_evolution_log.json
+new_evolution_goals.json
+long_term_evolution_plan.md*
+.DS_Store
+workspace/*.sh
+workspace/*.png
+workspace/*.json
+!workspace/*.py  # Keep python files in workspace, but excluded by test_*.py above
