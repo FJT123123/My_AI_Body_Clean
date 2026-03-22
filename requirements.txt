@@ -1,0 +1,14 @@
+# Phoenix Dependencies
+langchain-core
+langchain-community
+python-dotenv
+langgraph
+langchain-tavily
+neo4j
+sentence-transformers
+sqlite3
+pandas
+numpy
+pytz
+python-dateutil
+tzdata

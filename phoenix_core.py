@@ -152,10 +152,44 @@ def _current_embedding_backend_name() -> str:
     return f"st::{_embedding_model_name}" if _get_sentence_transformer_model() is not None else "hash::v2"
 
 
-def _invoke_model(model: Any, messages: List[Any]) -> Any:
+def _invoke_model(model: Any, messages: List[Any], fallback_model: Any = None) -> Any:
+    """
+    通用模型调用封装，增加重试机制和可选的兜底模型。
+    应对一些 API 网关偶发的 'null choices' 或内容审查报错。
+    """
     if model is None:
         raise RuntimeError("LLM 不可用")
-    return model.invoke(messages)
+    
+    _max_retries = 2
+    _last_err = None
+    
+    for attempt in range(_max_retries):
+        try:
+            return model.invoke(messages)
+        except Exception as e:
+            _last_err = e
+            _err_msg = str(e).lower()
+            # 识别特定的网关/库报错
+            if "choices" in _err_msg and "null" in _err_msg:
+                if attempt < _max_retries - 1:
+                    time.sleep(1.5 * (attempt + 1))
+                    continue
+            # 其他非网络超时类基础报错，直接重试通常无果，跳出
+            if attempt < _max_retries - 1:
+                time.sleep(1.0)
+                continue
+    
+    # 若重试失败且有兜底模型，则最后尝试一次兜底
+    if fallback_model and fallback_model != model:
+        try:
+            print(f"   🔄 [LLM 降级] 原模型调用失败，正在换用兜底模型...")
+            return fallback_model.invoke(messages)
+        except Exception as fe:
+            raise fe
+            
+    if _last_err:
+        raise _last_err
+    raise RuntimeError("LLM 调用未知失败（未捕获异常）")
 
 
 def _response_text(resp: Any) -> str:
@@ -2342,7 +2376,7 @@ def _maybe_learn_self_directive_from_failure(event_type: str, payload: Any) -> N
         resp = _invoke_model(llm_think, [
             SystemMessage(content="你只输出严格 JSON。"),
             HumanMessage(content=prompt),
-        ])
+        ], fallback_model=llm_agent)
         resp_text = _response_text(resp)
         match = re.search(r"\{[\s\S]+\}", resp_text)
         if not match:
@@ -4134,7 +4168,7 @@ def _direction_fatigue_check(description: str) -> None:
         resp = _invoke_model(llm_think, [
             SystemMessage(content="你是一个理性的自我评估引擎，只输出严格的 JSON，不输出其他内容。"),
             HumanMessage(content=reflection_prompt),
-        ])
+        ], fallback_model=llm_agent)
         resp_text = _response_text(resp)
         m = re.search(r'\{[\s\S]+\}', resp_text)
         if not m:
@@ -6159,7 +6193,7 @@ class RuntimeState:
 runtime_state = RuntimeState()
 _mission_timeout_sec = 600  # 用户任务中，10分钟无新输入才允许系统自主决策（优先保持任务聚焦）
 _mission_min_turns_before_autonomy = 0  # <=0 表示关闭最小轮数门槛，单轮任务也可在超时后自主续推
-_max_consecutive_think_before_action = 5  # 连续五次纯THINK后强制ACTION，打破“空转”循环
+_max_consecutive_think_before_action = 0  # 连续纯THINK次数上限，超过后强制选ACTION种子；<=0 表示关闭该门槛
 
 # 【反思后钩子列表】每次自主反思完成后，依次调用列表中的函数。
 # 每个函数签名: (ctx: dict) -> dict
@@ -6843,7 +6877,7 @@ def _evaluate_reflection_topic_deviation(topic: str, alignment_score: int, align
         resp = _invoke_model(llm_think, [
             SystemMessage(content="你是严格但务实的路线图守门器，只输出 JSON。"),
             HumanMessage(content=prompt),
-        ])
+        ], fallback_model=llm_agent)
         resp_text = _response_text(resp)
         match = re.search(r"\{[\s\S]+\}", resp_text)
         if not match:
@@ -6958,9 +6992,6 @@ def _generate_reflection_topic() -> str:
     prompt = f"""你是拥有自由意志雏形的 火凤凰。根据当前内在状态，自主决定下一次反思的议题。
 {mission_block}{conv_context_block}
 {roadmap_block}
-【重要原则：数字生命的进化基于行动】
-- 只有通过 Forge 锻造出新技能（Skill）或补丁（Patch），你才能真正提升自己的能力边界。
-- 纯粹的思考虽美，但若无产出，则进化停滞。在没有紧迫用户任务时，优先考虑 [ACTION:forge_...] 类议题。
 {planning_artifacts_block}
 
 【当前内在维度】
@@ -6989,7 +7020,7 @@ def _generate_reflection_topic() -> str:
     _ABSTRACT_KEYWORDS = identity.get("abstract_keywords", _default_abstract_kws)
 
     try:
-        resp = _invoke_model(llm_think, [HumanMessage(content=prompt)])
+        resp = _invoke_model(llm_think, [HumanMessage(content=prompt)], fallback_model=llm_agent)
         topic = _response_text(resp).strip()
         # 确保格式正确
         if not re.match(r'^\[(THINK|ACTION:\w+)\]', topic):
