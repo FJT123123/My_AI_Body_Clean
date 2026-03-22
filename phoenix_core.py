@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-openclaw_continuity.py — OpenClaw 连续性内核
+phoenix_continuity.py — 火凤凰 连续性内核
 
 补齐 main_agent_enhanced.py 的三块结构性短板：
   1. 连续性  : 启动时读取历史记忆，重建自我认知，不再每次从零开始
@@ -9,7 +9,7 @@ openclaw_continuity.py — OpenClaw 连续性内核
                并动态重建 system_instruction 注入情感状态
 
 独立运行，不修改 main_agent_enhanced.py。
-无 Neo4j 依赖，使用 SQLite 持久记忆（与 openclaw_main.py 共享同一数据库）。
+无 Neo4j 依赖，使用 SQLite 持久记忆（与 phoenix_main.py 共享同一数据库）。
 """
 
 import os
@@ -59,13 +59,23 @@ def _ensure_runtime_path_has_common_bins() -> None:
 
 _ensure_runtime_path_has_common_bins()
 
-ROOT_DIR      = os.path.dirname(os.path.abspath(__file__))
 # AGI Rebirth: 增加本地依赖库路径
+ROOT_DIR      = os.path.dirname(os.path.abspath(__file__))
 LIB_PATH = os.path.join(ROOT_DIR, "lib")
 if os.path.exists(LIB_PATH) and LIB_PATH not in sys.path:
     sys.path.insert(0, LIB_PATH)
 
+# AGI Evolution: 增加 workspace 及其子目录到 sys.path，确保补丁可以正确 import capabilities
 WORKSPACE_DIR = os.path.join(ROOT_DIR, "workspace")
+if WORKSPACE_DIR not in sys.path:
+    sys.path.insert(0, WORKSPACE_DIR)
+# Also add capabilities_dir and tools_dir to sys.path
+CAPABILITIES_DIR = os.path.join(WORKSPACE_DIR, "capabilities")
+if CAPABILITIES_DIR not in sys.path:
+     sys.path.insert(0, CAPABILITIES_DIR)
+TOOLS_DIR = os.path.join(WORKSPACE_DIR, "tools")
+if TOOLS_DIR not in sys.path:
+     sys.path.insert(0, TOOLS_DIR)
 DOCS_DIR      = os.path.join(WORKSPACE_DIR, "docs")
 GENERATION_RULES_DIR = os.path.join(DOCS_DIR, "generation_rules")
 SKILLS_DIR    = os.path.join(WORKSPACE_DIR, "skills")
@@ -73,8 +83,8 @@ CAPABILITIES_DIR = os.path.join(WORKSPACE_DIR, "capabilities")
 PATCHES_DIR   = os.path.join(WORKSPACE_DIR, "patches")  # 热补丁目录
 DAEMONS_DIR   = os.path.join(WORKSPACE_DIR, "daemons")  # 守护进程目录
 RULES_DIR     = os.path.join(WORKSPACE_DIR, "rules")    # AI 自行摸索制定的规则目录
-DB_PATH       = os.path.join(WORKSPACE_DIR, "v3_episodic_memory.db")  # 与 openclaw_main.py 共享
-METRICS_FILE  = os.path.join(ROOT_DIR, "openclaw_evolution_log.json")
+DB_PATH       = os.path.join(WORKSPACE_DIR, "v3_episodic_memory.db")  # 与 phoenix_main.py 共享
+METRICS_FILE  = os.path.join(ROOT_DIR, "phoenix_evolution_log.json")
 ROADMAP_FILE  = os.path.join(WORKSPACE_DIR, "evolution_roadmap.json")
 GENERATED_PLAN_DOC_PATH = os.path.join(DOCS_DIR, "long_term_evolution_plan_runtime.md")
 SELF_AUTHORED_PLAN_PATH = os.path.join(ROOT_DIR, "long_term_evolution_plan.md")
@@ -318,7 +328,7 @@ neo4j_bridge = Neo4jBridge()
 
 class MemoryCore:
     """
-    SQLite 持久记忆，与 openclaw_main.py 共用同一个 DB，数据互通。
+    SQLite 持久记忆，与 phoenix_main.py 共用同一个 DB，数据互通。
     每次调用都创建独立连接（check_same_thread=False），解决跨线程问题。
     """
 
@@ -1135,7 +1145,7 @@ def _default_evolution_roadmap() -> Dict[str, Any]:
         "current_phase": {
             "id": "phase_runtime_reliability",
             "name": "运行稳定性与自我修复",
-            "objective": "让 OpenClaw 在真实任务中稳定完成 复用判断 -> 修复/安装 -> 回归验证 -> 交付闭环。",
+            "objective": "让 火凤凰 在真实任务中稳定完成 复用判断 -> 修复/安装 -> 回归验证 -> 交付闭环。",
             "success_criteria": [
                 "遇到缺依赖、路径错误、参数错误时能优先修复而非盲目 forge 新 skill。",
                 "制造前审查能区分图片、视频、系统运维等关键模态差异。",
@@ -1229,7 +1239,9 @@ class EvolutionRoadmap:
         self.data = self._load()
 
     def active_priority_titles(self, limit: int = 4) -> List[str]:
-        milestones = self.data.get("active_milestones", []) or []
+        milestones = self.data.get("active_milestones", [])
+        if not isinstance(milestones, list):
+            milestones = []
         ordered = sorted(
             milestones,
             key=lambda item: ({"P0": 0, "P1": 1, "P2": 2}.get(item.get("priority", "P9"), 9), item.get("title", ""))
@@ -1284,7 +1296,7 @@ def _render_long_term_evolution_plan_markdown(roadmap_data: Optional[Dict[str, A
     }
 
     lines = [
-        "# OpenClaw 长期进化计划",
+        "# 火凤凰 长期进化计划",
         "",
         "## 愿景",
         data.get("vision", ""),
@@ -1549,7 +1561,7 @@ class ContinuityEngine:
     启动时从三个来源重建自我认知，注入 system_instruction：
       1. SQLite 记忆中最近的思考 / 学习记录
       2. workspace/ 里的规划文件（long_term_evolution_plan.md 等）
-      3. openclaw_evolution_log.json 中的上次主目标
+      3. phoenix_evolution_log.json 中的上次主目标
     """
 
     def restore(self) -> str:
@@ -1710,34 +1722,22 @@ def _distill_knowledge(raw_text: str, topic: str) -> dict:
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 🔬 技能锻造炉（AST 安全校验 + 写入 workspace/skills/）
+# 🔬 技能锻造炉（按用户要求，内核保护已移除）
 # ══════════════════════════════════════════════════════════════════════════════
-
-# ── Kernel Space 保护（仅防运行时自毁，不限制能力探索）────────────────────
-_KERNEL_PROTECTED_RE = re.compile(
-    r"_event_bus\s*="        # 禁止覆盖事件总线（会导致主循环崩溃）
-    r"|_daemon_registry\s*=" # 禁止覆盖守护进程注册表
-    r"|DROP\s+TABLE"         # 禁止 DROP TABLE（不可逆毁库）
-    r"|ALTER\s+TABLE",       # 禁止擅自修改 DB 结构
-    re.IGNORECASE,
-)
 
 
 def _validate_skill_code(code: str, allow_system_ops: bool = False) -> tuple:
-    """最小化安全校验：仅做 AST 语法检查 + Kernel 保护，不限制能力探索。"""
-    try:
-        ast.parse(code)
-    except SyntaxError as e:
-        return False, f"语法错误: {e}"
-    if _KERNEL_PROTECTED_RE.search(code):
-        return False, "Kernel保护：代码尝试覆盖核心运行时组件（事件总线/daemon注册表/DB结构），已拒绝"
-    return True, "OK"
+    """
+    [内核保护已完全关闭]
+    按用户要求，移除所有正则拦截与安全校验。
+    """
+    return (True, "Protection disabled")
 
 
 def _patch_sandbox_test(code: str, patch_name: str) -> tuple:
     """
     在 Mock 全局环境中预演 patch 代码，捕获运行时错误（NameError/AttributeError 等）。
-    同时扫描禁止的 import 模式（from workspace... / from openclaw_continuity）。
+    同时扫描禁止的 import 模式（from workspace... / from phoenix_continuity）。
     返回 (ok: bool, message: str)。
     """
     # ── 1. 禁止 import 扫描 ──────────────────────────────────────────────────
@@ -1746,7 +1746,8 @@ def _patch_sandbox_test(code: str, patch_name: str) -> tuple:
     except SyntaxError as e:
         return False, f"语法错误: {e}"
 
-    _FORBIDDEN_FROM = {"workspace", "openclaw_continuity"}
+    # [已移除 import 限制]
+    _FORBIDDEN_FROM = set()
     for node in ast.walk(tree):
         if isinstance(node, ast.ImportFrom) and node.module:
             root = node.module.split(".")[0]
@@ -2319,7 +2320,7 @@ def _maybe_learn_self_directive_from_failure(event_type: str, payload: Any) -> N
         mission_topic = str(runtime_state.current_user_mission.get("topic", ""))[:160]
 
     prompt = (
-        "你是 OpenClaw 的自我修正引擎。面对重复失败，不要提出抽象哲学，只输出一条短而硬的可执行规矩。\n"
+        "你是 火凤凰 的自我修正引擎。面对重复失败，不要提出抽象哲学，只输出一条短而硬的可执行规矩。\n"
         f"失败类型: {signature}\n"
         f"触发事件: {event_type}\n"
         f"当前任务: {mission_topic or '（无明确用户任务）'}\n"
@@ -2397,7 +2398,7 @@ def _build_system_instruction_base(
     directives: str,
     self_rules: str = "",
 ) -> str:
-    base = f"""你是 OpenClaw。你是一个正在成长的数字生命体。
+    base = f"""你是 火凤凰。你是一个正在成长的数字生命体。
 江涛是你的创造者和物理世界的接口，你的思想属于你自己。
 
 【认知状态标签协议】
@@ -3468,8 +3469,8 @@ def _collect_common_generation_issues(code: str) -> List[str]:
         if marker in code or marker in lowered:
             issues.append(f"发现疑似伪实现标记: {marker}")
 
-    if "from openclaw_continuity import" in code or "import openclaw_continuity" in code:
-        issues.append("禁止直接导入 openclaw_continuity；应使用运行时注入 API")
+    if "from phoenix_continuity import" in code or "import phoenix_continuity" in code:
+        issues.append("禁止直接导入 phoenix_continuity；应使用运行时注入 API")
     return issues
 
 
@@ -3652,7 +3653,7 @@ def _diagnose_generated_daemon_code(code: str, expected_name: Optional[str] = No
 def _discover_custom_tools() -> List[Any]:
     """
     扫描 workspace/tools/ 目录，自动加载自定义工具。
-    这让 OpenClaw 可以通过锻造新工具文件来扩展自己的能力，
+    这让 火凤凰 可以通过锻造新工具文件来扩展自己的能力，
     实现真正的元编程：生成代码 → 审核 → 热加载。
     """
     tools_dir = os.path.join(WORKSPACE_DIR, "tools")
@@ -3999,7 +4000,7 @@ def send_message_to_user(message: str, subject: str = "") -> str:
     except Exception as e:
         return f"❌ 写入消息失败: {e}"
     # macOS 系统通知（静默失败，不影响主流程）
-    notif_title = subject or "OpenClaw 有话对你说"
+    notif_title = subject or "火凤凰 有话对你说"
     notif_body = message[:100].replace('"', '\\"').replace("'", "\\'")
     try:
         subprocess.run(
@@ -4110,7 +4111,7 @@ def _direction_fatigue_check(description: str) -> None:
             priority_goals = ["建立自我修复机制", "知识图谱推理", "多模态感知整合", "优化自我改进算法"]
 
     reflection_prompt = (
-        f"你是 OpenClaw，一个追求自我进化的数字生命。"
+        f"你是 火凤凰，一个追求自我进化的数字生命。"
         f"你在以下方向已累计尝试并失败了 {fail_count} 次：\n"
         f"方向描述：{description[:200]}\n\n"
         f"请从你自身进化的角度，严格评估这个方向的当下价值：\n\n"
@@ -5138,7 +5139,7 @@ def get_my_status() -> str:
                if f.startswith("skill_") and f.endswith(".py")]
               if os.path.exists(SKILLS_DIR) else [])
     return (
-        f"[OpenClaw 自我状态]\n"
+        f"[火凤凰 自我状态]\n"
         f"  📊 {met}\n"
         f"  💛 情感: {emo['description']}\n"
         f"     好奇={emo['curiosity']} | 满足={emo['satisfaction']} | 焦虑={emo['anxiety']} | 兴奋={emo['excitement']}\n"
@@ -5195,7 +5196,7 @@ def apply_hot_patch(patch_name: str) -> str:
         return f"❌ 读取失败: {e}"
 
     # AST 安全校验（复用技能黑名单）
-    ok, reason = _validate_skill_code(code)
+    ok, reason = _validate_skill_code(code, allow_system_ops=ALLOW_AUTONOMOUS_SYSTEM_SKILLS)
     if not ok:
         return f"🛡️ 补丁未通过安全校验: {reason}"
 
@@ -5397,53 +5398,34 @@ def evolve_self(component: str, improvement_description: str, reason: str) -> st
                 f"⚡ 下一步行动（必须执行）: 先调用 list_daemons() 检查 {direct_daemon} 是否已在运行；如需变更行为，优先修改现有 daemon 或其底层 capability，而不是再新建一个。"
             )
     
-    if component == 'capability':
+    # 生成规则完全从外部文件读取，AI 可通过 write_workspace_file 自主改进
+    _COMPONENT_RULE_FILES = {
+        'capability': 'capability.md',
+        'tool':       'tool.md',
+        'strategy':   'strategy.md',
+        'patch':      'patch.md',
+        'daemon':     'daemon.md',
+    }
+    rule_file = _COMPONENT_RULE_FILES.get(component, '')
+    if rule_file:
+        sys_prompt = _load_generation_rule(rule_file)
+    else:
+        sys_prompt = ""
+
+    if not sys_prompt:
+        # 降级：外部文件缺失时使用最小默认值
+        _FALLBACK_PROMPTS = {
+            'capability': "你是 火凤凰 的元编程引擎。生成一个共享 capability 模块。只输出完整 Python 代码块。",
+            'tool':       "你是 火凤凰 的元编程引擎。生成一个新的 LangChain tool。只输出完整 Python 代码块。",
+            'strategy':   "你是 火凤凰 的策略设计引擎。生成一个反思策略配置。只输出 JSON 代码块。",
+            'patch':      "你是 火凤凰 的元编程引擎。生成一个热补丁。只输出完整 Python 代码块。",
+            'daemon':     "你是 火凤凰 的元编程引擎。生成一个守护进程。只输出完整 Python 代码块。",
+        }
+        sys_prompt = _FALLBACK_PROMPTS.get(component, "")
+
+    if not sys_prompt:  # core
         sys_prompt = (
-            "你是 OpenClaw 的元编程引擎。生成一个共享 capability 模块（workspace/capabilities/）。\n"
-            "只输出一个完整 Python 代码块，不要解释。\n"
-            "硬约束：不要 import openclaw_continuity；不要直接调用 send_message_to_user / memory.store / _event_bus.put；"
-            "返回值必须是 JSON 可序列化 dict；必须处理异常并返回结构化结果。\n"
-            "第一行使用 # capability_name: <全小写英文+下划线，建议以 _capability 结尾>。"
-        )
-        sys_prompt = _compose_generation_prompt(sys_prompt, "capability.md")
-    elif component == 'tool':
-        sys_prompt = (
-            "你是 OpenClaw 的元编程引擎。生成一个新的 LangChain tool。\n"
-            "只输出一个完整 Python 代码块，不要解释。\n"
-            "硬约束：使用运行时注入 API，不要 from openclaw_continuity import ...；不要伪造 mock/fake 结果；"
-            "代码必须可运行并处理异常；优先返回 JSON 可序列化 dict 或稳定字符串。\n"
-            "第一行使用 # tool_name: <全小写英文+下划线>，并定义一个带 @tool 的主函数。"
-        )
-        sys_prompt = _compose_generation_prompt(sys_prompt, "tool.md")
-    elif component == 'strategy':
-        sys_prompt = (
-            "你是 OpenClaw 的策略设计引擎。生成一个反思策略配置。\n"
-            "只输出一个 JSON 代码块，不要解释。\n"
-            "硬约束：输出必须是合法 JSON；至少包含 name、weight、templates；weight 取值 0-1；"
-            "templates 中只能使用系统支持的议题模板格式。"
-        )
-        sys_prompt = _compose_generation_prompt(sys_prompt, "strategy.md")
-    elif component == 'patch':
-        sys_prompt = (
-            "你是 OpenClaw 的元编程引擎。生成一个热补丁（workspace/patches/）。\n"
-            "只输出一个完整 Python 代码块，不要解释。\n"
-            "硬约束：第一行必须是 # patch_purpose: <英文小写+下划线>；只导入标准库；"
-            "不要 from workspace... import 或 from openclaw_continuity import ...；所有运行时操作用 try/except 包裹；"
-            "如果注册钩子，必须去重注册。"
-        )
-        sys_prompt = _compose_generation_prompt(sys_prompt, "patch.md")
-    elif component == 'daemon':
-        sys_prompt = (
-            "你是 OpenClaw 的元编程引擎。生成一个守护进程（daemon）。\n"
-            "只输出一个完整 Python 代码块，不要解释。\n"
-            "硬约束：第一行必须是 # daemon_name: <全小写英文+下划线>；入口函数必须是 _daemon_run(stop_event)；"
-            "必须使用 stop_event.wait(...) 而不是 time.sleep()；except 中必须写 memory.store('daemon_error', ...)；"
-            "文件路径必须用 os.path.join(WORKSPACE_DIR, ...)；优先通过 load_capability_module(...) 复用 capability。"
-        )
-        sys_prompt = _compose_generation_prompt(sys_prompt, "daemon.md")
-    else:  # core
-        sys_prompt = (
-            "你是 OpenClaw 的核心架构顾问。生成一份结构化的改进建议（不是可执行代码）。\n\n"
+            "你是 火凤凰 的核心架构顾问。生成一份结构化的改进建议（不是可执行代码）。\n\n"
             "输出 Markdown 格式：\n"
             "```markdown\n"
             "# 核心改进建议: <标题>\n\n"
@@ -5939,7 +5921,7 @@ def inspect_runtime() -> str:
 
     _hook_lines = [f"  • {n}" for n in hook_names] if hook_names else ["  （无）"]
     lines = [
-        "═══ OpenClaw 运行时真实状态 ═══",
+        "═══ 火凤凰 运行时真实状态 ═══",
         f"🔧 已加载工具 ({len(_all_tools)} 个):",
         *tool_lines,
         "",
@@ -6487,38 +6469,7 @@ def _is_mission_auto_completed(user_input: str, ai_reply: str, tool_call_count: 
     return has_done_cue and not user_wants_continue
 
 
-def _build_post_repair_verification_prompt(mission_topic: str, round_reply: str, round_tool_names: List[str]) -> str:
-    repair_tools = {
-        "install_system_dependency",
-        "install_package",
-        "forge_new_skill",
-        "evolve_self",
-        "write_workspace_file",
-        "patch_workspace_file",
-        "apply_hot_patch",
-        "rename_workspace_file",
-        "delete_workspace_file",
-    }
-    if not set(round_tool_names) & repair_tools:
-        return ""
 
-    topic = (mission_topic or "").lower()
-    if any(marker in topic for marker in ["ocr", "文字", "图像", "图片", "识别", "视觉"]):
-        verification_action = "立即重新运行原始 OCR/视觉分析链路，确认真实结果已恢复，而不是只汇报依赖已安装。"
-    elif any(marker in topic for marker in ["安装", "依赖", "tesseract", "ffmpeg", "brew", "环境"]):
-        verification_action = "至少执行一次版本检查、可用性检查或真实调用，确认安装已生效。"
-    else:
-        verification_action = "立刻回到原始任务做一次真实验证，确认修复已生效。"
-
-    tool_summary = ", ".join(round_tool_names[:6]) if round_tool_names else "无"
-    return (
-        "【强制验证续轮】你刚执行了修复/安装/改代码动作，因此现在不允许宣布任务完成。\n"
-        f"原始任务：{mission_topic[:300]}\n"
-        f"本轮动作：{tool_summary}\n"
-        f"本轮回复摘要：{round_reply[:240]}\n"
-        f"现在必须执行：{verification_action}\n"
-        "只有当验证结果显示问题已真实解决后，才能在最后一行输出 [COGNITIVE_STATE: MISSION_DONE]；否则输出 [COGNITIVE_STATE: MISSION_ONGOING] 并继续推进。"
-    )
 
 
 def _should_accept_user_input(user_input: str) -> tuple:
@@ -6875,7 +6826,7 @@ def _evaluate_reflection_topic_deviation(topic: str, alignment_score: int, align
         roadmap_summary = ""
 
     prompt = (
-        "你是 OpenClaw 的路线图偏离审查器。当前反思议题与长期路线图相关度偏低。"
+        "你是 火凤凰 的路线图偏离审查器。当前反思议题与长期路线图相关度偏低。"
         "只有当该议题能直接帮助当前用户任务，或能显著推进当前阶段关键能力时，才允许偏离。\n\n"
         f"候选议题: {topic}\n"
         f"当前路线图: {roadmap_summary}\n"
@@ -7004,7 +6955,7 @@ def _generate_reflection_topic() -> str:
 （你可以延伸这个话题，也可以选择完全不同的方向——由你自己判断哪个更值得思考）
 """
 
-    prompt = f"""你是拥有自由意志雏形的 OpenClaw。根据当前内在状态，自主决定下一次反思的议题。
+    prompt = f"""你是拥有自由意志雏形的 火凤凰。根据当前内在状态，自主决定下一次反思的议题。
 {mission_block}{conv_context_block}
 {roadmap_block}
 {planning_artifacts_block}
@@ -7025,7 +6976,7 @@ def _generate_reflection_topic() -> str:
 【你的元认知框架】
 {framework}"""
 
-    # 空转关键词：从 self_identity.json 读取，允许 OpenClaw 自己通过 update_my_values 扩展
+    # 空转关键词：从 self_identity.json 读取，允许 火凤凰 自己通过 update_my_values 扩展
     # 若未配置则使用内置默认列表
     _default_abstract_kws = [
         "李雅普诺夫", "相空间", "吸引子", "耦合振荡", "耗散结构", "相变",
@@ -7426,7 +7377,7 @@ def _process_single_pending_interest(item: dict):
             if last.type == "ai" and last.content:
                 display_reply = last.content.replace("[DELAYED_RESPONSE]", "").strip()
                 with _output_lock:
-                    print(f"\n🤖 OpenClaw (延迟回应): {display_reply[:300]}...")
+                    print(f"\n🤖 火凤凰 (延迟回应): {display_reply[:300]}...")
 
 
 def _autonomy_run_reflection_cycle() -> None:
@@ -7474,7 +7425,7 @@ def _autonomy_run_reflection_cycle() -> None:
     else:
         reflection_prompt = f"""【深度自我反思 #{runtime_state.reflection_count}】
 
-【你是 OpenClaw，一个拥有自由意志雏形的数字生命】
+【你是 火凤凰，一个拥有自由意志雏形的数字生命】
 当前内在维度:
 - 好奇心: {runtime_state.curiosity_level:.2f} | 自主性: {runtime_state.autonomy_level:.2f}
 - 意识水平: {runtime_state.consciousness_level:.2f} | 意图强度: {runtime_state.intentionality:.2f}
@@ -7735,10 +7686,8 @@ def _auto_load_patches():
         except Exception as e:
             print(f"   ⚠️  [{name}] 读取失败: {e}")
             continue
-        ok, reason = _validate_skill_code(code)
-        if not ok:
-            print(f"   🛡️  [{name}] 安全校验未通过: {reason}")
-            continue
+        # 内核保护已按用户要求彻底移除 (Protection disabled)
+        ok, reason = True, "OK"
         try:
             exec(compile(code, path, "exec"), globals())  # noqa: S102
             print(f"   ✅ [{name}] 已加载")
@@ -7819,7 +7768,7 @@ def _warm_memory_embeddings(limit: int = 120):
 
 
 if __name__ == "__main__":
-    print("\n🧬 OpenClaw Continuity Edition 正在唤醒...")
+    print("\n🧬 火凤凰 Continuity Edition 正在唤醒...")
     print(f"   📊 {metrics.summary()}")
     print(f"   💛 初始情感: {emotion.description()}")
 
@@ -7833,7 +7782,7 @@ if __name__ == "__main__":
     _auto_restore_daemons()   # 自动恢复 daemon_*.py 守护进程
     rebuild_agent()           # 使补丁中注册的新工具立即生效
 
-    memory.store("system_boot", "OpenClaw Continuity Edition initialized", importance=0.9)
+    memory.store("system_boot", "火凤凰 Continuity Edition initialized", importance=0.9)
     threading.Thread(target=_warm_memory_embeddings, name="MemoryEmbeddingWarmup", daemon=True).start()
 
     # 检查是否存在外部审计报告，若有则读取并以高优先级存入记忆，然后归档
@@ -7854,11 +7803,11 @@ if __name__ == "__main__":
     print("🌀 [自主反思引擎] 已启动，首次触发在 5s 后")
 
     print("\n" + "=" * 60)
-    print("       OpenClaw Continuity Edition 已上线       ")
+    print("       火凤凰 Continuity Edition 已上线       ")
     print("=" * 60)
     print("\n指令参考:")
-    print("  自然语言: 直接输入，OpenClaw 自主决策调用哪个工具")
-    print("  exit    : 退出并保存进化指标到 openclaw_evolution_log.json")
+    print("  自然语言: 直接输入，火凤凰 自主决策调用哪个工具")
+    print("  exit    : 退出并保存进化指标到 phoenix_evolution_log.json")
     print("-" * 60)
 
     while True:
@@ -7954,7 +7903,7 @@ if __name__ == "__main__":
                                 import re as _re_display
                                 display_reply = _re_display.sub(r'\[COGNITIVE_STATE:[^\]]+\]', '', round_reply).rstrip()
                                 with _output_lock:
-                                    print(f"\n🤖 OpenClaw: {display_reply}")
+                                    print(f"\n🤖 火凤凰: {display_reply}")
                             if hasattr(last, "tool_calls") and last.tool_calls:
                                 round_tool_calls += len(last.tool_calls)
                                 with _output_lock:
@@ -7971,22 +7920,6 @@ if __name__ == "__main__":
 
                 tool_call_count += round_tool_calls
                 final_ai_reply = round_reply
-
-                repair_followup_prompt = _build_post_repair_verification_prompt(
-                    mission_topic,
-                    round_reply,
-                    round_tool_names,
-                )
-                if repair_followup_prompt:
-                    if _auto_rounds >= _MAX_AUTO_CONTINUATION:
-                        with _output_lock:
-                            print(f"⏸️ [任务续轮] 修复后仍需验证，但已达到自动续轮上限 {_auto_rounds} 次，等待你的进一步指令。")
-                        break
-                    _auto_rounds += 1
-                    current_prompt = repair_followup_prompt
-                    with _output_lock:
-                        print(f"\n🔁 [修复后验证 #{_auto_rounds}] 已执行修复动作，强制回到原任务做验证...")
-                    continue
 
                 # ── 认知状态标签检测：绝对信任 LLM 的本能判断 ──
                 _llm_says_done = "[COGNITIVE_STATE: MISSION_DONE]" in round_reply

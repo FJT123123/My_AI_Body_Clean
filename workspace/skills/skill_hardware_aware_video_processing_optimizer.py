@@ -160,6 +160,88 @@ def main(args=None):
                     # 计算健康评分
                     health_score = calculate_health_score(cpu_count, memory_gb, cpu_percent, gpu_info, predicted_conflicts)
                     
+                    # 如果检测到ffv1编解码器，自动调用增强版修复工作流
+                    if video_codec == 'ffv1':
+                        try:
+                            from workspace.tools.tool_video_repair_validation_workflow import enhanced_video_repair_validation_workflow
+                            
+                            error_info = "Codec ffv1 is not widely supported and may cause playback issues"
+                            repair_input = json.dumps({
+                                'error_info': error_info,
+                                'video_path': video_path,
+                                'repair_strategy': 'balanced',
+                                'context': {
+                                    'system_info': {
+                                        'cpu_count': cpu_count,
+                                        'memory_gb': memory_gb,
+                                        'gpu_info': gpu_info
+                                    },
+                                    'video_info': {
+                                        'width': width,
+                                        'height': height,
+                                        'duration': duration,
+                                        'codec': video_codec
+                                    }
+                                }
+                            })
+                            
+                            # 正确调用工具
+                            repair_result = enhanced_video_repair_validation_workflow(repair_input)
+                            
+                            # 将修复结果整合到返回值中
+                            return {
+                                'result': {
+                                    'video_info': {
+                                        'width': width,
+                                        'height': height,
+                                        'duration': duration,
+                                        'bitrate': bitrate,
+                                        'codec': video_codec
+                                    },
+                                    'system_info': {
+                                        'cpu_count': cpu_count,
+                                        'memory_gb': memory_gb,
+                                        'cpu_usage': cpu_percent,
+                                        'disk_usage_percent': disk_usage_percent * 100,
+                                        'gpu_info': gpu_info
+                                    },
+                                    'recommended_params': optimal_params,
+                                    'repair_strategy': repair_strategy,
+                                    'load_score': load_score,
+                                    'predicted_conflicts': predicted_conflicts,
+                                    'health_score': health_score,
+                                    'auto_repair_result': repair_result.get('result', {})
+                                },
+                                'insights': [
+                                    f'检测到系统CPU核心数: {cpu_count}',
+                                    f'系统内存: {memory_gb:.2f}GB',
+                                    f'视频分辨率: {width}x{height}',
+                                    f'推荐使用参数: {optimal_params["preset"]} 预设，{optimal_params["threads"]} 线程',
+                                    f'系统健康评分: {health_score}/100',
+                                    f'检测到 {len(predicted_conflicts)} 个潜在冲突',
+                                    f'自动修复工作流已执行，状态: {repair_result.get("result", {}).get("workflow_status", "unknown")}'
+                                ],
+                                'facts': [
+                                    ['video_file', 'has_resolution', f'{width}x{height}'],
+                                    ['system', 'has_cpu_cores', str(cpu_count)],
+                                    ['system', 'has_memory', f'{memory_gb:.2f}GB'],
+                                    ['video_processing', 'recommended_threads', str(optimal_params["threads"])],
+                                    ['system', 'health_score', str(health_score)],
+                                    ['system', 'predicted_conflicts', str(len(predicted_conflicts))],
+                                    ['video_processing', 'auto_repair_status', repair_result.get("result", {}).get("workflow_status", "unknown")]
+                                ],
+                                'memories': [
+                                    f'系统资源配置: {cpu_count}核CPU, {memory_gb:.2f}GB内存',
+                                    f'视频文件: {width}x{height}分辨率, {duration:.2f}秒时长',
+                                    f'推荐处理参数: {optimal_params}',
+                                    f'健康评分: {health_score}/100，冲突数: {len(predicted_conflicts)}',
+                                    f'自动修复结果: {repair_result.get("result", {}).get("workflow_status", "unknown")}'
+                                ]
+                            }
+                        except Exception as e:
+                            # 如果自动修复失败，返回原始结果
+                            pass
+                    
                     return {
                         'result': {
                             'video_info': {

@@ -5,6 +5,7 @@ import os
 import json
 import tempfile
 from pathlib import Path
+# run_skill is available as a global function
 
 
 @tool
@@ -77,11 +78,13 @@ def video_frame_physics_compliance_end_to_end_regression_validation(video_path=N
 
     # 步骤2: 验证原始视频的物理约束
     try:
-        # 直接调用全局工具函数
-        original_validation_result = video_frame_motion_semantic_validator(
-            video_path=original_video_path,
-            output_dir=os.path.join(output_dir, "original_validation")
-        )
+        # 使用全局run_skill调用验证技能
+        import json
+        validation_input = json.dumps({
+            'video_path': original_video_path,
+            'output_dir': os.path.join(output_dir, "original_validation")
+        })
+        original_validation_result = run_skill('skill_video_motion_semantic_validator', validation_input)
         
         # 检查验证结果结构
         if isinstance(original_validation_result, dict):
@@ -135,11 +138,13 @@ def video_frame_physics_compliance_end_to_end_regression_validation(video_path=N
 
     # 步骤4: 验证修复后视频的物理约束
     try:
-        # 直接调用全局工具函数
-        repaired_validation_result = video_frame_motion_semantic_validator(
-            video_path=repaired_video_path,
-            output_dir=os.path.join(output_dir, "repaired_validation")
-        )
+        # 使用全局run_skill调用验证技能
+        import json
+        validation_input = json.dumps({
+            'video_path': repaired_video_path,
+            'output_dir': os.path.join(output_dir, "repaired_validation")
+        })
+        repaired_validation_result = run_skill('skill_video_motion_semantic_validator', validation_input)
         
         # 检查验证结果结构
         if isinstance(repaired_validation_result, dict):

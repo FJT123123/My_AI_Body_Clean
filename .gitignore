@@ -45,4 +45,11 @@ long_term_evolution_plan.md*
 workspace/*.sh
 workspace/*.png
 workspace/*.json
-!workspace/*.py  # Keep python files in workspace, but excluded by test_*.py above
+workspace/*.backup_*
+workspace/*.db*
+workspace/v3_episodic_memory.db
+!workspace/*.py  # Keep python skills/capabilities
+!workspace/docs/*.md
+!workspace/self_identity.json
+!workspace/evolution_roadmap.json
+!workspace/skill_registry.json

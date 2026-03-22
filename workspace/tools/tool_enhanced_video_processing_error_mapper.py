@@ -42,6 +42,9 @@ def enhanced_video_processing_error_mapper(input_args: str) -> dict:
             }
         
         # Import enhanced capability module
+        import sys
+        import os
+        sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
         from capabilities.enhanced_video_error_classification_capability import run_enhanced_error_mapping_cycle
         
         # Create exception object
