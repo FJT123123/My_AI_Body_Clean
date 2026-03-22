@@ -170,9 +170,9 @@ def enhanced_video_repair_validation_workflow(input_args: str) -> Dict[str, Any]
         continuity_validation_result = video_semantic_continuity_analyzer(repaired_video_path, continuity_output_dir)
         
         # 4.2 物理一致性验证（端到端回归验证）
-        from workspace.tools.tool_video_frame_physics_compliance_end_to_end_regression_validation import video_frame_physics_compliance_end_to_end_regression_validation
+        from workspace.tools.tool_video_physics_regression_validation import video_physics_regression_validation
         physics_output_dir = os.path.join(output_dir, 'physics_validation')
-        physics_validation_result = video_frame_physics_compliance_end_to_end_regression_validation(
+        physics_validation_result = video_physics_regression_validation(
             video_path=repaired_video_path,
             output_dir=physics_output_dir
         )

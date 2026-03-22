@@ -1,0 +1,12 @@
+{
+  "tool_name": "test_tool",
+  "input_fingerprint": "27a068972526a613",
+  "output_fingerprint": "f3127924f1c2d4f5",
+  "input_size": 17,
+  "output_size": 44,
+  "capture_time": "2026-03-20T21:25:05.083168",
+  "context": {
+    "purpose": "triple_validation_test"
+  },
+  "data_flow_path": []
+}

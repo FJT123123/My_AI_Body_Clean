@@ -1,0 +1,10 @@
+{
+  "tool_name": "run_skill",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T03:05:51.790545",
+  "context": "dynamic_weight_compensation_test",
+  "data_flow_path": []
+}

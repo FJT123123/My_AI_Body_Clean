@@ -1,0 +1,12 @@
+{
+  "tool_name": "test_tool",
+  "input_fingerprint": "8558f64ad576b4ed",
+  "output_fingerprint": "2db5c83947e9ea77",
+  "input_size": 20,
+  "output_size": 21,
+  "capture_time": "2026-03-20T21:21:20.699246",
+  "context": {
+    "test": true
+  },
+  "data_flow_path": []
+}

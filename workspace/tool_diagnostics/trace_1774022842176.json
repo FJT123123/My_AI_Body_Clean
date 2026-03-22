@@ -1,0 +1,10 @@
+{
+  "tool_name": "output_redirection_debug_info_escape_prevention",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T00:07:22.176183",
+  "context": "重构防御机制确保认知权重完整性",
+  "data_flow_path": []
+}

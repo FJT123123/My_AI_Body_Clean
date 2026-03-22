@@ -1,0 +1,10 @@
+{
+  "tool_name": "test_tool",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T03:06:58.537163",
+  "context": "environment_drift_test",
+  "data_flow_path": []
+}

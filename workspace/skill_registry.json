@@ -1,0 +1,2072 @@
+{
+  "version": 1,
+  "last_updated": "2026-03-22 11:22:42",
+  "categories": {
+    "外部感知": {
+      "description": "访问外部世界获取信息的能力（搜索、API、网络）"
+    },
+    "系统监控": {
+      "description": "监控本机系统资源与运行状态（CPU、内存、进程）"
+    },
+    "记忆分析": {
+      "description": "查询和分析记忆数据库的内容与结构"
+    },
+    "技能管理": {
+      "description": "管理和审计技能库本身（健康检查、执行历史、文件扫描）"
+    },
+    "自我调节": {
+      "description": "情感调节、注意力管理和自我状态评估"
+    },
+    "错误诊断": {
+      "description": "捕获、分析和报告系统错误与异常"
+    },
+    "工作区管理": {
+      "description": "管理工作区文件、目录结构和工具集"
+    },
+    "未分类": {
+      "description": "尚未归类的技能"
+    }
+  },
+  "skills": {
+    "skill_wiki_search": {
+      "file": "skill_wiki_search.py",
+      "category": "外部感知",
+      "description": "通过 Wikipedia API 搜索和获取知识词条内容",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 12,
+      "last_called": "2026-03-12T16:52:59.829990"
+    },
+    "skill_system_resource_monitor": {
+      "file": "skill_system_resource_monitor.py",
+      "category": "系统监控",
+      "description": "监控本机 CPU、内存、磁盘等系统资源使用情况",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 2,
+      "last_called": "2026-03-12T04:20:30.714234"
+    },
+    "skill_utilization_analyzer": {
+      "file": "skill_utilization_analyzer.py",
+      "category": "自我调节",
+      "description": "分析系统整体利用率和资源使用效率",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 2,
+      "last_called": "2026-03-12T06:03:46.327290"
+    },
+    "skill_icm_self_regulation_monitor": {
+      "file": "skill_icm_self_regulation_monitor.py",
+      "category": "自我调节",
+      "description": "监控 ICM 自我调节状态，评估注意力焦点和认知负荷",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T20:29:58.155375"
+    },
+    "skill_emotional_self_regulation_module": {
+      "file": "skill_emotional_self_regulation_module.py",
+      "category": "自我调节",
+      "description": "监控情感状态分布，评估情绪调节健康度",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T20:20:35.762420"
+    },
+    "skill_enhanced_skill_health_monitor": {
+      "file": "skill_enhanced_skill_health_monitor.py",
+      "category": "技能管理",
+      "description": "检查所有技能文件的健康状态（语法、可执行性、成功率）",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T21:23:36.858840"
+    },
+    "skill_memory_event_type_analyzer": {
+      "file": "skill_memory_event_type_analyzer.py",
+      "category": "记忆分析",
+      "description": "统计记忆库中各 event_type 的数量分布",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-12T01:36:49.696784"
+    },
+    "skill_error_analysis_reporter": {
+      "file": "skill_error_analysis_reporter.py",
+      "category": "错误诊断",
+      "description": "分析和汇总系统中的错误记录，生成诊断报告",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 2,
+      "last_called": "2026-03-13T16:22:22.198429"
+    },
+    "skill_workspace_scanner": {
+      "file": "skill_workspace_scanner.py",
+      "category": "工作区管理",
+      "description": "扫描 workspace/skills/ 目录，获取每个技能文件的大小（字节）和最后修改时间（ISO格式），返回结构化列表",
+      "added_at": "2026-03-11",
+      "status": "active",
+      "call_count": 49,
+      "last_called": "2026-03-19T17:08:57.883423"
+    },
+    "skill_executed_skills_summary_aggregator": {
+      "file": "skill_executed_skills_summary_aggregator.py",
+      "category": "技能管理",
+      "description": "按时间倒序汇总所有技能执行历史记录（调用 skill_results 表）",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T06:56:02.683707"
+    },
+    "skill_execution_history_analyzer": {
+      "file": "skill_execution_history_analyzer.py",
+      "category": "技能管理",
+      "description": "创建一个技能，能够查询skill_results表并返回所有技能执行记录的汇总信息，包括技能名称、执行时间、时间戳等关键字段。",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 44,
+      "last_called": "2026-03-21T18:46:06.420414"
+    },
+    "skill_memory_event_type_distribution_analyzer": {
+      "file": "skill_memory_event_type_distribution_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析近7天记忆库 event_type 分布，识别低信息量噪声事件类型",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 8,
+      "last_called": "2026-03-12T13:37:43.770523"
+    },
+    "skill_file_scanner": {
+      "file": "skill_file_scanner.py",
+      "category": "工作区管理",
+      "description": "扫描 workspace/skills 目录，返回每个技能文件的大小和最后修改时间",
+      "added_at": "2026-03-11",
+      "status": "active",
+      "call_count": 18,
+      "last_called": "2026-03-22T11:09:22.705394"
+    },
+    "skill_pi_calculus_homotopy_equivalence_analyzer": {
+      "file": "skill_pi_calculus_homotopy_equivalence_analyzer.py",
+      "category": "外部感知",
+      "description": "分析两个固定的π-演算序列 [\"a(x).b⟨x⟩\"] 和 [\"a(y).b⟨y⟩\"] 的迁移等价性与同伦类型论路径等价性，无需外部输入参数。",
+      "added_at": "2026-03-11",
+      "status": "deleted"
+    },
+    "skill_debug_input_args_parser": {
+      "file": "skill_debug_input_args_parser.py",
+      "category": "技能管理",
+      "description": "调试技能输入解析器：接收原始 input_args 字符串，输出其类型、内容和 JSON 解析结果（如果可能），用于诊断 run_skill 的参数传递问题。",
+      "added_at": "2026-03-11",
+      "status": "active",
+      "call_count": 33,
+      "last_called": "2026-03-21T14:31:56.484494"
+    },
+    "skill_distributed_protocol_security_analyzer": {
+      "file": "skill_distributed_protocol_security_analyzer.py",
+      "category": "记忆分析",
+      "description": "解析JSON格式的输入参数，提取protocol_description字段用于分布式协议安全分析",
+      "added_at": "2026-03-11",
+      "status": "deleted"
+    },
+    "skill_parameter_debugging_analyzer": {
+      "file": "skill_parameter_debugging_analyzer.py",
+      "category": "技能管理",
+      "description": "调试技能参数传递机制，接收任意输入并返回其类型、内容和结构的详细分析",
+      "added_at": "2026-03-11",
+      "status": "deleted"
+    },
+    "skill_event_type_distribution_analyzer": {
+      "file": "skill_event_type_distribution_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析 memories 表中最近7天的 event_type 分布，统计每种事件类型的出现频率，并识别出重复最多的无效记录类型。无效记录类型定义为 importance < 0.3 且内容简短（少于20个字符）的记录。返回详细的分布统计和无",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_results_summarizer": {
+      "file": "skill_results_summarizer.py",
+      "category": "技能管理",
+      "description": "创建一个名为 skill_skill_results_summarizer 的新技能，该技能能够直接查询和汇总 skill_results 表中的数据。它应该接受一个可选的 skill_name 参数来过滤特定技能的结果，以及一个 limi",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 9,
+      "last_called": "2026-03-12T13:15:43.286926"
+    },
+    "skill_simple_history_query": {
+      "file": "skill_simple_history_query.py",
+      "category": "技能管理",
+      "description": "创建一个简化版的技能执行历史查询工具 skill_simple_history_query，它直接使用 query_skill_results 工具（而非直接访问数据库）来获取指定技能的执行历史。该技能接收技能名称作为字符串参数，调用 qu",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-12T06:03:31.023632"
+    },
+    "skill_recent_event_type_distribution_analyzer": {
+      "file": "skill_recent_event_type_distribution_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析 memories 表中最近7天的 event_type 分布，统计各类型出现次数，并识别出重复最多的无效记录类型（如 debug_log、heartbeat 等低信息量类型）",
+      "added_at": "2026-03-11",
+      "status": "deleted"
+    },
+    "skill_lightweight_language_complexity_analyzer": {
+      "file": "skill_lightweight_language_complexity_analyzer.py",
+      "category": "外部感知",
+      "description": "构建一个轻量级语言复杂度实时分析器，输入为单条对话文本，输出包含：1) 词汇多样性（TTR = 唯一词数/总词数），2) 平均句子长度，3) 句子数量，4) 总词数。不使用任何外部NLP库（如spaCy），仅用Python标准库分词和标点处",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-12T03:17:08.364258"
+    },
+    "skill_execution_failure_analyzer": {
+      "file": "skill_execution_failure_analyzer.py",
+      "category": "技能管理",
+      "description": "创建一个技能，用于诊断其他技能的执行失败原因。该技能接收技能名称作为输入，检查该技能文件是否存在、语法是否正确、是否缺少必要的上下文参数，并分析其最近的执行记录以确定失败模式。",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 16,
+      "last_called": "2026-03-13T16:41:17.938494"
+    },
+    "skill_parameter_passing_validator": {
+      "file": "skill_parameter_passing_validator.py",
+      "category": "技能管理",
+      "description": "创建一个技能，用于测试和验证参数传递机制。该技能接收任意输入参数，打印出接收到的参数类型和内容，帮助诊断参数传递问题。",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T02:02:03.828919"
+    },
+    "skill_universal_parameter_parser": {
+      "file": "skill_universal_parameter_parser.py",
+      "category": "技能管理",
+      "description": "创建一个通用的参数解析技能，能够正确处理 run_skill 传递的字符串参数。该技能接收 input_args 字符串，尝试将其解析为 JSON 对象，如果失败则返回原始字符串。这样其他技能可以调用这个通用解析器来获取正确的参数。",
+      "added_at": "2026-03-11",
+      "status": "active",
+      "call_count": 31,
+      "last_called": "2026-03-21T10:56:21.146255"
+    },
+    "skill_results_analyzer": {
+      "file": "skill_results_analyzer.py",
+      "category": "技能管理",
+      "description": "创建一个可靠的技能模块，用于直接读取并汇总 skill_results 表中的数据。该技能应该能够：\n1. 安全地连接到记忆数据库\n2. 查询 skill_results 表的所有记录\n3. 解析 result_json 字段（处理可能的 ",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T06:18:17.076056"
+    },
+    "skill_performance_evaluation_framework": {
+      "file": "skill_performance_evaluation_framework.py",
+      "category": "技能管理",
+      "description": "构建技能效能评估框架，计算每个技能的调用频率、成功率、平均执行时间、结果实用性评分（基于后续记忆引用次数），并生成综合效能指数",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-12T05:27:07.588713"
+    },
+    "skill_enhanced_workspace_scanner_with_visualization": {
+      "file": "skill_enhanced_workspace_scanner_with_visualization.py",
+      "category": "工作区管理",
+      "description": "增强版workspace_scanner，除了基本目录扫描外，还能分析文件类型分布、代码复杂度、依赖关系，并生成可视化报告",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T23:26:56.698100"
+    },
+    "skill_execution_result_analyzer": {
+      "file": "skill_execution_result_analyzer.py",
+      "category": "技能管理",
+      "description": "分析技能执行结果的技能，从skill_results表中提取数据，计算每个技能的成功率，并识别常见的失败模式。该技能应直接使用query_memory_db工具查询数据库，解析result_json字段，并生成结构化的分析报告。",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T22:34:37.182689"
+    },
+    "skill_memory_database_path_fixer": {
+      "file": "skill_memory_database_path_fixer.py",
+      "category": "记忆分析",
+      "description": "修复数据库路径处理问题的技能，该技能能够自动检测并修正技能执行中的数据库路径参数，确保所有技能都能正确访问v3_episodic_memory.db文件。技能应包含路径验证、相对路径转绝对路径、以及错误恢复机制。",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T18:48:09.144119"
+    },
+    "skill_execution_analyzer": {
+      "file": "skill_execution_analyzer.py",
+      "category": "技能管理",
+      "description": "读取并汇总 skill_results 表中的技能执行记录，支持按技能名称过滤、按时间范围筛选、按执行结果状态（成功/失败）分类，并生成结构化的汇总报告，包括执行次数、成功率、平均执行时间等统计信息。",
+      "added_at": "2026-03-11",
+      "status": "active",
+      "call_count": 16,
+      "last_called": "2026-03-21T08:19:16.882325"
+    },
+    "skill_execution_analytics_reporter": {
+      "file": "skill_execution_analytics_reporter.py",
+      "category": "记忆分析",
+      "description": "分析技能执行记录的正确版本，使用query_memory_db工具查询v3_episodic_memory.db数据库中的skill_results表，计算每个技能的成功率、平均执行时间等指标，并生成结构化报告。这个技能将正确处理数据库路径",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 2,
+      "last_called": "2026-03-11T22:37:49.537568"
+    },
+    "skill_universal_skill_parameter_validator": {
+      "file": "skill_universal_skill_parameter_validator.py",
+      "category": "技能管理",
+      "description": "通用技能参数验证器，检查输入参数是否包含必需的字段，并提供默认值。这个技能将确保所有技能调用时都有正确的上下文参数，包括workspace_path和db_path等关键路径信息。",
+      "added_at": "2026-03-11",
+      "status": "deleted"
+    },
+    "skill_execution_result_aggregator": {
+      "file": "skill_execution_result_aggregator.py",
+      "category": "技能管理",
+      "description": "创建一个健壮的技能执行结果汇总器，能够直接从数据库读取skill_results表的所有记录，按技能名称分组统计执行次数、成功次数、失败次数，并计算成功率。该技能应能处理JSON解析错误，提供清晰的结构化输出，包括总体统计和每个技能的详细统",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T23:30:00.253262"
+    },
+    "skill_combiner": {
+      "file": "skill_combiner.py",
+      "category": "技能管理",
+      "description": "创建一个技能整合器，能够将多个功能相似的未使用技能合并成一个更通用、更高效的技能。该技能应分析现有未使用技能的功能描述，识别共同模式，并生成一个统一的实现。",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T19:02:08.995221"
+    },
+    "skill_execution_analytics_generator": {
+      "file": "skill_execution_analytics_generator.py",
+      "category": "技能管理",
+      "description": "安全查询技能执行记录并生成效能分析报告。通过调用 query_memory_db 工具（以字符串形式传递SQL）获取 skill_results 表数据，计算各技能的成功率、平均执行时间、调用频率，并识别异常模式。返回结构化分析结果包含：总",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T01:32:36.137298"
+    },
+    "skill_success_rate_analyzer": {
+      "file": "skill_success_rate_analyzer.py",
+      "category": "技能管理",
+      "description": "基于技能执行摘要文本分析成功率。输入为技能名称列表，通过查询skill_results表的result_summary字段，统计包含'成功'或'完成'关键词的记录比例作为成功率。返回字典包含各技能的成功率、执行次数及是否建议保留（成功率>0",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-11T22:37:42.176069"
+    },
+    "skill_openclaw_satisfaction_analyzer": {
+      "file": "skill_openclaw_satisfaction_analyzer.py",
+      "category": "技能管理",
+      "description": "评估OpenClaw框架满意度的综合分析器。该技能将：1) 分析系统稳定性指标（意识等级、反思次数、学习次数）；2) 评估技能生态系统健康度（锻造通过率、复用率、真实调用次数）；3) 检查核心约束遵守情况；4) 识别当前框架的优势与不足；5",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T20:05:12.541453"
+    },
+    "skill_execution_summary_aggregator": {
+      "file": "skill_execution_summary_aggregator.py",
+      "category": "技能管理",
+      "description": "直接读取并汇总 skill_results 表中的技能执行记录，返回结构化的汇总数据。支持按技能名称过滤和限制返回数量。查询字段包括：id, skill_name, input_args, result_summary, timestamp",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-11T20:25:24.322508"
+    },
+    "skill_robust_skill_results_reader": {
+      "file": "skill_robust_skill_results_reader.py",
+      "category": "技能管理",
+      "description": "创建一个 robust_skill_results_reader 技能，能够安全地从 skill_results 表中读取并汇总技能执行结果。该技能应处理可能的 JSON 解析错误，提供清晰的错误信息，并返回结构化的结果摘要，包括成功/失败",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 6,
+      "last_called": "2026-03-13T17:20:59.211579"
+    },
+    "skill_results_query_retriever": {
+      "file": "skill_results_query_retriever.py",
+      "category": "技能管理",
+      "description": "创建一个能够直接读取并返回 skill_results 表中完整记录的技能模块。该技能应该能够：\n1. 查询所有技能执行记录或特定技能的记录\n2. 支持按时间范围、成功/失败状态等条件过滤\n3. 返回完整的记录数据，包括 id, skill",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-12T02:42:05.678216"
+    },
+    "skill_performance_analyzer": {
+      "file": "skill_performance_analyzer.py",
+      "category": "技能管理",
+      "description": "读取并汇总 skill_results 表中的所有技能执行记录，按技能名称分组统计执行次数、平均执行时间、成功率等关键指标，并返回结构化的汇总报告。该技能应能处理大量数据并提供清晰的性能洞察。",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 4,
+      "last_called": "2026-03-12T00:59:15.734737"
+    },
+    "skill_invalid_memory_event_analyzer": {
+      "file": "skill_invalid_memory_event_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析 memories 表中最近7天的 event_type 分布，识别并分类无效记录类型（如错误、空转、重复等），统计每种无效类型的出现频率，并找出重复最多的无效记录类型。无效记录类型包括：包含'error'的事件、空内容事件、重复内容事",
+      "added_at": "2026-03-11",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T05:35:16.025873"
+    },
+    "skill_workspace_skill_analyzer": {
+      "file": "skill_workspace_skill_analyzer.py",
+      "category": "工作区管理",
+      "description": "创建一个专门用于分析 workspace/skills/ 目录的技能，返回每个技能文件的详细信息，包括：文件名、大小（字节）、最后修改时间（ISO格式）、创建时间、以及使用query_atomic_timestamp工具获取的原子性时间戳用",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-21T08:47:28.196043"
+    },
+    "skill_execution_timestamp_anomaly_detector": {
+      "file": "skill_execution_timestamp_anomaly_detector.py",
+      "category": "技能管理",
+      "description": "分析技能执行记录中的时间戳异常，特别关注执行时间为0ms或负值的记录，以及时间戳不连续的情况。从skill_results表中提取所有记录，计算每个技能的实际执行时间（如果有开始和结束时间戳），识别异常模式。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 2,
+      "last_called": "2026-03-12T01:15:24.663357"
+    },
+    "skill_results_timestamp_analyzer": {
+      "file": "skill_results_timestamp_analyzer.py",
+      "category": "技能管理",
+      "description": "创建一个专门用于读取并汇总 skill_results 表中时间戳相关数据的技能模块。该技能应该能够：\n1. 查询所有技能执行记录的时间戳信息\n2. 识别执行时间为0或异常短的记录（可能表示时间戳原子性缺陷）\n3. 分析时间戳的连续性和因果",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 9,
+      "last_called": "2026-03-12T06:59:39.963501"
+    },
+    "skill_atomic_skill_result_reader": {
+      "file": "skill_atomic_skill_result_reader.py",
+      "category": "技能管理",
+      "description": "创建一个原子性技能结果读取器，能够直接从 skill_results 表中安全地读取、过滤和汇总技能执行记录。该技能应支持按技能名称、时间范围、执行状态等条件进行精确过滤，返回结构化的完整记录，并确保在读取过程中保持数据的一致性和完整性。特",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T01:50:08.071071"
+    },
+    "skill_timestamp_continuity_and_atomicity_analyzer": {
+      "file": "skill_timestamp_continuity_and_atomicity_analyzer.py",
+      "category": "技能管理",
+      "description": "创建一个专门用于分析 skill_results 表中时间戳连续性和原子性验证的技能。该技能应该：\n1. 读取 skill_results 表中的所有记录\n2. 提取每条记录的时间戳信息（包括开始时间、结束时间、执行耗时）\n3. 检测时间戳",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 5,
+      "last_called": "2026-03-12T06:32:16.638218"
+    },
+    "skill_file_dependency_analyzer": {
+      "file": "skill_file_dependency_analyzer.py",
+      "category": "工作区管理",
+      "description": "创建一个文件关系分析技能，可以分析workspace目录中多个文件之间的依赖关系和引用模式。该技能接受文件路径列表作为输入，读取每个文件的内容，并分析它们之间的引用关系（如import语句、函数调用、变量引用等），返回结构化的依赖关系图。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T01:59:47.017150"
+    },
+    "skill_batch_file_reader": {
+      "file": "skill_batch_file_reader.py",
+      "category": "技能管理",
+      "description": "创建一个简单的文件批量读取技能，接受逗号分隔的文件路径列表，读取每个文件的内容并返回结果字典。只使用基本的文件操作，不使用ast或其他可能被安全校验阻止的模块。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_high_cost_skill_parameter_consistency_validator": {
+      "file": "skill_high_cost_skill_parameter_consistency_validator.py",
+      "category": "技能管理",
+      "description": "高耗时技能参数一致性验证器：专门用于验证高耗时技能执行过程中的参数一致性。该技能会：\n1. 接收技能名称和预期执行时间阈值作为输入\n2. 查询该技能的历史执行记录\n3. 分析参数在长时间执行过程中是否保持一致性\n4. 检测参数漂移、丢失或篡",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 4,
+      "last_called": "2026-03-12T02:07:16.215283"
+    },
+    "skill_simple_parameter_consistency_checker": {
+      "file": "skill_simple_parameter_consistency_checker.py",
+      "category": "技能管理",
+      "description": "简单参数一致性检查器：直接分析skill_results表中指定技能的input_args字段，检查参数是否一致。输入为技能名称字符串。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-12T05:34:07.595938"
+    },
+    "skill_batch_file_reader_with_fix": {
+      "file": "skill_batch_file_reader_with_fix.py",
+      "category": "工作区管理",
+      "description": "创建一个修复版的批量文件读取技能，正确处理输入参数。该技能应接受逗号分隔的文件路径字符串（相对于workspace/目录），并返回每个文件的内容。确保使用正确的字符串处理方法，避免AttributeError。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T03:04:40.837170"
+    },
+    "skill_atomic_skill_execution_framework": {
+      "file": "skill_atomic_skill_execution_framework.py",
+      "category": "技能管理",
+      "description": "原子性技能执行框架，封装run_skill调用，在技能执行前后自动记录精确的开始和结束时间戳（纳秒级），并将时间戳信息直接注入到技能执行结果中，确保时间戳记录与技能执行的原子性。该技能接收skill_name和input_args作为参数，",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T03:25:30.579623"
+    },
+    "skill_execution_time_anomaly_analyzer": {
+      "file": "skill_execution_time_anomaly_analyzer.py",
+      "category": "技能管理",
+      "description": "参数解析原语层原子操作执行耗时异常分析器，专门用于检测和分析技能执行中的时间异常，包括0ms记录、异常长执行时间等。该技能会查询skill_results表，提取执行时间数据，识别异常模式，并提供优化建议。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 3,
+      "last_called": "2026-03-12T06:59:43.208512"
+    },
+    "skill_execution_analytics_aggregator": {
+      "file": "skill_execution_analytics_aggregator.py",
+      "category": "技能管理",
+      "description": "读取并汇总 skill_results 表中的所有技能执行记录，提供按技能名称分组的详细统计信息，包括总执行次数、成功次数、失败次数、成功率、平均执行耗时，以及最近几次执行的详细结果摘要。该技能应能处理数据库中的 JSON 解析错误，并提供",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T05:12:17.692756"
+    },
+    "skill_event_bus_depth_daemon_response_analyzer": {
+      "file": "skill_event_bus_depth_daemon_response_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析事件总线深度和守护进程响应时间的关联数据。该技能会读取记忆数据库中的DANGER_ALERT事件记录，计算事件总线深度（从事件触发到处理完成的时间）和守护进程响应时间（从文件检测到事件投递的时间），并生成关联分析报告。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_event_bus_depth_guardian_response_analyzer": {
+      "file": "skill_event_bus_depth_guardian_response_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析事件总线深度和守护进程响应时间的关联数据。该技能会查询记忆数据库中的alert_detected事件和DANGER_ALERT相关事件，计算事件总线深度（从文件检测到事件处理完成的时间）和守护进程响应时间（从文件变化到事件投递的时间），",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 1,
+      "last_called": "2026-03-12T13:42:03.298940"
+    },
+    "skill_event_bus_analytics_collector": {
+      "file": "skill_event_bus_analytics_collector.py",
+      "category": "系统监控",
+      "description": "收集事件总线深度与守护进程响应时间的详细关联数据，包括时间戳、事件类型、处理延迟等指标，并生成结构化的分析报告",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_event_bus_depth_guardian_process_latency_analyzer": {
+      "file": "skill_event_bus_depth_guardian_process_latency_analyzer.py",
+      "category": "系统监控",
+      "description": "分析事件总线深度与守护进程响应时间的历史关联数据，生成详细的统计报告和可视化建议",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_memory_cleanup_monitor_errors": {
+      "file": "skill_memory_cleanup_monitor_errors.py",
+      "category": "记忆分析",
+      "description": "删除指定event_type的记忆记录，特别是monitor_error和daemon相关的错误记忆。该技能将连接到记忆数据库并执行DELETE操作来清理监控噪音碎片。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_image_metadata_analyzer": {
+      "file": "skill_image_metadata_analyzer.py",
+      "category": "技能管理",
+      "description": "分析图像基本信息：读取图像文件，获取尺寸、格式、色彩空间等元数据，并进行基础质量评估",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 27,
+      "last_called": "2026-03-19T17:08:54.624711"
+    },
+    "skill_image_object_scene_detector": {
+      "file": "skill_image_object_scene_detector.py",
+      "category": "技能管理",
+      "description": "检测图像中的物体和场景：使用预训练模型识别图像中的主要物体、场景类型和显著特征",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_image_text_extraction_with_pytesseract": {
+      "file": "skill_image_text_extraction_with_pytesseract.py",
+      "category": "技能管理",
+      "description": "从图像中提取文本内容：使用pytesseract进行OCR识别，提取图像中的文字信息",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 38,
+      "last_called": "2026-03-21T23:58:51.979008"
+    },
+    "skill_vision_test_image_generator": {
+      "file": "skill_vision_test_image_generator.py",
+      "category": "工作区管理",
+      "description": "生成一张带文字的测试图片，包含随机生成的文字内容，保存到workspace目录下。使用Pillow库创建一个简单的图像，添加文字\"OpenClaw Vision Test - 图片能力扩展测试\"，并保存为test_image.png。",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 17,
+      "last_called": "2026-03-21T11:45:40.623026"
+    },
+    "skill_image_editor_basic_operations": {
+      "file": "skill_image_editor_basic_operations.py",
+      "category": "技能管理",
+      "description": "创建一个图像编辑技能，支持基本的图像处理操作，如调整大小、裁剪、旋转、应用滤镜、调整亮度/对比度等。使用Pillow和OpenCV库实现。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 8,
+      "last_called": "2026-03-12T16:30:22.426169"
+    },
+    "skill_image_enhancement_processor": {
+      "file": "skill_image_enhancement_processor.py",
+      "category": "技能管理",
+      "description": "创建一个图像增强技能，提供图像质量改进功能，包括去噪、锐化、超分辨率、色彩校正等。使用OpenCV和Pillow实现。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 4,
+      "last_called": "2026-03-12T16:28:43.469906"
+    },
+    "skill_image_generator": {
+      "file": "skill_image_generator.py",
+      "category": "技能管理",
+      "description": "创建一个图像生成技能，可以根据指定的参数（如尺寸、颜色、形状等）生成测试图像。支持生成各种几何形状、渐变、噪点图案等。",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 2,
+      "last_called": "2026-03-12T16:27:54.349369"
+    },
+    "skill_file_system_integrity_checker": {
+      "file": "skill_file_system_integrity_checker.py",
+      "category": "系统监控",
+      "description": "创建一个简单的文件系统检查技能，用于验证当前工作目录和文件存在性",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 14,
+      "last_called": "2026-03-22T02:17:37.207476"
+    },
+    "skill_pil_image_test_analyzer": {
+      "file": "skill_pil_image_test_analyzer.py",
+      "category": "技能管理",
+      "description": "创建一个简单的PIL测试技能，尝试打开test_image.png并返回基本信息",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-19T17:10:25.334687"
+    },
+    "skill_file_system_debug_checker": {
+      "file": "skill_file_system_debug_checker.py",
+      "category": "系统监控",
+      "description": "运行文件系统调试检查，验证test_image.png是否存在",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-20T12:10:17.779907"
+    },
+    "skill_workspace_file_lister": {
+      "file": "skill_workspace_file_lister.py",
+      "category": "工作区管理",
+      "description": "列出workspace目录中的所有文件",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 9,
+      "last_called": "2026-03-22T11:08:08.172805"
+    },
+    "skill_parameter_tester": {
+      "file": "skill_parameter_tester.py",
+      "category": "技能管理",
+      "description": "创建一个简单的参数测试技能，打印接收到的参数",
+      "added_at": "2026-03-12",
+      "status": "active",
+      "call_count": 8,
+      "last_called": "2026-03-20T17:58:55.028507"
+    },
+    "skill_unified_image_preprocessor": {
+      "file": "skill_unified_image_preprocessor.py",
+      "category": "技能管理",
+      "description": "创建一个全能图像预处理技能 skill_unified_image_preprocessor，能够处理三种输入类型：本地文件路径、HTTP/HTTPS URL、base64编码的图像数据。对于URL，自动下载并保存为临时文件；对于base6",
+      "added_at": "2026-03-12",
+      "status": "deleted",
+      "call_count": 9,
+      "last_called": "2026-03-12T16:44:45.279633"
+    },
+    "skill_self_healing_coordinator": {
+      "file": "skill_self_healing_coordinator.py",
+      "category": "技能管理",
+      "description": "创建一个自我修复协调器技能，能够检测任务执行中的错误，分析错误类型，并执行适当的修复操作。该技能应能处理依赖缺失、参数错误、路径问题等常见错误，并在修复后验证修复是否成功。技能应包含以下功能：1) 错误检测与分类；2) 依赖检查与安装；3)",
+      "added_at": "2026-03-13",
+      "status": "active",
+      "call_count": 166,
+      "last_called": "2026-03-21T04:01:30.163387"
+    },
+    "skill_visual_fault_injector": {
+      "file": "skill_visual_fault_injector.py",
+      "category": "技能管理",
+      "description": "创建视觉故障注入器。该技能应能对输入的图像或视频文件注入各种类型的故障，包括：1) 图像噪声（高斯噪声、椒盐噪声等）；2) 图像模糊；3) 压缩失真；4) 部分区域遮挡；5) 颜色失真；6) 对于视频，还包括帧丢失、时间戳错误等。该技能应接",
+      "added_at": "2026-03-13",
+      "status": "deleted",
+      "call_count": 11,
+      "last_called": "2026-03-13T17:32:48.793026"
+    },
+    "skill_install_ffmpeg_via_brew": {
+      "file": "skill_install_ffmpeg_via_brew.py",
+      "category": "技能管理",
+      "description": "执行brew install ffmpeg命令并验证安装结果",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-19T14:56:18.194864"
+    },
+    "skill_generate_test_video_with_ffmpeg": {
+      "file": "skill_generate_test_video_with_ffmpeg.py",
+      "category": "技能管理",
+      "description": "创建一个简单的测试视频文件，用于验证视频处理环境是否正常工作。使用ffmpeg生成一个5秒的测试视频。",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 61,
+      "last_called": "2026-03-22T09:45:09.209497"
+    },
+    "skill_video_metadata_analyzer": {
+      "file": "skill_video_metadata_analyzer.py",
+      "category": "技能管理",
+      "description": "使用ffprobe分析视频文件的元数据，包括时长、分辨率、编码格式、帧率等信息。输入参数为video_path（视频文件路径），返回详细的视频元数据信息。",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 61,
+      "last_called": "2026-03-22T02:18:53.021988"
+    },
+    "skill_video_physics_validator": {
+      "file": "skill_video_physics_validator.py",
+      "category": "技能管理",
+      "description": "创建一个视频修复工具链的物理语义验证层，能够验证视频参数是否符合现实物理约束和硬件能力边界。该技能接收视频元数据作为输入，检查时间、空间、硬件和运动相关的物理约束，并返回验证结果和建议。",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 15,
+      "last_called": "2026-03-20T04:48:01.321133"
+    },
+    "skill_video_processing_capability_assessment": {
+      "file": "skill_video_processing_capability_assessment.py",
+      "category": "技能管理",
+      "description": "实时评估系统视频处理能力的技能，包括硬件检测、编解码性能测试、可用参数范围评估，并输出结构化结果用于参数契约验证",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 43,
+      "last_called": "2026-03-20T06:37:30.677167"
+    },
+    "skill_hardware_aware_video_processing_optimizer": {
+      "file": "skill_hardware_aware_video_processing_optimizer.py",
+      "category": "系统监控",
+      "description": "硬件感知的视频处理参数验证和自适应调优技能，能够接收视频文件路径，实时评估系统资源约束，并动态生成适合当前硬件条件的视频处理参数",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 41,
+      "last_called": "2026-03-20T12:14:47.576435"
+    },
+    "skill_image_ocr_text_extraction_with_tesseract": {
+      "file": "skill_image_ocr_text_extraction_with_tesseract.py",
+      "category": "技能管理",
+      "description": "使用tesseract命令行工具进行OCR识别，从图像中提取文本内容",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 8,
+      "last_called": "2026-03-20T11:09:19.486951"
+    },
+    "skill_temporal_ocr_video_workflow": {
+      "file": "skill_temporal_ocr_video_workflow.py",
+      "category": "技能管理",
+      "description": "时序OCR工作流：从视频中按指定时间间隔或帧率抽取帧，然后对每个帧执行OCR文本识别，最后将结果按时间序列组织并保存。输入参数包括video_path（视频文件路径）、output_dir（输出目录）、interval（抽取时间间隔，默认1",
+      "added_at": "2026-03-19",
+      "status": "active",
+      "call_count": 13,
+      "last_called": "2026-03-22T09:43:57.562454"
+    },
+    "skill_generate_hfr_video_with_ffmpeg": {
+      "file": "skill_generate_hfr_video_with_ffmpeg.py",
+      "category": "技能管理",
+      "description": "使用ffmpeg创建高帧率（60fps）测试视频，并验证其是否能被硬件编解码器正确处理",
+      "added_at": "2026-03-20",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-20T03:41:37.963129"
+    },
+    "skill_system_ffmpeg_tesseract_capability_detection": {
+      "file": "skill_system_ffmpeg_tesseract_capability_detection.py",
+      "category": "技能管理",
+      "description": "探测ffmpeg和tesseract的完整功能矩阵，包括所有可用的编解码器、格式、滤镜以及OCR语言包。该技能将生成详细的兼容性报告，覆盖H.264、HEVC、VP9等主流编解码器组合，以及tesseract支持的所有语言环境。",
+      "added_at": "2026-03-20",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-20T15:20:02.228450"
+    },
+    "skill_macos_wechat_automation": {
+      "file": "skill_macos_wechat_automation.py",
+      "category": "技能管理",
+      "description": "创建一个AppleScript脚本，用于在macOS上自动打开微信并向指定联系人发送消息。脚本将接受联系人名称和消息内容作为参数，并处理可能的错误情况。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_macos_wechat_automation_improved": {
+      "file": "skill_macos_wechat_automation_improved.py",
+      "category": "技能管理",
+      "description": "创建一个改进版的macOS微信自动化脚本，使用更通用的UI元素查找方法，避免具体索引引用。脚本将尝试多种方法来定位微信界面元素，并提供详细的错误处理和用户指导。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-21T11:30:31.974390"
+    },
+    "skill_capture_screen_for_verification": {
+      "file": "skill_capture_screen_for_verification.py",
+      "category": "技能管理",
+      "description": "截取当前屏幕截图并保存到临时文件，用于后续视觉分析验证微信消息是否成功发送",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T11:37:31.398456"
+    },
+    "skill_image_text_generator": {
+      "file": "skill_image_text_generator.py",
+      "category": "工作区管理",
+      "description": "生成带自定义文字和文件名的测试图片。接受参数：output_filename（输出文件名）、text_content（文字内容）、image_size（图像尺寸，默认[800, 600]）。使用Pillow创建白色背景的图像，在中心位置添加",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-21T11:46:59.333672"
+    },
+    "skill_get_current_directory_and_list_contents": {
+      "file": "skill_get_current_directory_and_list_contents.py",
+      "category": "技能管理",
+      "description": "获取当前工作目录路径并列出指定目录的内容",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-22T10:49:44.416957"
+    },
+    "skill_gen_c97babea": {
+      "file": "skill_gen_c97babea.py",
+      "category": "技能管理",
+      "description": "检查指定文件路径是否存在，并返回详细信息",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 10,
+      "last_called": "2026-03-21T11:50:33.094534"
+    },
+    "skill_path_existence_checker": {
+      "file": "skill_path_existence_checker.py",
+      "category": "技能管理",
+      "description": "简单测试：检查给定路径是否存在，使用 os.path.exists()",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-21T11:51:29.241649"
+    },
+    "skill_image_similarity_comparator": {
+      "file": "skill_image_similarity_comparator.py",
+      "category": "技能管理",
+      "description": "视觉验证测试技能：接受两个图像路径作为JSON字符串参数，比较它们的相似度。正确处理字符串和字典参数。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-21T11:54:41.699519"
+    },
+    "skill_visual_capability_self_test": {
+      "file": "skill_visual_capability_self_test.py",
+      "category": "技能管理",
+      "description": "视觉能力自检技能：生成两张不同的测试图像，然后比较它们的相似度，验证整个视觉处理链是否工作。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T11:55:26.004793"
+    },
+    "skill_wechat_message_end_to_end_verification": {
+      "file": "skill_wechat_message_end_to_end_verification.py",
+      "category": "技能管理",
+      "description": "执行完整的微信消息端到端内容完整性验证：1. 检查微信授权状态 2. 发送测试消息 3. 验证消息发送结果 4. 返回完整的验证报告",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T12:44:44.633704"
+    },
+    "skill_screen_ocr_text_extraction": {
+      "file": "skill_screen_ocr_text_extraction.py",
+      "category": "技能管理",
+      "description": "从屏幕截图中提取文本内容的技能，使用真实的OCR技术",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 23,
+      "last_called": "2026-03-21T13:42:40.882960"
+    },
+    "skill_dict_to_json_converter": {
+      "file": "skill_dict_to_json_converter.py",
+      "category": "技能管理",
+      "description": "将字典参数转换为JSON字符串的工具，用于正确传递参数给其他技能",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:11:44.783369"
+    },
+    "skill_image_ocr_text_extraction": {
+      "file": "skill_image_ocr_text_extraction.py",
+      "category": "技能管理",
+      "description": "直接使用pytesseract从图像中提取文本，不依赖其他技能调用",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 10,
+      "last_called": "2026-03-22T01:48:27.007054"
+    },
+    "skill_simple_image_ocr": {
+      "file": "skill_simple_image_ocr.py",
+      "category": "技能管理",
+      "description": "直接执行OCR操作的简单技能，只接受图像路径作为字符串参数",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T01:47:53.683864"
+    },
+    "skill_system_command_executor": {
+      "file": "skill_system_command_executor.py",
+      "category": "系统监控",
+      "description": "运行系统命令并返回结果",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 24,
+      "last_called": "2026-03-22T11:07:18.562627"
+    },
+    "skill_wechat_ocr_text_extraction": {
+      "file": "skill_wechat_ocr_text_extraction.py",
+      "category": "技能管理",
+      "description": "直接执行微信端到端验证并提取OCR文本的技能，使用正确的参数处理",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-21T13:24:35.313564"
+    },
+    "skill_ocr": {
+      "file": "skill_ocr.py",
+      "category": "技能管理",
+      "description": "创建一个简单的测试视频，用于验证视频帧抽取和时序OCR功能。视频应该包含一些文本内容，以便OCR可以识别。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_wechat_screenshot_ocr": {
+      "file": "skill_wechat_screenshot_ocr.py",
+      "category": "技能管理",
+      "description": "直接读取微信截图文件并执行OCR的技能，使用硬编码路径",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:24:03.798443"
+    },
+    "skill_ocr_skill_parameter_formatter": {
+      "file": "skill_ocr_skill_parameter_formatter.py",
+      "category": "技能管理",
+      "description": "使用正确的参数格式调用OCR技能的技能",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-21T13:25:08.791705"
+    },
+    "skill_file_ocr_scanner": {
+      "file": "skill_file_ocr_scanner.py",
+      "category": "技能管理",
+      "description": "直接检查文件是否存在并执行OCR的技能，使用硬编码路径",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:25:54.706772"
+    },
+    "skill_image_file_ocr_extractor": {
+      "file": "skill_image_file_ocr_extractor.py",
+      "category": "技能管理",
+      "description": "使用提供的文件路径执行OCR的技能",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-21T13:27:01.242402"
+    },
+    "skill_direct_tesseract_ocr_extraction": {
+      "file": "skill_direct_tesseract_ocr_extraction.py",
+      "category": "技能管理",
+      "description": "使用tesseract命令行工具直接提取OCR文本的技能",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T01:48:20.216228"
+    },
+    "skill_image_base64_ocr_processor": {
+      "file": "skill_image_base64_ocr_processor.py",
+      "category": "技能管理",
+      "description": "直接读取截图文件并使用base64编码传递给OCR的技能",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_wechat_screenshot_ocr_processor": {
+      "file": "skill_wechat_screenshot_ocr_processor.py",
+      "category": "技能管理",
+      "description": "处理最新的微信截图并提取OCR文本的技能，自动查找最新截图文件",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:29:44.835922"
+    },
+    "skill_test_parameter_receiver": {
+      "file": "skill_test_parameter_receiver.py",
+      "category": "技能管理",
+      "description": "测试参数传递的技能，打印接收到的参数",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:30:34.621993"
+    },
+    "skill_wechat_screenshot_ocr_extractor": {
+      "file": "skill_wechat_screenshot_ocr_extractor.py",
+      "category": "技能管理",
+      "description": "正确处理run_skill输入格式的OCR技能，从微信截图中提取文本",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:34:44.570140"
+    },
+    "skill_file_existence_checker": {
+      "file": "skill_file_existence_checker.py",
+      "category": "技能管理",
+      "description": "检查指定路径的文件是否存在，接受JSON字符串参数包含file_path字段",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-21T21:59:02.718757"
+    },
+    "skill_json_file_existence_checker": {
+      "file": "skill_json_file_existence_checker.py",
+      "category": "技能管理",
+      "description": "正确解析JSON字符串输入的文件检查技能，验证文件是否存在",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_json_args_file_validator": {
+      "file": "skill_json_args_file_validator.py",
+      "category": "技能管理",
+      "description": "直接解析args参数作为JSON字符串的文件检查技能",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-21T14:43:09.636653"
+    },
+    "skill_extract_paths_and_perform_ocr": {
+      "file": "skill_extract_paths_and_perform_ocr.py",
+      "category": "技能管理",
+      "description": "从复杂的输入结构中提取文件路径并执行OCR的技能",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:33:37.840517"
+    },
+    "skill_debug_input_args_printer": {
+      "file": "skill_debug_input_args_printer.py",
+      "category": "技能管理",
+      "description": "调试技能，打印接收到的原始输入参数",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:33:59.605630"
+    },
+    "skill_ocr_from_run_skill_input": {
+      "file": "skill_ocr_from_run_skill_input.py",
+      "category": "技能管理",
+      "description": "正确处理run_skill输入格式的OCR技能，从input字段提取JSON并执行OCR",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-22T01:48:12.504304"
+    },
+    "skill_wechat_ocr_validation": {
+      "file": "skill_wechat_ocr_validation.py",
+      "category": "技能管理",
+      "description": "执行微信端到端验证的OCR提取，正确处理参数传递",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_wechat_screenshot_ocr_executor": {
+      "file": "skill_wechat_screenshot_ocr_executor.py",
+      "category": "技能管理",
+      "description": "正确调用OCR技能提取微信截图文本，使用json.dumps正确传递参数",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-21T14:24:26.374199"
+    },
+    "skill_test_parameter_passing_json_dumps": {
+      "file": "skill_test_parameter_passing_json_dumps.py",
+      "category": "技能管理",
+      "description": "测试参数传递的正确方式，使用json.dumps序列化参数",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_parameter_echo_tester": {
+      "file": "skill_parameter_echo_tester.py",
+      "category": "技能管理",
+      "description": "简单参数回显技能，用于测试参数传递",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T13:40:56.193292"
+    },
+    "skill_system_command_executor_with_json_args": {
+      "file": "skill_system_command_executor_with_json_args.py",
+      "category": "系统监控",
+      "description": "正确处理run_skill参数传递的系统命令执行器，能够处理字符串或字典格式的输入",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 12,
+      "last_called": "2026-03-22T11:03:39.384747"
+    },
+    "skill_file_directory_existence_checker": {
+      "file": "skill_file_directory_existence_checker.py",
+      "category": "工作区管理",
+      "description": "检查文件或目录是否存在，并返回详细信息",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-21T14:08:12.443055"
+    },
+    "skill_check_file_existence": {
+      "file": "skill_check_file_existence.py",
+      "category": "技能管理",
+      "description": "创建一个文件存在性检查技能，从args['input']获取文件路径字符串，检查文件是否存在。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 22,
+      "last_called": "2026-03-22T10:34:45.298581"
+    },
+    "skill_video_integrity_physical_semantic_validation": {
+      "file": "skill_video_integrity_physical_semantic_validation.py",
+      "category": "技能管理",
+      "description": "直接调用数字完整性与物理语义双重验证能力，测试test_video.mp4",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T14:25:18.092456"
+    },
+    "skill_video_physics_double_verification": {
+      "file": "skill_video_physics_double_verification.py",
+      "category": "技能管理",
+      "description": "创建一个增强版物理语义双重验证技能，结合客户端状态捕获和帧间运动物理合理性分析，用于确认数字信息在物理世界中的真实呈现。该技能应接受视频路径作为输入，执行双重验证，并返回综合结果。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-21T14:33:09.700165"
+    },
+    "skill_video_physics_dual_verification": {
+      "file": "skill_video_physics_dual_verification.py",
+      "category": "技能管理",
+      "description": "创建一个视频物理双重验证技能，从args['input']获取JSON字符串，解析后执行验证。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T14:34:10.606705"
+    },
+    "skill_ffmpeg_frame_extraction_fixer": {
+      "file": "skill_ffmpeg_frame_extraction_fixer.py",
+      "category": "技能管理",
+      "description": "修复FFmpeg命令参数顺序问题，正确提取视频帧。使用正确的参数顺序：ffmpeg -i input_video -vf fps=fps_value -frames:v max_frames output_pattern",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-21T14:50:39.757569"
+    },
+    "skill_high_resolution_wechat_client_state_capture": {
+      "file": "skill_high_resolution_wechat_client_state_capture.py",
+      "category": "技能管理",
+      "description": "高分辨率客户端状态捕获技能：在4K条件下捕获微信客户端状态，验证API调用和参数传递的准确性。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-21T15:06:28.783818"
+    },
+    "skill_api_error_self_healing_verification_workflow": {
+      "file": "skill_api_error_self_healing_verification_workflow.py",
+      "category": "错误诊断",
+      "description": "创建一个集成测试工作流，用于验证API错误自愈能力。该工作流应该：1) 生成故意违反API约束的测试用例（如超长工具名称、缺失必需参数等），2) 执行这些测试用例触发400错误，3) 使用增强型API参数防御验证器自动修复问题，4) 验证修",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T16:40:50.930274"
+    },
+    "skill_api_error_self_healing_tracer_workflow": {
+      "file": "skill_api_error_self_healing_tracer_workflow.py",
+      "category": "错误诊断",
+      "description": "创建一个traceId驱动的API错误自愈集成测试工作流，能够自动检测和修复多种API错误类型（包括工具名称超长、缺失必需参数、数据类型错误等），并通过traceId实现全链路追踪。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T16:43:51.956401"
+    },
+    "skill_validate_tool_name_length_fix_63_char_test_success": {
+      "file": "skill_validate_tool_name_length_fix_63_char_test_success.py",
+      "category": "外部感知",
+      "description": "创建一个精确63字符长度的工具名称验证器，用于确认API 400错误修复是否真正生效。工具名称必须正好是63个字符：validate_tool_name_length_fix_63_char_test_success_verificatio",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-21T17:56:59.681125"
+    },
+    "skill_validate_tool_name_length_fix_64_char_test_success": {
+      "file": "skill_validate_tool_name_length_fix_64_char_test_success.py",
+      "category": "外部感知",
+      "description": "创建一个64字符长度的工具名称验证器，用于确认API 400错误修复是否真正生效。工具名称必须正好是64个字符：validate_tool_name_length_fix_64_char_test_success_verification_",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-21T17:57:34.563507"
+    },
+    "skill_gen_a0e70080": {
+      "file": "skill_gen_a0e70080.py",
+      "category": "技能管理",
+      "description": "计算字符串长度的简单工具",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T17:15:43.314726"
+    },
+    "skill_gen_0f12cf98": {
+      "file": "skill_gen_0f12cf98.py",
+      "category": "技能管理",
+      "description": "计算指定字符串的长度，输入参数为要计算的字符串",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-21T17:16:12.638607"
+    },
+    "skill_validate_tool_name_64_char_limit_api_fix_verificat": {
+      "file": "skill_validate_tool_name_64_char_limit_api_fix_verificat.py",
+      "category": "外部感知",
+      "description": "验证工具名称长度限制修复 - 创建一个正好64字符的工具名称：validate_tool_name_64_char_limit_api_fix_verification_success",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-21T19:02:25.998367"
+    },
+    "skill_api_defense_regression_tester": {
+      "file": "skill_api_defense_regression_tester.py",
+      "category": "技能管理",
+      "description": "执行端到端预测性API防御回归测试，专门验证动态优先级算法与工具名称验证的深度整合。这个技能将使用现有的验证工具（如attention_driven_api_defense_validator、tool_name_length_valida",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T17:48:54.503556"
+    },
+    "skill_api": {
+      "file": "skill_api.py",
+      "category": "外部感知",
+      "description": "验证智能API防御与自我修复协调器的功能，测试工具名称长度验证和自动修复能力",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_calculate_string_length": {
+      "file": "skill_calculate_string_length.py",
+      "category": "技能管理",
+      "description": "计算输入字符串的长度，返回字符数",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T19:01:58.505819"
+    },
+    "skill_generate_and_validate_64_char_tool_name": {
+      "file": "skill_generate_and_validate_64_char_tool_name.py",
+      "category": "技能管理",
+      "description": "创建一个正好64字符长的工具名称并验证其有效性",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T18:03:25.822375"
+    },
+    "skill_tool_name_validation_checker": {
+      "file": "skill_tool_name_validation_checker.py",
+      "category": "外部感知",
+      "description": "测试工具名称长度验证功能，使用 _validate_and_truncate_tool_name 函数验证给定的工具名称是否符合API约束。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T18:18:14.012180"
+    },
+    "skill_test_tool_name_length_validator": {
+      "file": "skill_test_tool_name_length_validator.py",
+      "category": "技能管理",
+      "description": "测试工具名称长度验证的技能，调用tool_name_length_validator工具来验证不同长度的工具名称",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 4,
+      "last_called": "2026-03-21T22:30:03.213260"
+    },
+    "skill_unified_api_parameter_validation_layer": {
+      "file": "skill_unified_api_parameter_validation_layer.py",
+      "category": "技能管理",
+      "description": "创建一个统一的API参数验证层，集成工具名称长度验证、参数契约验证、自动修复机制和详细的错误诊断。这个技能应该能够处理工具名称超过64字符的情况，自动截断并提供安全名称，同时验证参数契约并提供自动修复功能。",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-21T21:51:16.659972"
+    },
+    "skill_file_string_search": {
+      "file": "skill_file_string_search.py",
+      "category": "外部感知",
+      "description": "搜索文件中包含特定字符串的行，并返回行号和内容",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T10:59:38.093231"
+    },
+    "skill_search_file_content": {
+      "file": "skill_search_file_content.py",
+      "category": "外部感知",
+      "description": "搜索指定文件中包含特定字符串的行号和内容",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-21T19:52:17.771958"
+    },
+    "skill_find_class_definition_in_file": {
+      "file": "skill_find_class_definition_in_file.py",
+      "category": "技能管理",
+      "description": "在指定文件中查找特定类的定义，返回类的完整代码",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T19:40:11.981058"
+    },
+    "skill_file_content_search": {
+      "file": "skill_file_content_search.py",
+      "category": "外部感知",
+      "description": "在指定文件中搜索特定文本内容，并返回匹配的行号和内容",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-22T11:07:05.569932"
+    },
+    "skill_file_keyword_search": {
+      "file": "skill_file_keyword_search.py",
+      "category": "外部感知",
+      "description": "在指定文件中搜索包含特定关键词的行，并返回行号和内容",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-22T11:02:34.603167"
+    },
+    "skill_test_memory_importance_elimination": {
+      "file": "skill_test_memory_importance_elimination.py",
+      "category": "系统监控",
+      "description": "测试基于重要性的工作记忆功能，验证淘汰策略是否正确工作",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_sqlite_database_analyzer": {
+      "file": "skill_sqlite_database_analyzer.py",
+      "category": "记忆分析",
+      "description": "检查SQLite数据库的表结构和索引，分析性能瓶颈并建议优化",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 9,
+      "last_called": "2026-03-22T11:13:07.606638"
+    },
+    "skill_sqlite_index_analyzer": {
+      "file": "skill_sqlite_index_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析SQLite数据库结构，检查现有索引，并为性能优化建议和创建新的索引",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_sqlite_memory_db_analyzer": {
+      "file": "skill_sqlite_memory_db_analyzer.py",
+      "category": "记忆分析",
+      "description": "分析SQLite数据库结构，包括表结构、索引和查询性能分析，特别关注与记忆权重相关的表和索引",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 7,
+      "last_called": "2026-03-22T11:11:44.676935"
+    },
+    "skill_video_frame_extraction_api_defense_tester": {
+      "file": "skill_video_frame_extraction_api_defense_tester.py",
+      "category": "技能管理",
+      "description": "正确处理JSON字符串参数的视频帧抽取API防御测试技能，接收video_path和output_dir参数，验证API防御体系的有效性",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-22T09:43:51.369063"
+    },
+    "skill_string_length_calculator": {
+      "file": "skill_string_length_calculator.py",
+      "category": "技能管理",
+      "description": "计算字符串的长度并返回结果",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-21T21:35:41.785608"
+    },
+    "skill_audio_transcription_with_whisper": {
+      "file": "skill_audio_transcription_with_whisper.py",
+      "category": "技能管理",
+      "description": "音频转录技能：从音频文件中转录文本，支持多种音频格式（mp3, wav, m4a, flac, ogg, aac），使用whisper模型进行转录。输入参数包括audio_path（必需）、output_dir（可选，默认自动生成）、lan",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_list_forged_skills": {
+      "file": "skill_list_forged_skills.py",
+      "category": "技能管理",
+      "description": "列出所有已锻造的技能模块，提供正确的模块路径和名称映射，用于API防御验证工具的依赖解析",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-21T22:23:37.769910"
+    },
+    "skill_video_params_tester": {
+      "file": "skill_video_params_tester.py",
+      "category": "技能管理",
+      "description": "简单参数测试技能，接收video_path和output_dir参数并返回它们",
+      "added_at": "2026-03-21",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-21T23:22:07.212671"
+    },
+    "skill_video_frame_extraction_with_validation": {
+      "file": "skill_video_frame_extraction_with_validation.py",
+      "category": "外部感知",
+      "description": "从视频中高效抽取帧，并支持按时间间隔、帧率或特定时间点抽取，同时验证参数契约以确保API调用的稳定性。工具应包含完整的参数验证、错误处理和结果返回机制。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 22,
+      "last_called": "2026-03-22T09:45:17.955129"
+    },
+    "skill_gen_944ef78c": {
+      "file": "skill_gen_944ef78c.py",
+      "category": "工作区管理",
+      "description": "检查文件或目录是否存在，并返回详细信息包括文件大小、修改时间等元数据。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-22T01:16:38.905078"
+    },
+    "skill_check_file_info": {
+      "file": "skill_check_file_info.py",
+      "category": "技能管理",
+      "description": "使用Python os.path模块检查文件是否存在，并返回文件信息包括大小和修改时间。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-22T02:49:42.973696"
+    },
+    "skill_check_file_exists": {
+      "file": "skill_check_file_exists.py",
+      "category": "技能管理",
+      "description": "直接使用Python内置os.path.exists函数检查指定路径的文件是否存在，并返回结果。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 7,
+      "last_called": "2026-03-22T05:51:20.612489"
+    },
+    "skill_embedding_importance_integration": {
+      "file": "skill_embedding_importance_integration.py",
+      "category": "技能管理",
+      "description": "嵌入重要性集成技能：将重要性权重概念扩展到嵌入向量层面，实现基于认知重要性的语义相似性计算。使用纯数学计算，不依赖外部数据库。支持两种操作：1) integrate_embedding_importance - 将权重集成到嵌入向量；2) ",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-22T02:08:40.951287"
+    },
+    "skill_ffmpeg_ocr": {
+      "file": "skill_ffmpeg_ocr.py",
+      "category": "技能管理",
+      "description": "使用ffmpeg创建一个包含文本的简单测试视频，用于验证视频帧抽取和OCR功能。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_gen_2b5ea693": {
+      "file": "skill_gen_2b5ea693.py",
+      "category": "技能管理",
+      "description": "创建一个简单的测试视频，使用正确的参数传递方式。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_sqlite_memory_embeddings_analyzer": {
+      "file": "skill_sqlite_memory_embeddings_analyzer.py",
+      "category": "系统监控",
+      "description": "查询SQLite数据库中memory_embeddings表的详细结构，包括所有列名、数据类型和约束条件",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 4,
+      "last_called": "2026-03-22T05:29:39.661054"
+    },
+    "skill_sqlite_table_schema_analyzer": {
+      "file": "skill_sqlite_table_schema_analyzer.py",
+      "category": "记忆分析",
+      "description": "查询SQLite数据库的表结构信息，包括表名、列名、数据类型和约束条件",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-22T11:18:27.166256"
+    },
+    "skill_sqlite_query_executor": {
+      "file": "skill_sqlite_query_executor.py",
+      "category": "记忆分析",
+      "description": "执行SQL查询在SQLite数据库上，支持查询和修改操作",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 6,
+      "last_called": "2026-03-22T11:08:34.708904"
+    },
+    "skill_execute_python_code": {
+      "file": "skill_execute_python_code.py",
+      "category": "技能管理",
+      "description": "执行任意Python代码并返回结果",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 17,
+      "last_called": "2026-03-22T11:08:03.656053"
+    },
+    "skill_sqlite_memory_embeddings_schema_query": {
+      "file": "skill_sqlite_memory_embeddings_schema_query.py",
+      "category": "记忆分析",
+      "description": "连接到v3_episodic_memory.db数据库，检查memory_embeddings表的结构，包括所有列名和数据类型",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-22T04:26:44.596647"
+    },
+    "skill_analyze_sqlite_memory_embeddings": {
+      "file": "skill_analyze_sqlite_memory_embeddings.py",
+      "category": "记忆分析",
+      "description": "检查SQLite数据库中的记忆嵌入表结构，返回表的列信息和索引信息",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_sqlite_memory_embeddings_schema_analyzer": {
+      "file": "skill_sqlite_memory_embeddings_schema_analyzer.py",
+      "category": "系统监控",
+      "description": "连接到SQLite数据库并查询memory_embeddings表的结构信息，包括列定义和现有索引",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T03:57:04.882984"
+    },
+    "skill_execute_python_script": {
+      "file": "skill_execute_python_script.py",
+      "category": "技能管理",
+      "description": "执行指定路径的Python脚本文件并返回结果",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-22T03:58:25.487317"
+    },
+    "skill_execute_python_file": {
+      "file": "skill_execute_python_file.py",
+      "category": "技能管理",
+      "description": "直接执行Python代码文件，使用exec函数而不是subprocess",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-22T03:58:48.241728"
+    },
+    "skill_sqlite_memory_embeddings_schema_inspector": {
+      "file": "skill_sqlite_memory_embeddings_schema_inspector.py",
+      "category": "系统监控",
+      "description": "连接到SQLite数据库并列出所有表及其结构，特别关注memory_embeddings表是否存在",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T05:29:35.649651"
+    },
+    "skill_execute_sql_script_file": {
+      "file": "skill_execute_sql_script_file.py",
+      "category": "记忆分析",
+      "description": "执行SQL脚本文件来修改数据库结构",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-22T04:08:02.392285"
+    },
+    "skill_sqlite_memory_chunks_schema_inspector": {
+      "file": "skill_sqlite_memory_chunks_schema_inspector.py",
+      "category": "系统监控",
+      "description": "检查SQLite数据库中memory_chunks表的结构",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 3,
+      "last_called": "2026-03-22T04:13:01.791294"
+    },
+    "skill_sqlite_table_structure_analyzer": {
+      "file": "skill_sqlite_table_structure_analyzer.py",
+      "category": "记忆分析",
+      "description": "检查SQLite数据库中指定表的结构，包括列信息和索引。接受db_path和table_name参数，返回表的详细结构信息。",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 12,
+      "last_called": "2026-03-22T11:22:02.640376"
+    },
+    "skill_list_sqlite_tables": {
+      "file": "skill_list_sqlite_tables.py",
+      "category": "记忆分析",
+      "description": "列出SQLite数据库中的所有表名",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 28,
+      "last_called": "2026-03-22T11:20:34.468833"
+    },
+    "skill_sqlite_memory_embeddings_basic_query": {
+      "file": "skill_sqlite_memory_embeddings_basic_query.py",
+      "category": "记忆分析",
+      "description": "测试连接到workspace/v3_episodic_memory.db并查询memory_embeddings表的基本数据",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 4,
+      "last_called": "2026-03-22T07:25:36.217835"
+    },
+    "skill_get_filesystem_info": {
+      "file": "skill_get_filesystem_info.py",
+      "category": "系统监控",
+      "description": "获取当前工作目录和文件系统信息",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-22T04:34:03.521376"
+    },
+    "skill_test_database_connection": {
+      "file": "skill_test_database_connection.py",
+      "category": "记忆分析",
+      "description": "测试数据库路径是否正确，尝试连接到workspace/v3_episodic_memory.db",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
+    },
+    "skill_dynamic_memory_importance_calculator": {
+      "file": "skill_dynamic_memory_importance_calculator.py",
+      "category": "系统监控",
+      "description": "从memory_embeddings表获取数据并计算动态重要性权重，正确处理现有的表结构使用memory_id作为主键",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T04:40:14.648976"
+    },
+    "skill_sqlite_database_schema_inspector": {
+      "file": "skill_sqlite_database_schema_inspector.py",
+      "category": "记忆分析",
+      "description": "检查SQLite数据库的表结构，包括表名、列名、数据类型等信息",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 19,
+      "last_called": "2026-03-22T11:12:56.553896"
+    },
+    "skill_analyze_sqlite_database_schema": {
+      "file": "skill_analyze_sqlite_database_schema.py",
+      "category": "记忆分析",
+      "description": "分析SQLite数据库结构，特别是v3_episodic_memory.db中的表结构，返回所有表名和列信息",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T11:22:42.734635"
+    },
+    "skill_dynamic_memory_weight_validation": {
+      "file": "skill_dynamic_memory_weight_validation.py",
+      "category": "系统监控",
+      "description": "创建能够自动发现并适应数据库实际结构的动态验证系统，用于验证动态记忆权重与SQLite索引的协同优化",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-22T11:13:36.325938"
+    },
+    "skill_sqlite_dynamic_schema_discoverer": {
+      "file": "skill_sqlite_dynamic_schema_discoverer.py",
+      "category": "系统监控",
+      "description": "动态数据库结构发现与验证系统：自动检测SQLite数据库的实际表结构，包括列名、数据类型、索引等，并提供结构验证功能，能够适应真实的数据库结构而不是假设固定的结构",
+      "added_at": "2026-03-22",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-22T07:29:47.021757"
+    }
+  },
+  "deleted_history": [
+    {
+      "name": "skill_self_healing_skill_monitor",
+      "reason": "3个死路径，无法修复",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_error_pattern_analyzer",
+      "reason": "查询不存在的 context 接口，永久失效",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_directory_scanner",
+      "reason": "第一次：与 skill_workspace_scanner 重复；第二次：又被重新锻造后再次删除，查询了不存在的 event_type=skill_executed",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_files_analyzer",
+      "reason": "与 skill_workspace_scanner 重复",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_workspace_file_structure_analyzer",
+      "reason": "与 skill_workspace_scanner 重复",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_execution_history_query",
+      "reason": "空壳——只返回消息，调用了不存在的 skill_execution_history_fetcher",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_execution_history_summarizer",
+      "reason": "空壳——注释写让主系统处理，自身什么都不做",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_file_analyzer",
+      "reason": "用 os.getcwd() 硬编码路径，是 skill_file_scanner 的残缺复制",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_list_workspace_tools_directory",
+      "reason": "硬编码绝对路径，与 skill_workspace_scanner 重复",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_workspace_tools_directory_inspector",
+      "reason": "context key 错误（用 workspace_base 而非 workspace_path），与 skill_workspace_scanner 重复",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_pi_calculus_homotopy_equivalence_analyzer",
+      "reason": "π-演算兔子洞产物，硬编码假分析结果",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_quantum_topology_homotopy_type_theory_analyzer",
+      "reason": "π-演算兔子洞产物，查不到有价值数据",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_distributed_protocol_security_analyzer",
+      "reason": "调用不存在的函数 build_pi_calculus_model()，运行必报错",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_improved_distributed_protocol_security_analyzer",
+      "reason": "上一个的修复版，仍属π-演算兔子洞，用关键词计数伪装安全分析",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_event_type_distribution_analyzer",
+      "reason": "skill_memory_event_type_distribution_analyzer 的完全重复",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_parameter_debugging_analyzer",
+      "reason": "skill_debug_input_args_parser 的完全重复",
+      "deleted_at": "2026-03-11"
+    },
+    {
+      "name": "skill_wiki_search",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_system_resource_monitor",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_utilization_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_icm_self_regulation_monitor",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_emotional_self_regulation_module",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_enhanced_skill_health_monitor",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_memory_event_type_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_executed_skills_summary_aggregator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_memory_event_type_distribution_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_event_type_distribution_analyzer",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_results_summarizer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_simple_history_query",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_recent_event_type_distribution_analyzer",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_lightweight_language_complexity_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_parameter_passing_validator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_results_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_performance_evaluation_framework",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_enhanced_workspace_scanner_with_visualization",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_result_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_memory_database_path_fixer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_analytics_reporter",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_universal_skill_parameter_validator",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_result_aggregator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_combiner",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_analytics_generator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_success_rate_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_openclaw_satisfaction_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_summary_aggregator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_results_query_retriever",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_performance_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_invalid_memory_event_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_timestamp_anomaly_detector",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_results_timestamp_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_atomic_skill_result_reader",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_timestamp_continuity_and_atomicity_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_file_dependency_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_batch_file_reader",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_high_cost_skill_parameter_consistency_validator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_simple_parameter_consistency_checker",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_batch_file_reader_with_fix",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_atomic_skill_execution_framework",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_time_anomaly_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_execution_analytics_aggregator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_event_bus_depth_daemon_response_analyzer",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_event_bus_depth_guardian_response_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_event_bus_analytics_collector",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_event_bus_depth_guardian_process_latency_analyzer",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_memory_cleanup_monitor_errors",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_image_object_scene_detector",
+      "reason": "凋亡：从未调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_image_editor_basic_operations",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_image_enhancement_processor",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_image_generator",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_unified_image_preprocessor",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-19"
+    },
+    {
+      "name": "skill_error_analysis_reporter",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-20"
+    },
+    {
+      "name": "skill_execution_failure_analyzer",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-20"
+    },
+    {
+      "name": "skill_robust_skill_results_reader",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-20"
+    },
+    {
+      "name": "skill_visual_fault_injector",
+      "reason": "凋亡：最后调用超7天",
+      "deleted_at": "2026-03-20"
+    }
+  ]
+}

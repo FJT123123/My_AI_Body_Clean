@@ -1,0 +1,10 @@
+{
+  "tool_name": "skill_list_tools",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T03:47:32.685047",
+  "context": "type_adaptive_validation_test",
+  "data_flow_path": []
+}

@@ -1,0 +1,10 @@
+{
+  "tool_name": "cognitive_weighting_framework",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T07:38:04.322264",
+  "context": "final_end_to_end_validation",
+  "data_flow_path": []
+}

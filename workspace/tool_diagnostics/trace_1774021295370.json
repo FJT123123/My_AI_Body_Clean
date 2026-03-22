@@ -1,0 +1,10 @@
+{
+  "tool_name": "tool_output_stream_diagnostic",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-20T23:41:35.370501",
+  "context": "self_reflection_deep_192_debug_capture_fixed",
+  "data_flow_path": []
+}

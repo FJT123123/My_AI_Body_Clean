@@ -1,0 +1,10 @@
+{
+  "tool_name": "context_aware_debug_info_weighting_framework",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T00:58:59.075402",
+  "context": "构建端到端认知权重保护机制 - 应用保护补丁后",
+  "data_flow_path": []
+}

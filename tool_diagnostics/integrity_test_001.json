@@ -1,0 +1,10 @@
+{
+  "tool_name": "dynamic_memory_weighting_capability",
+  "input_fingerprint": "dfe771d90ea29465",
+  "output_fingerprint": "none",
+  "input_size": 40,
+  "output_size": 0,
+  "capture_time": "2026-03-20T21:30:57.569841",
+  "context": "dynamic_weighting_scenario",
+  "data_flow_path": []
+}

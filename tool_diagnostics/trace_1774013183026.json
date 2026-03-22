@@ -1,0 +1,13 @@
+{
+  "tool_name": "extract_video_frames",
+  "input_fingerprint": "e2241d2825fa8268",
+  "output_fingerprint": "031c01f0a112d7eb",
+  "input_size": 59,
+  "output_size": 63,
+  "capture_time": "2026-03-20T21:26:23.026816",
+  "context": {
+    "milestone": "triple_validation_architecture",
+    "layer": "data_integrity"
+  },
+  "data_flow_path": []
+}

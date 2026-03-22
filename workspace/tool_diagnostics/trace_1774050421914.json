@@ -1,0 +1,10 @@
+{
+  "tool_name": "end_to_end_debug_info_integrity_validator",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T07:47:01.914719",
+  "context": "验证修复后的调试信息完整性",
+  "data_flow_path": []
+}

@@ -1,0 +1,10 @@
+{
+  "tool_name": "context_aware_debug_info_weighting_framework",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T01:07:12.273164",
+  "context": "跨工具链调试信息完整性保障机制的系统性验证",
+  "data_flow_path": []
+}

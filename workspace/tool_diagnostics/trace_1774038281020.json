@@ -1,0 +1,10 @@
+{
+  "tool_name": "cross_tool_structure_repair",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T04:24:41.020212",
+  "context": "构建端到端的认知权重稳定性保证机制",
+  "data_flow_path": []
+}

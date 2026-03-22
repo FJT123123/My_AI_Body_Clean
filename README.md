@@ -78,6 +78,10 @@ python3 phoenix_core.py
 - `memory.py`: 核心底层记忆逻辑。
 - `iflow_adapter.py`: LLM 适配层。
 
+## 项目声明 (Project Declaration)
+
+**重要说明**：本项目在开发之初曾使用 `openclaw` 作为代号/名称，但本仓库中的所有代码均为原创开发或基于特定开源协议引入，**未包含任何来自其他 "OpenClaw" 项目的源代码**。目前的正式名称已统一为 **火凤凰 (Phoenix)**。
+
 ## 开源协议
 
 本项目采用 [MIT License](LICENSE)。

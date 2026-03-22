@@ -1,0 +1,12 @@
+{
+  "tool_name": "test_tool",
+  "input_fingerprint": "22a145d71530db8b",
+  "output_fingerprint": "edc51c7068b19a93",
+  "input_size": 40,
+  "output_size": 94,
+  "capture_time": "2026-03-20T23:26:07.604627",
+  "context": {
+    "purpose": "debug_info_flow_integrity_test"
+  },
+  "data_flow_path": []
+}

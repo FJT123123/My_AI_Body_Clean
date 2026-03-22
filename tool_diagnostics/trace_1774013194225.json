@@ -1,0 +1,14 @@
+{
+  "tool_name": "analyze_frame_differences",
+  "input_fingerprint": "b5aeeeef16ed3698",
+  "output_fingerprint": "5d197fc3c6f855af",
+  "input_size": 97,
+  "output_size": 85,
+  "capture_time": "2026-03-20T21:26:34.225235",
+  "context": {
+    "milestone": "triple_validation_architecture",
+    "layer": "cross_tool_validation",
+    "related_to": "trace_1774013183026"
+  },
+  "data_flow_path": []
+}

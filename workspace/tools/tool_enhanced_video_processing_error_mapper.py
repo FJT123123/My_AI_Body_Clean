@@ -1,8 +1,6 @@
 # tool_name: enhanced_video_processing_error_mapper
 from langchain.tools import tool
 import json
-import sys
-import os
 
 @tool
 def enhanced_video_processing_error_mapper(input_args: str) -> dict:
@@ -30,6 +28,12 @@ def enhanced_video_processing_error_mapper(input_args: str) -> dict:
         context = params.get('context', {})
         video_path = params.get('video_path', '')
         
+        # Import enhanced capability module
+        import sys
+        import os
+        sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+        from capabilities.enhanced_video_error_classification_capability import run_enhanced_error_mapping_cycle
+        
         # Build context data
         if not context:
             context = {
@@ -40,12 +44,6 @@ def enhanced_video_processing_error_mapper(input_args: str) -> dict:
                 'parameters': {'video_path': video_path} if video_path else {},
                 'dependencies': {}
             }
-        
-        # Import enhanced capability module
-        import sys
-        import os
-        sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-        from capabilities.enhanced_video_error_classification_capability import run_enhanced_error_mapping_cycle
         
         # Create exception object
         class VideoProcessingError(Exception):

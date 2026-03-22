@@ -1,0 +1,10 @@
+{
+  "tool_name": "context_aware_debug_info_weighting_framework",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-20T23:47:02.144373",
+  "context": "构建跨工具调试信息逃逸防护机制：在输出重定向场景下确保调试信息完整捕获与传递",
+  "data_flow_path": []
+}

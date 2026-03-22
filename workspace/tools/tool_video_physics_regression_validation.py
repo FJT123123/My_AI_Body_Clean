@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 @tool
-def video_frame_physics_compliance_end_to_end_regression_validation(video_path=None, output_dir="./regression_validation", test_patterns=None):
+def video_physics_regression_validation(video_path=None, output_dir="./regression_validation", test_patterns=None):
     """
     端到端视频物理一致性回归验证工具
     

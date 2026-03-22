@@ -5,7 +5,7 @@ import os
 import tempfile
 from pathlib import Path
 
-def video_frame_physics_compliance_end_to_end_regression_validation_fixed(video_path=None, output_dir="./regression_validation", test_patterns=None):
+def video_physics_regression_validation_fixed(video_path=None, output_dir="./regression_validation", test_patterns=None):
     """
     修复版端到端视频物理一致性回归验证工具
     
@@ -91,7 +91,7 @@ def video_frame_physics_compliance_end_to_end_regression_validation_fixed(video_
             'output_dir': os.path.join(output_dir, "repair_output")
         })
         
-        repair_result = run_skill("video_processing_automatic_repair_and_validation_workflow", repair_input)
+        repair_result = run_skill("video_repair_flow_auto", repair_input)
         
         # 检查修复结果，获取修复后的视频路径
         repaired_video_path = original_video_path  # 默认使用原始视频
@@ -183,4 +183,4 @@ def video_frame_physics_compliance_end_to_end_regression_validation_fixed(video_
     return report
 
 # 替换全局函数
-globals()['video_frame_physics_compliance_end_to_end_regression_validation'] = video_frame_physics_compliance_end_to_end_regression_validation_fixed
+globals()['video_physics_regression_validation'] = video_physics_regression_validation_fixed

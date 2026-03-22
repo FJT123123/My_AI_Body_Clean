@@ -1,0 +1,10 @@
+{
+  "tool_name": "context_aware_debug_info_weighting_framework",
+  "input_fingerprint": "none",
+  "output_fingerprint": "none",
+  "input_size": 0,
+  "output_size": 0,
+  "capture_time": "2026-03-21T02:17:56.629517",
+  "context": "universal_debug_info_integrity_guarantee_enhanced",
+  "data_flow_path": []
+}

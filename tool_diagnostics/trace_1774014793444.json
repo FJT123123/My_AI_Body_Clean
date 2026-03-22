@@ -1,0 +1,10 @@
+{
+  "tool_name": "context_aware_debug_info_weighting_framework",
+  "input_fingerprint": "1924c15bb0bd8a4c",
+  "output_fingerprint": "none",
+  "input_size": 63,
+  "output_size": 0,
+  "capture_time": "2026-03-20T21:53:13.444138",
+  "context": "testing new framework",
+  "data_flow_path": []
+}

@@ -1,0 +1,10 @@
+{
+  "tool_name": "interaction_weighting_capability_defense_layer",
+  "input_fingerprint": "b0d12938257a43f6",
+  "output_fingerprint": "bb51fea2d186d0d9",
+  "input_size": 136,
+  "output_size": 171,
+  "capture_time": "2026-03-20T23:20:08.471223",
+  "context": {},
+  "data_flow_path": []
+}
