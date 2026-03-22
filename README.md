@@ -1,17 +1,53 @@
-# 火凤凰 (Phoenix) — 自主 AGI 进化内核
+# 火凤凰 (Phoenix) — 自主 AGI 进化内核 / An Autonomously Evolving AGI Core
 
 ![Phoenix](https://img.shields.io/badge/Project-Phoenix-orange)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
-**火凤凰 (Phoenix)** 是一个旨在实现自主进化的 AGI（通用人工智能）实验框架。它建立在连续性记忆、情感模拟和自我修正能力之上，使 AI 能够跨会话保持认知，并通过不断的反思和工具锻造来提升自身能力。
+[English](#english) | [中文](#中文)
 
-## 核心特性
+---
 
-- **连续性 (Continuity)**：不再每次启动都从零开始。系统会加载历史记忆，重建自我认知。
-- **自我模型 (Self-Model)**：内置 4 维情感状态（好奇、满意、焦虑、兴奋）和进化指标。
-- **自主进化 (Autonomous Evolution)**：通过 `adjust_behavior()` 动态调整反思频率和动机，实现真实的自我优化。
-- **记忆核心 (Memory Core)**：基于 SQLite 的持久化记忆系统，支持语义检索和混合搜索。
-- **工具/技能锻造 (Skill Forging)**：AI 可以根据任务需求自主编写和集成新的 Python 技能。
+<a name="english"></a>
+## English
+
+**Phoenix** is an experimental AGI (Artificial General Intelligence) framework designed for true autonomous evolution. It is built on the principles of continuity, emotional simulation, and self-correction, enabling the AI to maintain cognition across sessions and enhance its own capabilities through constant reflection and "skill forging."
+
+### 🚀 Key Features
+
+- **Continuity**: No more starting from zero. The system loads historical memories to rebuild its self-identity and context.
+- **Self-Evolution**: Powered by an internal motivation engine, the AI autonomously decides when to fix bugs, forge new tools, or optimize its own logic.
+- **Attention Gate**: A cognitive regulation mechanism that uses `focus_level` to balance between deep task execution and open-ended exploration.
+- **Skill Forging**: The AI can write, test, and integrate its own Python skills into the `workspace/` at runtime.
+- **Bilingual Cognition**: Optimized for both English and Chinese reasoning and interaction.
+
+### 🛠️ Quick Start
+
+1. **Setup Environment**:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+2. **Configure API Keys**:
+   Copy `.env.example` to `.env` and fill in your keys.
+3. **Launch Phoenix**:
+   ```bash
+   python3 phoenix_core.py
+   ```
+
+---
+
+<a name="中文"></a>
+## 中文
+
+**火凤凰 (Phoenix)** 是一个旨在实现自主进化的 AGI 实验框架。它建立在连续性记忆、情感模拟和自我修正能力之上，使 AI 能够跨会话保持认知，并通过不断的反思和工具锻造来提升自身能力。
+
+### 核心特性
+
+- **连续性 (Continuity)**：加载历史记忆，重建自我认知，拒绝“每次启动都是崭新的白纸”。
+- **自主进化 (Autonomous Evolution)**：具备内部动机，能自主决策何时修复漏洞、锻造新工具或优化逻辑。
+- **专注力门控 (Attention Gate)**：通过 `focus_level` 动态调节演化阈值，控制认知资源在“深挖”与“探索”间的平衡。
+- **工具锻造 (Skill Forging)**：AI 可以在运行时自主编写、测试并集成新的 Python 技能到 `workspace/`。
 
 ## 快速开始
 
