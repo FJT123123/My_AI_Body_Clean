@@ -1,5 +1,6 @@
 # Environment and Virtual Environments
 venv/
+phx_venv/
 .env
 
 # Python artifacts
