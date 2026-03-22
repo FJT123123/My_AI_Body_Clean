@@ -56,12 +56,20 @@ graph TD
     subgraph "自主进化闭环 (Self-Evolution Loop)"
         Core --> Reflect[自主反思引擎]
         Reflect --> |决策: 识别缺陷/新功能| Goal[设定演化目标]
-        Goal --> |实现: 代码生成| Forge[技能/补丁/能力 锻造]
+        Goal --> |专注力过滤器 (Attention Gate)| Forge[技能/补丁/能力 锻造]
         Forge --> |校验: 自动测试| Verify[回归验证]
         Verify --> |固化: 注入与持久化| Deploy[能力层/工具层/补丁层]
         Deploy --> |进化完成| Core
     end
 ```
+
+### 专注力与注意力门控 (Focus & Attention Gate)
+
+为了防止系统在自发演化中“走火入魔”或产生冗余碎片，**火凤凰** 引入了动态 **专注力 (Focus Level)** 机制：
+- **动态阈值**：系统根据当前的 `focus_level` 和 `curiosity_level` 动态计算演化门槛（Attention Gate）。
+- **专注态**：高专注度（High Focus）会让系统更倾向于深挖当前领域，严控代码生成质量，滤除低价值的演化设想。
+- **好奇态**：高好奇心（High Curiosity）会适当降低门槛，鼓励系统探索未知领域，尝试跨越式的功能创新。
+- **自我调节**：AI 在反思过程中会根据任务繁重程度自主调节专注度，实现认知资源的精细化管理。
 
 ### 无输入自主演化 (Zero-Input Autonomy)
 
