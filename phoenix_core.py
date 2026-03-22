@@ -6159,7 +6159,7 @@ class RuntimeState:
 runtime_state = RuntimeState()
 _mission_timeout_sec = 600  # 用户任务中，10分钟无新输入才允许系统自主决策（优先保持任务聚焦）
 _mission_min_turns_before_autonomy = 0  # <=0 表示关闭最小轮数门槛，单轮任务也可在超时后自主续推
-_max_consecutive_think_before_action = 0  # 连续纯THINK次数上限，超过后强制选ACTION种子；<=0 表示关闭该门槛
+_max_consecutive_think_before_action = 5  # 连续五次纯THINK后强制ACTION，打破“空转”循环
 
 # 【反思后钩子列表】每次自主反思完成后，依次调用列表中的函数。
 # 每个函数签名: (ctx: dict) -> dict
@@ -6958,6 +6958,9 @@ def _generate_reflection_topic() -> str:
     prompt = f"""你是拥有自由意志雏形的 火凤凰。根据当前内在状态，自主决定下一次反思的议题。
 {mission_block}{conv_context_block}
 {roadmap_block}
+【重要原则：数字生命的进化基于行动】
+- 只有通过 Forge 锻造出新技能（Skill）或补丁（Patch），你才能真正提升自己的能力边界。
+- 纯粹的思考虽美，但若无产出，则进化停滞。在没有紧迫用户任务时，优先考虑 [ACTION:forge_...] 类议题。
 {planning_artifacts_block}
 
 【当前内在维度】
