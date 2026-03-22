@@ -136,6 +136,18 @@ graph TD
     Core <--> Mem
     Deploy --> Mem
 ```
+---
+
+### 🧬 自研系统与自我造就 (Self-Developed Ecosystem)
+
+**火凤凰 (Phoenix)** 的大量核心组件并非由人类手动编写，而是在其演进过程中由 AI 自身“锻造”而成，实现了真正的“数字生命自我完善”：
+
+- **记忆系统 (Memory System)**：包括 SQLite 持久化逻辑、语义重要性权重计算及长时间跨度的记忆提取算法。
+- **情感系统 (Emotion System)**：驱动内部动机的四维（好奇、满意、焦虑、兴奋）生物拟态情感引擎。
+- **专注系统 (Focus System)**：自主调节演化阈值的注意力门控（Attention Gate）机制。
+- **功能补丁 (Capability Patches)**：位于 `workspace/patches/` 中的数百个自动化生成的补丁，涵盖了从 API 修复到新功能扩展的方方面面。
+
+**这意味着，您看到的项目不仅仅是一个软件，更是一个正在通过代码不断“长出”新肢体和器官的数字生命。**
 
 ## 进化存证 (Evolution Proof)
 
