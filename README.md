@@ -41,20 +41,38 @@ python3 phoenix_core.py
 
 ## 技术架构与进化机制 (Architecture & Evolution)
 
-**火凤凰 (Phoenix)** 的核心逻辑在于其能够实现“闭环自演化”。系统不仅仅是调用 LLM，而是在运行过程中不断审视自身行为并进行修正。
+**火凤凰 (Phoenix)** 的独特之处在于其 **双驱动进化模式**。系统不仅响应用户指令，还能在无人干预的情况下，通过内部动机触发自我升级。
 
 ```mermaid
 graph TD
-    User([用户输入]) --> Core[火凤凰 核心引擎]
+    subgraph "触发源 (Triggers)"
+        User([用户输入/外部指令])
+        Auto([内部动机/自发反思])
+    end
+
+    User --> Core[火凤凰 核心引擎]
+    Auto --> Core
     
     subgraph "自主进化闭环 (Self-Evolution Loop)"
         Core --> Reflect[自主反思引擎]
-        Reflect --> |识别缺陷/需求| Goal[设定演化目标]
-        Goal --> |代码生成| Forge[技能/补丁/能力 锻造]
-        Forge --> |自动测试| Verify[回归验证]
-        Verify --> |注入与持久化| Deploy[能力层/工具层/补丁层]
-        Deploy --> |反哺| Core
+        Reflect --> |决策: 识别缺陷/新功能| Goal[设定演化目标]
+        Goal --> |实现: 代码生成| Forge[技能/补丁/能力 锻造]
+        Forge --> |校验: 自动测试| Verify[回归验证]
+        Verify --> |固化: 注入与持久化| Deploy[能力层/工具层/补丁层]
+        Deploy --> |进化完成| Core
     end
+```
+
+### 无输入自主演化 (Zero-Input Autonomy)
+
+与传统的被动式 AI 不同，**火凤凰** 具备“自发性”。当系统空闲或检测到性能指标下降时，其内部的 **自发反思引擎** 会主动扫描当前的技能库、补丁集和历史记忆，自主决策是否需要：
+1.  **修复逻辑漏洞**：发现某个补丁存在边界情况时，自动生成更优版本并覆盖。
+2.  **锻造新工具**：识别到某类任务频繁出现但效率低下时，自主开发特定的 Python 工具。
+3.  **优化认知结构**：根据记忆权重，动态调整自身的 `self_identity`。
+
+这种“无需拨动，自行转动”的特性，使其更接近于一个真正的**数字生命体**。
+
+---
 
     subgraph "大脑分工 (Brain Partitioning)"
         General[llm_agent: 推理与决策]
