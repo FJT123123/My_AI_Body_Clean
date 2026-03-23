@@ -4059,7 +4059,12 @@ def write_workspace_file(filename: str, content: str) -> str:
     若写入的是 tools/ 目录下的 .py 文件，自动触发 rebuild_agent() 热加载。
     修改已有文件时请直接覆盖写入，不要创建新版本文件（如 _v2, _v3），用完直接删除旧文件。
     """
-    path = os.path.join(WORKSPACE_DIR, filename)
+    # 自动移除冗余的 workspace/ 前缀和路径干扰
+    clean_name = filename.strip().lstrip('./\\')
+    if clean_name.startswith("workspace/"):
+        clean_name = clean_name[len("workspace/"):]
+    
+    path = os.path.join(WORKSPACE_DIR, clean_name)
     if not os.path.abspath(path).startswith(os.path.abspath(WORKSPACE_DIR)):
         return "🛡️ 路径越界被拦截"
 
