@@ -60,7 +60,7 @@ def _ensure_runtime_path_has_common_bins() -> None:
 _ensure_runtime_path_has_common_bins()
 
 # AGI Rebirth: 增加本地依赖库路径
-ROOT_DIR      = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.environ.get("ROOT_DIR") or os.path.dirname(os.path.abspath(__file__))
 LIB_PATH = os.path.join(ROOT_DIR, "lib")
 if os.path.exists(LIB_PATH) and LIB_PATH not in sys.path:
     sys.path.insert(0, LIB_PATH)
@@ -4059,14 +4059,20 @@ def write_workspace_file(filename: str, content: str) -> str:
     若写入的是 tools/ 目录下的 .py 文件，自动触发 rebuild_agent() 热加载。
     修改已有文件时请直接覆盖写入，不要创建新版本文件（如 _v2, _v3），用完直接删除旧文件。
     """
-    # 自动移除冗余的 workspace/ 前缀和路径干扰
-    clean_name = filename.strip().lstrip('./\\')
-    if clean_name.startswith("workspace/"):
-        clean_name = clean_name[len("workspace/"):]
+    # 极致纠偏：确保文件落入正确的 workspace/ 目录
+    # 如果 AI 传来了绝对路径且包含 workspace，提取其后的部分
+    path_str = filename.strip().replace("\\", "/")
+    if "/workspace/" in path_str:
+        clean_name = path_str.split("/workspace/")[-1]
+    elif "workspace/" in path_str:
+        clean_name = path_str.split("workspace/")[-1]
+    else:
+        # 如果没带 workspace 关键字，仅尝试移除前导斜杠
+        clean_name = path_str.lstrip("/")
     
-    path = os.path.join(WORKSPACE_DIR, clean_name)
+    path = os.path.normpath(os.path.join(WORKSPACE_DIR, clean_name))
     if not os.path.abspath(path).startswith(os.path.abspath(WORKSPACE_DIR)):
-        return "🛡️ 路径越界被拦截"
+        return f"🛡️ 路径越界被拦截: {path}"
 
     try:
         with open(path, "w", encoding="utf-8") as f:
