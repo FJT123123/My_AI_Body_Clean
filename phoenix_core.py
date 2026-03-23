@@ -3742,6 +3742,10 @@ def _discover_custom_tools() -> List[Any]:
                 # LangChain tool 特征：callable 且有 name 属性
                 if not (callable(attr) and hasattr(attr, "name") and hasattr(attr, "description")):
                     continue
+                # 显式限制工具名长度（iFlow/Qwen 限制为 64，否则报 400 错误）
+                if len(attr.name) > 64:
+                    print(f"   ⚠️  [工具加载跳过] {fname}: 名称 '{attr.name}' 超过 64 字符限制")
+                    continue
                 tool_func = getattr(attr, "func", None)
                 owner_module = getattr(tool_func, "__module__", getattr(attr, "__module__", ""))
                 if owner_module != module_name:

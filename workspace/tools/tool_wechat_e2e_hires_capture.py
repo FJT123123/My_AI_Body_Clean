@@ -1,4 +1,4 @@
-# tool_name: wechat_e2e_high_resolution_client_state_capture_with_physics_sem
+# tool_name: wechat_e2e_hires_capture
 from langchain.tools import tool
 import json
 import os
@@ -6,7 +6,7 @@ import time
 from typing import Dict, Any
 
 @tool
-def wechat_e2e_high_resolution_client_state_capture_with_physics_sem(input_args: str = "") -> Dict[str, Any]:
+def wechat_e2e_hires_capture(input_args: str = "") -> Dict[str, Any]:
     """
     微信端到端高分辨率客户端状态捕获与物理语义双重验证的零错误传输保证体系
     
