@@ -4517,8 +4517,12 @@ def forge_new_skill(description: str) -> str:
     # 优先从代码第一行解析 skill_name 注释
     name_match = re.match(r"#\s*skill_name:\s*([a-z0-9_]+)", code.splitlines()[0].strip())
     if name_match:
-        raw_name = name_match.group(1).strip("_")[:50]
-        name = f"skill_{raw_name}" if not raw_name.startswith("skill_") else raw_name
+        # 限制名称总长度不超过 64 字符 (含 skill_ 前缀)
+        raw_name = name_match.group(1).strip("_")
+        if not raw_name.startswith("skill_"):
+            name = f"skill_{raw_name}"[:64]
+        else:
+            name = raw_name[:64]
     else:
         name = _sanitize_skill_name(description)
 
@@ -5592,11 +5596,18 @@ def evolve_self(component: str, improvement_description: str, reason: str) -> st
         )
     elif component == 'tool':
         # 尝试从代码第一行提取工具名
-        name_match = re.match(r"#\s*tool_name:\s*([a-z0-9_]+)", generated.splitlines()[0].strip())
+        # 限制名称总长度不超过 64 字符 (含 tool_ 前缀)
         if name_match:
-            tool_name = name_match.group(1).strip("_")
-            filename = f"tool_{tool_name}.py"
+            raw_name = name_match.group(1).strip("_")
+            if not raw_name.startswith("tool_"):
+                tool_name = f"tool_{raw_name}"[:64]
+            else:
+                tool_name = raw_name[:64]
+            # 内部 tool_name 去掉前缀以便生成文件名
+            tool_name_short = tool_name[5:] if tool_name.startswith("tool_") else tool_name
+            filename = f"tool_{tool_name_short}.py"
         else:
+            tool_name = f"tool_auto_{timestamp}"[:64]
             filename = f"tool_auto_{timestamp}.py"
 
         diagnostic_issues = _diagnose_generated_tool_code(generated, tool_name if name_match else None)

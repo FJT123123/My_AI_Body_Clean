@@ -67,5 +67,6 @@ conn.close()
 
 【实现风格】
 - main(args=None) 保持单一入口。
+- skill 名称（含 skill_ 前缀）严禁超过 64 字符。
 - 先从 args['__context__'] 读取上下文与 db_path。
 - 结果结构稳定，便于主系统回流和持久化。
