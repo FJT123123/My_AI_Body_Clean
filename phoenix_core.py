@@ -5557,7 +5557,7 @@ def evolve_self(component: str, improvement_description: str, reason: str) -> st
     if component == 'capability':
         name_match = re.match(r"#\s*capability_name:\s*([a-z0-9_]+)", generated.splitlines()[0].strip())
         if name_match:
-            capability_name = name_match.group(1).strip("_")
+            capability_name = name_match.group(1).strip("_")[:64]
             filename = f"{capability_name}.py"
         else:
             capability_name = f"capability_auto_{timestamp}"

@@ -2,7 +2,7 @@
 只输出一个完整 Python 代码块，不要解释。
 
 【核心约束】
-- 第一行必须是 # patch_purpose: <英文小写+下划线>。
+- 第一行必须是 # patch_purpose: <英文小写+下划线>。注意：名称长度严禁超过 64 字符。
 - 只导入标准库。
 - 不要 from workspace... import 或 from phoenix_continuity import ...。
 - 所有运行时操作用 try/except 包裹。

@@ -2,7 +2,7 @@
 只输出一个完整 Python 代码块，不要解释。
 
 【核心约束】
-- 第一行必须是 # daemon_name: <全小写英文+下划线>。
+- 第一行必须是 # daemon_name: <全小写英文+下划线>。注意：名称长度（含 daemon_ 前缀）严禁超过 64 字符。
 - 入口函数必须是 _daemon_run(stop_event)。
 - 必须使用 stop_event.wait(...) 而不是 time.sleep()。
 - except 中必须写 memory.store('daemon_error', ...)。

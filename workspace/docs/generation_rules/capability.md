@@ -5,7 +5,7 @@
 - 不要 import phoenix_continuity。
 - 不要直接调用 send_message_to_user / memory.store / _event_bus.put。
 - 返回值必须是 JSON 可序列化 dict；必须处理异常并返回结构化结果。
-- 第一行使用 # capability_name: <全小写英文+下划线，建议以 _capability 结尾>。
+- 第一行使用 # capability_name: <全小写英文+下划线，建议以 _capability 结尾>。注意：名称长度严禁超过 64 字符。
 
 【适用场景】
 - 同一套核心逻辑需要同时被 tool 手动调用和 daemon 持续监听。
