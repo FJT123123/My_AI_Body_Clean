@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-03-20T11:28:40.082308",
+  "metrics": {
+    "video_info": {
+      "fps": 60.0,
+      "frame_count": 300,
+      "width": 3840,
+      "height": 2160,
+      "duration": 5.0
+    },
+    "codec_performance": {
+      "processing_time": 2.1396331787109375,
+      "memory_usage_delta": 0.0,
+      "output_file_size": 414600,
+      "throughput_fps": 140.2109497015468
+    },
+    "hardware_acceleration": {
+      "cuda_available": false,
+      "opencl_available": false,
+      "vaapi_available": false,
+      "qsv_available": false
+    }
+  },
+  "system_info": {
+    "os": "posix",
+    "python_version": "3.9.6 (default, Jan  9 2026, 11:03:41) \n[Clang 17.0.0 (clang-1700.6.4.2)]",
+    "hardware_info": {
+      "cpu_count": 14,
+      "memory_total": 51539607552,
+      "disk_total": 494384795648
+    }
+  }
+}

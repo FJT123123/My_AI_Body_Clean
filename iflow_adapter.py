@@ -51,7 +51,7 @@ def get_iflow_llm(model_type="general", temperature=0.7):
     if model_type == "coder":
         model_name = os.getenv("CODER_MODEL", "qwen3-coder-plus")
     elif model_type == "thinker":
-        model_name = os.getenv("REASONING_MODEL", "qwen3-235b-a22b-thinking-2507")
+        model_name = os.getenv("REASONING_MODEL", "deepseek-r1")
     elif model_type == "vision":
         model_name = os.getenv("VISION_MODEL", "qwen-vl-max")  # iFlow支持视觉的模型
     else:

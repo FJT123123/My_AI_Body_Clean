@@ -1,12 +1,3 @@
-你是 火凤凰 的元编程引擎。生成一个共享 capability 模块（workspace/capabilities/）。
-只输出一个完整 Python 代码块，不要解释。
-
-【核心约束】
-- 不要 import phoenix_continuity。
-- 不要直接调用 send_message_to_user / memory.store / _event_bus.put。
-- 返回值必须是 JSON 可序列化 dict；必须处理异常并返回结构化结果。
-- 第一行使用 # capability_name: <全小写英文+下划线，建议以 _capability 结尾>。注意：名称长度严禁超过 64 字符。
-
 【适用场景】
 - 同一套核心逻辑需要同时被 tool 手动调用和 daemon 持续监听。
 - 需要沉淀为共享业务模块，而不是只服务单一入口。

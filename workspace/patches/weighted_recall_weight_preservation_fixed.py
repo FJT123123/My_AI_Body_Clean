@@ -109,13 +109,8 @@ def enhanced_weighted_recall_my_memories_fixed(input_args):
 
 # 替换全局函数
 import sys
-target = sys.modules.get(__name__)
-if target:
-    target.weighted_recall_my_memories = enhanced_weighted_recall_my_memories_fixed
+sys.modules[__name__].weighted_recall_my_memories = enhanced_weighted_recall_my_memories_fixed
 
 # 如果在全局命名空间中，也替换它
 if 'weighted_recall_my_memories' in globals():
-    globals()['weighted_recall_my_memories'] = enhanced_weighted_recall_my_memories_fixed
-else:
-    # 强制注入到 globals
     globals()['weighted_recall_my_memories'] = enhanced_weighted_recall_my_memories_fixed

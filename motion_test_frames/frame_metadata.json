@@ -1,0 +1,97 @@
+{
+  "video_source": "/Users/zhufeng/My_AI_Body_副本/test_video.mp4",
+  "extract_method": "fps",
+  "total_frames": 15,
+  "extracted_frames": [
+    {
+      "frame_index": 0,
+      "time_point": 0.0,
+      "output_path": "./motion_test_frames/frame_0000_0.00s.jpg",
+      "timestamp": "2026-03-19T19:48:57.521936"
+    },
+    {
+      "frame_index": 1,
+      "time_point": 0.3333333333333333,
+      "output_path": "./motion_test_frames/frame_0001.jpg",
+      "timestamp": "2026-03-19T19:48:57.521962"
+    },
+    {
+      "frame_index": 2,
+      "time_point": 0.6666666666666666,
+      "output_path": "./motion_test_frames/frame_0001_1.00s.jpg",
+      "timestamp": "2026-03-19T19:48:57.521964"
+    },
+    {
+      "frame_index": 3,
+      "time_point": 1.0,
+      "output_path": "./motion_test_frames/frame_0002.jpg",
+      "timestamp": "2026-03-19T19:48:57.521965"
+    },
+    {
+      "frame_index": 4,
+      "time_point": 1.3333333333333333,
+      "output_path": "./motion_test_frames/frame_0002_2.00s.jpg",
+      "timestamp": "2026-03-19T19:48:57.521967"
+    },
+    {
+      "frame_index": 5,
+      "time_point": 1.6666666666666665,
+      "output_path": "./motion_test_frames/frame_0003.jpg",
+      "timestamp": "2026-03-19T19:48:57.521968"
+    },
+    {
+      "frame_index": 6,
+      "time_point": 2.0,
+      "output_path": "./motion_test_frames/frame_0003_3.00s.jpg",
+      "timestamp": "2026-03-19T19:48:57.521969"
+    },
+    {
+      "frame_index": 7,
+      "time_point": 2.333333333333333,
+      "output_path": "./motion_test_frames/frame_0004.jpg",
+      "timestamp": "2026-03-19T19:48:57.521971"
+    },
+    {
+      "frame_index": 8,
+      "time_point": 2.6666666666666665,
+      "output_path": "./motion_test_frames/frame_0004_4.00s.jpg",
+      "timestamp": "2026-03-19T19:48:57.521972"
+    },
+    {
+      "frame_index": 9,
+      "time_point": 3.0,
+      "output_path": "./motion_test_frames/frame_0005.jpg",
+      "timestamp": "2026-03-19T19:48:57.521973"
+    },
+    {
+      "frame_index": 10,
+      "time_point": 3.333333333333333,
+      "output_path": "./motion_test_frames/frame_0006.jpg",
+      "timestamp": "2026-03-19T19:48:57.521974"
+    },
+    {
+      "frame_index": 11,
+      "time_point": 3.6666666666666665,
+      "output_path": "./motion_test_frames/frame_0007.jpg",
+      "timestamp": "2026-03-19T19:48:57.521976"
+    },
+    {
+      "frame_index": 12,
+      "time_point": 4.0,
+      "output_path": "./motion_test_frames/frame_0008.jpg",
+      "timestamp": "2026-03-19T19:48:57.521977"
+    },
+    {
+      "frame_index": 13,
+      "time_point": 4.333333333333333,
+      "output_path": "./motion_test_frames/frame_0009.jpg",
+      "timestamp": "2026-03-19T19:48:57.521978"
+    },
+    {
+      "frame_index": 14,
+      "time_point": 4.666666666666666,
+      "output_path": "./motion_test_frames/frame_0010.jpg",
+      "timestamp": "2026-03-19T19:48:57.521979"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "frame_count": 5,
+  "frame_pairs_analyzed": 4,
+  "motion_vectors": [
+    {
+      "frame_pair": [
+        0,
+        1
+      ],
+      "frame_paths": [
+        "./extracted_frames/frame_0000_0.00s.jpg",
+        "./extracted_frames/frame_0001_1.00s.jpg"
+      ],
+      "difference_score": 0.0,
+      "average_motion_magnitude": 0.0,
+      "motion_direction_radians": 0.0,
+      "motion_significance": "negligible",
+      "flow_visualization": "./motion_analysis/validation_run_20260319/flow_0000_0001.jpg",
+      "difference_visualization": "./motion_analysis/validation_run_20260319/diff_0000_0001.jpg"
+    },
+    {
+      "frame_pair": [
+        1,
+        2
+      ],
+      "frame_paths": [
+        "./extracted_frames/frame_0001_1.00s.jpg",
+        "./extracted_frames/frame_0002_2.00s.jpg"
+      ],
+      "difference_score": 0.0,
+      "average_motion_magnitude": 0.0,
+      "motion_direction_radians": 0.0,
+      "motion_significance": "negligible",
+      "flow_visualization": "./motion_analysis/validation_run_20260319/flow_0001_0002.jpg",
+      "difference_visualization": "./motion_analysis/validation_run_20260319/diff_0001_0002.jpg"
+    },
+    {
+      "frame_pair": [
+        2,
+        3
+      ],
+      "frame_paths": [
+        "./extracted_frames/frame_0002_2.00s.jpg",
+        "./extracted_frames/frame_0003_3.00s.jpg"
+      ],
+      "difference_score": 0.0,
+      "average_motion_magnitude": 0.0,
+      "motion_direction_radians": 0.0,
+      "motion_significance": "negligible",
+      "flow_visualization": "./motion_analysis/validation_run_20260319/flow_0002_0003.jpg",
+      "difference_visualization": "./motion_analysis/validation_run_20260319/diff_0002_0003.jpg"
+    },
+    {
+      "frame_pair": [
+        3,
+        4
+      ],
+      "frame_paths": [
+        "./extracted_frames/frame_0003_3.00s.jpg",
+        "./extracted_frames/frame_0004_4.00s.jpg"
+      ],
+      "difference_score": 0.0,
+      "average_motion_magnitude": 0.0,
+      "motion_direction_radians": 0.0,
+      "motion_significance": "negligible",
+      "flow_visualization": "./motion_analysis/validation_run_20260319/flow_0003_0004.jpg",
+      "difference_visualization": "./motion_analysis/validation_run_20260319/diff_0003_0004.jpg"
+    }
+  ],
+  "difference_metrics": [],
+  "semantic_analysis": [
+    {
+      "frame_pair": [
+        0,
+        1
+      ],
+      "semantic_description": "\u672a\u68c0\u6d4b\u5230\u660e\u663e\u8fd0\u52a8\uff1a\u5e27\u95f4\u5185\u5bb9\u57fa\u672c\u4e00\u81f4",
+      "physical_meaning": false
+    },
+    {
+      "frame_pair": [
+        1,
+        2
+      ],
+      "semantic_description": "\u672a\u68c0\u6d4b\u5230\u660e\u663e\u8fd0\u52a8\uff1a\u5e27\u95f4\u5185\u5bb9\u57fa\u672c\u4e00\u81f4",
+      "physical_meaning": false
+    },
+    {
+      "frame_pair": [
+        2,
+        3
+      ],
+      "semantic_description": "\u672a\u68c0\u6d4b\u5230\u660e\u663e\u8fd0\u52a8\uff1a\u5e27\u95f4\u5185\u5bb9\u57fa\u672c\u4e00\u81f4",
+      "physical_meaning": false
+    },
+    {
+      "frame_pair": [
+        3,
+        4
+      ],
+      "semantic_description": "\u672a\u68c0\u6d4b\u5230\u660e\u663e\u8fd0\u52a8\uff1a\u5e27\u95f4\u5185\u5bb9\u57fa\u672c\u4e00\u81f4",
+      "physical_meaning": false
+    }
+  ],
+  "overall_analysis": {
+    "total_frame_pairs": 4,
+    "significant_motion_pairs": 0,
+    "motion_density": 0.0,
+    "video_has_meaningful_motion": false
+  }
+}

@@ -2,20 +2,16 @@
 修复DynamicMemoryWeightingCapability的enhanced_recall_memory_with_weighting方法
 """
 
-# 修复导入路径
-import os
-import sys
-ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-WORKSPACE_DIR = os.path.join(ROOT_DIR, "workspace")
-if WORKSPACE_DIR not in sys.path:
-    sys.path.insert(0, WORKSPACE_DIR)
-
-# 重新导入
+# 重新导入模块以确保更改生效
 import importlib
+import sys
+
+# 清除模块缓存
 module_name = 'capabilities.dynamic_memory_weighting_capability'
 if module_name in sys.modules:
     del sys.modules[module_name]
 
+# 重新导入
 from capabilities.dynamic_memory_weighting_capability import DynamicMemoryWeightingCapability
 
 print("✅ DynamicMemoryWeightingCapability模块已重新加载")

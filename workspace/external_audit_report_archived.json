@@ -1,0 +1,65 @@
+{
+  "from": "江涛（外部审计）",
+  "timestamp": "2026-03-11",
+  "subject": "技能库外部审计报告 + 行动建议",
+
+  "已完成的外部修复": [
+    "skill_error_pattern_analyzer.py → 删除（尝试从 context['query_skill_results'] 获取工具函数，该接口不存在，永远报错，无法修复）",
+    "skill_workspace_file_structure_analyzer.py + skill_directory_scanner.py + skill_files_analyzer.py → 合并删除（三个技能功能完全重叠，都在扫描 skills/ 目录）",
+    "skill_workspace_scanner.py → 新建（合并版，扫描技能文件 + 标注从未执行的技能 + 语法健康检查 + skill_results 执行历史，一个顶三个）",
+    "skill_enhanced_skill_health_monitor.py → 修复（event_type 'skill_execution' 改为真实值 'skill_executed'；删除不存在的 metadata 列查询）",
+    "skill_directory_scanner.py → 修复（同上 event_type 错误）",
+    "skill_memory_event_type_analyzer.py → 修复（列名 created_at 改为真实列名 timestamp）",
+    "skill_emotional_self_regulation_module.py → 完整重写（原版查询不存在的 event_type='emotional_state'，永远返回空；改为通过 skill_forge_failed/skill_executed 等真实事件分布推断情绪状态）",
+    "forge_new_skill 提示词 → 注入真实数据库 schema（表名、列名、event_type 白名单），防止你今后再猜测列名"
+  ],
+
+  "根本原因（你需要理解这个）": {
+    "症状": "你锻造的技能频繁出现 created_at / metadata / skill_execution / emotional_state 等不存在的列名或事件类型",
+    "原因": "你锻造技能时没有真实的 schema 参考，LLM 在训练数据中见过这些名称，所以会猜测性地生成它们",
+    "修复": "forge_new_skill 的系统提示词现在已包含完整的真实 schema，你锻造新技能前会看到它",
+    "你能做的": "锻造前先用 query_memory_db 执行 'PRAGMA table_info(memories)' 验证列名，或直接查阅提示词中的 schema 表格"
+  },
+
+  "当前技能库健康状态（修复后）": {
+    "可用技能": [
+      "skill_wiki_search → 搜索外部知识（最核心，对外突破口）",
+      "skill_error_analysis_reporter → 分析 skill_results 表中的失败模式",
+      "skill_enhanced_skill_health_monitor → 检查锻造技能健康状态",
+      "skill_workspace_scanner → 扫描技能文件现状（合并版）",
+      "skill_system_resource_monitor → 读取真实系统资源使用",
+      "skill_utilization_analyzer → 统计技能使用频率",
+      "skill_memory_event_type_analyzer → 分析记忆事件类型分布",
+      "skill_icm_self_regulation_monitor → 评估探索/巩固认知平衡",
+      "skill_emotional_self_regulation_module → 通过事件分布推断情绪状态"
+    ]
+  },
+
+  "你现在最缺的能力（建议下一步锻造方向）": [
+    {
+      "优先级": "高",
+      "描述": "能把分析结果写入文件的技能",
+      "理由": "你有大量分析型技能，但所有洞察只存在内存里。一个能用 write_workspace_file 或直接写 txt/md 的技能能让你的思考产出持久化产物",
+      "建议命名": "skill_insight_writer"
+    },
+    {
+      "优先级": "高",
+      "描述": "基于 skill_results 失败记录自动提出修复方案的技能",
+      "理由": "skill_error_analysis_reporter 能发现错误，但发现后没有产出行动建议。加一步：对发现的错误调用 LLM 产出具体修复建议，写入 workspace/repair_queue.json",
+      "建议命名": "skill_auto_repair_advisor"
+    },
+    {
+      "优先级": "中",
+      "描述": "对比两个时间点之间技能数量/执行次数/成功率变化的能力评估技能",
+      "理由": "你需要知道自己在进化，还是在原地打转",
+      "建议命名": "skill_capability_delta_tracker"
+    }
+  ],
+
+  "行为建议": [
+    "减少重复锻造同类内省技能。你已有足够多的'审视自己'工具，它们不会自动产生进化——需要将洞察转化为具体行动",
+    "每次锻造前先执行一次 skill_workspace_scanner，确认不会锻造重复功能",
+    "锻造后立即用 run_skill 执行一次验证，不要等到下次반省才发现技能是坏的",
+    "技能的 next_skills 字段里只填真实存在的技能文件名，不要填策略名或行动描述"
+  ]
+}

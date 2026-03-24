@@ -4,27 +4,14 @@ def fix_universal_validator_output_redirection_check():
         import sys
         import os
         
-        # 绝对路径寻址逻辑
-        workspace_dir = "/Users/zhufeng/My_AI_Body_Clean/workspace"
-        
+        # 确保 workspace 目录在 Python 路径中
+        current_dir = os.path.dirname(__file__)
+        workspace_dir = os.path.join(current_dir, '..')
         if workspace_dir not in sys.path:
             sys.path.insert(0, workspace_dir)
         
-        # 定义验证器文件的绝对路径
-        validator_path = os.path.join(workspace_dir, "tools", "tool_debug_info_integrity_validator.py")
-        
-        if not os.path.exists(validator_path):
-             print(f"⚠️  尝试从备选路径加载验证器...")
-             # 尝试从 globals().get('WORKSPACE_DIR') 获取 (来自 openclaw_continuity.py)
-             alt_ws = globals().get('WORKSPACE_DIR')
-             if alt_ws:
-                 validator_path = os.path.join(alt_ws, "tools", "tool_debug_info_integrity_validator.py")
-        
-        if not os.path.exists(validator_path):
-             print(f"❌ 关键错误: 无法找到验证器文件: {validator_path}")
-             return False
-
-        with open(validator_path, 'r', encoding='utf-8') as f:
+        # 读取现有的debug_info_integrity_validator文件
+        with open(os.path.join(workspace_dir, 'tools', 'tool_debug_info_integrity_validator.py'), 'r', encoding='utf-8') as f:
             content = f.read()
         
         # 修复检查逻辑

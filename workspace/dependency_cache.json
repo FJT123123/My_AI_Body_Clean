@@ -1,0 +1,128 @@
+{
+  "dependencies": {
+    "6243ab2e14ac9376df9c063c1af01f29": {
+      "result": {
+        "system_info": {
+          "os": "Darwin",
+          "platform": "macOS-26.1-arm64-arm-64bit",
+          "cpu": {
+            "architecture": "arm64",
+            "cores": 14,
+            "processor": "arm"
+          },
+          "gpu": {
+            "vendor": null,
+            "model": null,
+            "cuda_support": false,
+            "opencl_support": false
+          }
+        },
+        "encoding_performance": {
+          "libx264": {
+            "encoding_time": 0.43,
+            "success": true
+          },
+          "libx265": {
+            "encoding_time": 1.14,
+            "success": true
+          },
+          "libvpx-vp9": {
+            "encoding_time": 2.77,
+            "success": true
+          },
+          "libaom-av1": {
+            "encoding_time": 0.02,
+            "success": true
+          }
+        },
+        "decoding_performance": {
+          "h264": {
+            "decoding_time": 0.09,
+            "success": true
+          },
+          "hevc": {
+            "decoding_time": 0.09,
+            "success": true
+          },
+          "vp9": {
+            "decoding_time": 0.09,
+            "success": true
+          },
+          "av1": {
+            "decoding_time": 0.09,
+            "success": true
+          }
+        },
+        "available_params": {
+          "resolution_support": [
+            "4K",
+            "1080p",
+            "720p",
+            "480p"
+          ],
+          "framerate_support": [
+            30,
+            60,
+            120
+          ],
+          "codec_support": [
+            "h264",
+            "hevc",
+            "vp8",
+            "vp9",
+            "av1",
+            "mpeg4",
+            "prores",
+            "h264_videotoolbox",
+            "hevc_videotoolbox"
+          ],
+          "hardware_acceleration": [
+            "videotoolbox"
+          ]
+        },
+        "timestamp": 1773957806.9876978,
+        "assessment_summary": {
+          "gpu_acceleration_available": true,
+          "hardware_encoders": 1,
+          "supported_codecs": 9,
+          "max_resolution": "4K"
+        }
+      },
+      "insights": [
+        "\u7cfb\u7edf\u652f\u6301\u786c\u4ef6\u52a0\u901f: videotoolbox",
+        "\u7cfb\u7edf\u652f\u6301\u7684\u7f16\u7801\u5668: h264, hevc, vp8, vp9, av1, mpeg4, prores, h264_videotoolbox, hevc_videotoolbox"
+      ],
+      "facts": [
+        [
+          "system_video_capability",
+          "has_cpu_cores",
+          "14"
+        ],
+        [
+          "system_video_capability",
+          "has_gpu_vendor",
+          "None"
+        ],
+        [
+          "system_video_capability",
+          "supports_hardware_acceleration",
+          "True"
+        ],
+        [
+          "system_video_capability",
+          "max_resolution_support",
+          "4K"
+        ]
+      ],
+      "capabilities": [
+        "\u89c6\u9891\u5904\u7406\u80fd\u529b: 4K @ 120fps",
+        "\u786c\u4ef6\u52a0\u901f: \u652f\u6301",
+        "\u53ef\u7528\u7f16\u7801\u5668: 9 \u79cd",
+        "\u786c\u4ef6\u52a0\u901f\u652f\u6301: 1 \u79cd"
+      ],
+      "next_skills": [],
+      "timestamp": "2026-03-20T06:03:26"
+    }
+  },
+  "last_updated": "2026-03-20T06:03:26"
+}

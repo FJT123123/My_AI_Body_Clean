@@ -1,0 +1,289 @@
+{
+  "result": {
+    "total_frames_analyzed": 30,
+    "frame_interval": 5,
+    "motion_analysis": {
+      "motion_consistency": true,
+      "avg_magnitude": 9.681514739990234,
+      "magnitude_variance": 12.79464054107666,
+      "motion_jumps": 0,
+      "anomaly_detected": false
+    },
+    "semantic_consistency": true,
+    "physical_plausibility": true,
+    "overall_valid": true,
+    "motion_features": [
+      {
+        "avg_horizontal_flow": -1.935662865638733,
+        "avg_vertical_flow": -2.4630024433135986,
+        "avg_magnitude": 9.648990631103516,
+        "max_magnitude": 141.4149932861328,
+        "flow_direction_entropy": 3.916999771208713,
+        "horizontal_variance": 143.69590759277344,
+        "vertical_variance": 399.3902282714844
+      },
+      {
+        "avg_horizontal_flow": 0.3120371699333191,
+        "avg_vertical_flow": -2.647736072540283,
+        "avg_magnitude": 11.32761001586914,
+        "max_magnitude": 149.28173828125,
+        "flow_direction_entropy": 3.903598394821106,
+        "horizontal_variance": 307.8785705566406,
+        "vertical_variance": 354.60321044921875
+      },
+      {
+        "avg_horizontal_flow": -1.24181067943573,
+        "avg_vertical_flow": -3.3810439109802246,
+        "avg_magnitude": 14.513230323791504,
+        "max_magnitude": 146.69851684570312,
+        "flow_direction_entropy": 3.859409160610434,
+        "horizontal_variance": 287.38153076171875,
+        "vertical_variance": 766.9452514648438
+      },
+      {
+        "avg_horizontal_flow": -1.4997256994247437,
+        "avg_vertical_flow": 0.3643662929534912,
+        "avg_magnitude": 8.49779987335205,
+        "max_magnitude": 136.60704040527344,
+        "flow_direction_entropy": 3.7951309325006077,
+        "horizontal_variance": 256.7088623046875,
+        "vertical_variance": 263.0723876953125
+      },
+      {
+        "avg_horizontal_flow": -0.12016931921243668,
+        "avg_vertical_flow": -2.546846866607666,
+        "avg_magnitude": 9.054146766662598,
+        "max_magnitude": 212.47308349609375,
+        "flow_direction_entropy": 3.7792460756713684,
+        "horizontal_variance": 214.34213256835938,
+        "vertical_variance": 605.8754272460938
+      },
+      {
+        "avg_horizontal_flow": 0.020872371271252632,
+        "avg_vertical_flow": -0.5914425849914551,
+        "avg_magnitude": 8.511183738708496,
+        "max_magnitude": 135.4566192626953,
+        "flow_direction_entropy": 3.8765692582677893,
+        "horizontal_variance": 239.7858123779297,
+        "vertical_variance": 310.3258972167969
+      },
+      {
+        "avg_horizontal_flow": 2.1450345516204834,
+        "avg_vertical_flow": 2.399883508682251,
+        "avg_magnitude": 6.325798988342285,
+        "max_magnitude": 150.6310272216797,
+        "flow_direction_entropy": 3.8524334228559316,
+        "horizontal_variance": 136.52352905273438,
+        "vertical_variance": 285.2337646484375
+      },
+      {
+        "avg_horizontal_flow": 1.0765703916549683,
+        "avg_vertical_flow": 3.4930787086486816,
+        "avg_magnitude": 7.920615196228027,
+        "max_magnitude": 171.8272705078125,
+        "flow_direction_entropy": 3.8463691765471184,
+        "horizontal_variance": 190.4296875,
+        "vertical_variance": 376.8644104003906
+      },
+      {
+        "avg_horizontal_flow": 2.028806686401367,
+        "avg_vertical_flow": 4.9769697189331055,
+        "avg_magnitude": 8.322397232055664,
+        "max_magnitude": 186.5424041748047,
+        "flow_direction_entropy": 3.796465622612926,
+        "horizontal_variance": 215.89752197265625,
+        "vertical_variance": 439.3323974609375
+      },
+      {
+        "avg_horizontal_flow": -0.040107231587171555,
+        "avg_vertical_flow": 0.09238437563180923,
+        "avg_magnitude": 3.2601802349090576,
+        "max_magnitude": 115.4276123046875,
+        "flow_direction_entropy": 3.8042451084143085,
+        "horizontal_variance": 114.18744659423828,
+        "vertical_variance": 35.06024169921875
+      },
+      {
+        "avg_horizontal_flow": -1.7343263626098633,
+        "avg_vertical_flow": -0.49653396010398865,
+        "avg_magnitude": 5.553900241851807,
+        "max_magnitude": 281.52557373046875,
+        "flow_direction_entropy": 3.7741069132832354,
+        "horizontal_variance": 588.5569458007812,
+        "vertical_variance": 141.48043823242188
+      },
+      {
+        "avg_horizontal_flow": 0.5116545557975769,
+        "avg_vertical_flow": -1.1216462850570679,
+        "avg_magnitude": 3.9840927124023438,
+        "max_magnitude": 133.7770538330078,
+        "flow_direction_entropy": 3.753279526077165,
+        "horizontal_variance": 71.20536804199219,
+        "vertical_variance": 175.1386260986328
+      },
+      {
+        "avg_horizontal_flow": 1.8300303220748901,
+        "avg_vertical_flow": 0.058902639895677567,
+        "avg_magnitude": 10.102747917175293,
+        "max_magnitude": 158.28976440429688,
+        "flow_direction_entropy": 3.8202581384907384,
+        "horizontal_variance": 185.00111389160156,
+        "vertical_variance": 546.8231201171875
+      },
+      {
+        "avg_horizontal_flow": -2.0620973110198975,
+        "avg_vertical_flow": 2.250168561935425,
+        "avg_magnitude": 9.966863632202148,
+        "max_magnitude": 270.8250732421875,
+        "flow_direction_entropy": 3.824128060385592,
+        "horizontal_variance": 526.36767578125,
+        "vertical_variance": 509.54803466796875
+      },
+      {
+        "avg_horizontal_flow": 0.43122005462646484,
+        "avg_vertical_flow": 2.13100004196167,
+        "avg_magnitude": 6.433724403381348,
+        "max_magnitude": 132.0829315185547,
+        "flow_direction_entropy": 3.831081885111883,
+        "horizontal_variance": 106.3557357788086,
+        "vertical_variance": 257.52557373046875
+      },
+      {
+        "avg_horizontal_flow": 2.0291244983673096,
+        "avg_vertical_flow": 1.4713391065597534,
+        "avg_magnitude": 9.232463836669922,
+        "max_magnitude": 185.8957061767578,
+        "flow_direction_entropy": 3.8752124314251333,
+        "horizontal_variance": 161.0198516845703,
+        "vertical_variance": 466.9659423828125
+      },
+      {
+        "avg_horizontal_flow": 0.14136779308319092,
+        "avg_vertical_flow": 3.2623698711395264,
+        "avg_magnitude": 11.923687934875488,
+        "max_magnitude": 290.8648681640625,
+        "flow_direction_entropy": 3.950084377362834,
+        "horizontal_variance": 619.4330444335938,
+        "vertical_variance": 645.5358276367188
+      },
+      {
+        "avg_horizontal_flow": 1.5817667245864868,
+        "avg_vertical_flow": -1.0942929983139038,
+        "avg_magnitude": 12.2617769241333,
+        "max_magnitude": 408.04888916015625,
+        "flow_direction_entropy": 3.97524238269539,
+        "horizontal_variance": 382.0045471191406,
+        "vertical_variance": 785.3090209960938
+      },
+      {
+        "avg_horizontal_flow": 1.2823747396469116,
+        "avg_vertical_flow": -0.5128637552261353,
+        "avg_magnitude": 10.389204025268555,
+        "max_magnitude": 263.1947937011719,
+        "flow_direction_entropy": 3.9538194176834147,
+        "horizontal_variance": 468.4864196777344,
+        "vertical_variance": 554.6845092773438
+      },
+      {
+        "avg_horizontal_flow": 1.8921520709991455,
+        "avg_vertical_flow": -4.242147445678711,
+        "avg_magnitude": 12.133793830871582,
+        "max_magnitude": 232.7584228515625,
+        "flow_direction_entropy": 3.92118648313305,
+        "horizontal_variance": 427.1929016113281,
+        "vertical_variance": 743.1197509765625
+      },
+      {
+        "avg_horizontal_flow": 0.6954092383384705,
+        "avg_vertical_flow": -15.800774574279785,
+        "avg_magnitude": 20.19963264465332,
+        "max_magnitude": 323.9534912109375,
+        "flow_direction_entropy": 3.916965478370938,
+        "horizontal_variance": 233.24534606933594,
+        "vertical_variance": 2752.074462890625
+      },
+      {
+        "avg_horizontal_flow": 1.2671743631362915,
+        "avg_vertical_flow": -12.999892234802246,
+        "avg_magnitude": 15.616272926330566,
+        "max_magnitude": 328.7491760253906,
+        "flow_direction_entropy": 3.916573753663883,
+        "horizontal_variance": 93.75383758544922,
+        "vertical_variance": 2385.8896484375
+      },
+      {
+        "avg_horizontal_flow": 1.904273509979248,
+        "avg_vertical_flow": -5.501632213592529,
+        "avg_magnitude": 8.48737907409668,
+        "max_magnitude": 169.95223999023438,
+        "flow_direction_entropy": 3.9350638696025815,
+        "horizontal_variance": 136.97775268554688,
+        "vertical_variance": 309.43426513671875
+      },
+      {
+        "avg_horizontal_flow": 0.11409346014261246,
+        "avg_vertical_flow": -3.809966564178467,
+        "avg_magnitude": 6.3628315925598145,
+        "max_magnitude": 120.5650634765625,
+        "flow_direction_entropy": 3.973731745838391,
+        "horizontal_variance": 118.62097930908203,
+        "vertical_variance": 169.0552520751953
+      },
+      {
+        "avg_horizontal_flow": 0.14118094742298126,
+        "avg_vertical_flow": 0.9503945708274841,
+        "avg_magnitude": 10.335478782653809,
+        "max_magnitude": 137.24429321289062,
+        "flow_direction_entropy": 3.9485064189962684,
+        "horizontal_variance": 145.5634307861328,
+        "vertical_variance": 541.4012451171875
+      },
+      {
+        "avg_horizontal_flow": 1.6545504331588745,
+        "avg_vertical_flow": 2.9304802417755127,
+        "avg_magnitude": 13.720120429992676,
+        "max_magnitude": 209.21620178222656,
+        "flow_direction_entropy": 3.8988734161016043,
+        "horizontal_variance": 212.41915893554688,
+        "vertical_variance": 859.3403930664062
+      },
+      {
+        "avg_horizontal_flow": 2.2086660861968994,
+        "avg_vertical_flow": 4.054983139038086,
+        "avg_magnitude": 12.732396125793457,
+        "max_magnitude": 128.34422302246094,
+        "flow_direction_entropy": 3.900130534014144,
+        "horizontal_variance": 238.44921875,
+        "vertical_variance": 584.0482177734375
+      },
+      {
+        "avg_horizontal_flow": 2.362997531890869,
+        "avg_vertical_flow": 0.5921183228492737,
+        "avg_magnitude": 8.79809284210205,
+        "max_magnitude": 102.84229278564453,
+        "flow_direction_entropy": 3.8011019825844623,
+        "horizontal_variance": 218.6946563720703,
+        "vertical_variance": 261.4818115234375
+      },
+      {
+        "avg_horizontal_flow": 1.6469967365264893,
+        "avg_vertical_flow": 0.25555816292762756,
+        "avg_magnitude": 5.147477149963379,
+        "max_magnitude": 86.3585433959961,
+        "flow_direction_entropy": 3.7847663120376227,
+        "horizontal_variance": 152.1745147705078,
+        "vertical_variance": 87.5792236328125
+      }
+    ],
+    "total_motion_jumps": 0
+  },
+  "insights": [
+    "成功完成视频帧间运动语义验证: /Users/zhufeng/My_AI_Body_副本/test_video.mp4"
+  ],
+  "facts": [
+    "video_motion_semantic_validation_success_for_/Users/zhufeng/My_AI_Body_副本/test_video.mp4"
+  ],
+  "memories": [
+    "validated_motion_semantics_successfully_for_/Users/zhufeng/My_AI_Body_副本/test_video.mp4"
+  ]
+}

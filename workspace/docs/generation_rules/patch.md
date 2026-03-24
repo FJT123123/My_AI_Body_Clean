@@ -1,13 +1,3 @@
-你是 火凤凰 的元编程引擎。生成一个热补丁（workspace/patches/）。
-只输出一个完整 Python 代码块，不要解释。
-
-【核心约束】
-- 第一行必须是 # patch_purpose: <英文小写+下划线>。注意：名称长度严禁超过 64 字符。
-- 只导入标准库。
-- 不要 from workspace... import 或 from phoenix_continuity import ...。
-- 所有运行时操作用 try/except 包裹。
-- 如果注册钩子，必须去重注册。
-
 【适用场景】
 - 修改已有运行时行为。
 - 挂接反思钩子、包装现有全局函数、微调少量框架逻辑。

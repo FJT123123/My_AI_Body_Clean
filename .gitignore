@@ -1,56 +1,102 @@
-# Environment and Virtual Environments
-venv/
-phx_venv/
-.env
+# OpenClaw Git Exclusions
 
-# Python artifacts
+# Sensitive Info
+.env
+.env.local
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Python Cache
 __pycache__/
 *.pyc
 *.pyo
+*.pyd
 
-# Test and validation artifacts (directories)
-*_results/
-*_output/
-*_frames/
-test_*/
-*test/
-*_validation/
-*_analysis/
-*_validation_simple/
-*_60fps/
-*_720p/
-PLAN/
-AAA/
+# macOS
+.DS_Store
 
-# Test and validation artifacts (files)
-test_*.txt
-test_*.py
-temp_*.py
-debug_*.py
+# Large Databases & Logs
+*.db
+*.db-shm
+*.db-wal
+memory_embeddings.db
+v3_episodic_memory.db
+openclaw_evolution_log.json
+*.log
+
+# Video Processing & Test Outputs (Root)
+extracted_frames_*/
+motion_analysis_*/
+physics_validation_*/
+physics_compliance_*/
+semantic_analysis_*/
+semantic_validation_*/
+semantic_continuity_*/
+test_frames_*/
+test_validation_results*/
+regression_test_output/
+drift_aware_processing_output/
+frame_continuity_results/
+frame_diff_analysis/
+frame_differences_analysis/
+frame_differences_analysis_results/
+frame_analysis_result/
+frame_analysis_results/
+repaired_validation/
+semantic_analysis_results/
+semantic_continuity_analysis/
+semantic_continuity_results/
+tool_diagnostics/
+original_validation/
+causal_guardian_validation/
+complete_motion_analysis/
+debug_test_frames/
+debug_validation_frames/
+drift_aware_processing_output/
+dual_optimization_validation/
+enhanced_video_repair_workflow_output/
+extracted_test_frames/
+final_test_frames/
+frame_semantic_validation/
+high_res_physics_validation/
+small_video_physics_validation/
+sparse_motion_test/
+sparse_test_frames/
+temporal_ocr_test/
+test_repair/
+test_skill_validation/
+triad_validation_test/
+unified_validation_test/
+validation_test_frames/
+validator_test/
+video_analysis/
+wechat_e2e_self_healing_4k_stress_test*/
+
+# Media Files
 *.mp4
-*.png
 *.jpg
 *.jpeg
+*.png
 *.gif
-*.db
-test_*.json
-debug_*.json
-temp_*.json
 
-# Repository-specific ignores
-environment_baseline.json
-openclaw_evolution_log.json
-new_evolution_goals.json
-long_term_evolution_plan.md*
-.DS_Store
-workspace/*.sh
-workspace/*.png
-workspace/*.json
-workspace/*.backup_*
-workspace/*.db*
+# Workspace Temporary/Test Files
+workspace/test_*.py
+workspace/test_*.png
+workspace/test_*.jpeg
+workspace/test_*.mp4
+workspace/test_*.json
+workspace/debug_*.json
+workspace/temp_*.py
+workspace/temp_*.png
+workspace/extracted_frames*/
+workspace/frame_paths*
+workspace/messages_to_user_backup*
+workspace/test_output.txt
+workspace/visual_test_*.txt
 workspace/v3_episodic_memory.db
-!workspace/*.py  # Keep python skills/capabilities
-!workspace/docs/*.md
-!workspace/self_identity.json
-!workspace/evolution_roadmap.json
-!workspace/skill_registry.json
+
+# Documentation Snapshots (Optional: exclude if too frequent)
+# workspace/docs/long_term_evolution_plan_runtime.md

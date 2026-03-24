@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-03-23 11:05:04",
+  "last_updated": "2026-03-24 12:32:40",
   "categories": {
     "外部感知": {
       "description": "访问外部世界获取信息的能力（搜索、API、网络）"
@@ -106,8 +106,8 @@
       "description": "扫描 workspace/skills/ 目录，获取每个技能文件的大小（字节）和最后修改时间（ISO格式），返回结构化列表",
       "added_at": "2026-03-11",
       "status": "active",
-      "call_count": 50,
-      "last_called": "2026-03-23T00:47:35.090226"
+      "call_count": 49,
+      "last_called": "2026-03-19T17:08:57.883423"
     },
     "skill_executed_skills_summary_aggregator": {
       "file": "skill_executed_skills_summary_aggregator.py",
@@ -124,8 +124,8 @@
       "description": "创建一个技能，能够查询skill_results表并返回所有技能执行记录的汇总信息，包括技能名称、执行时间、时间戳等关键字段。",
       "added_at": "2026-03-12",
       "status": "active",
-      "call_count": 45,
-      "last_called": "2026-03-22T12:02:43.223167"
+      "call_count": 44,
+      "last_called": "2026-03-21T18:46:06.420414"
     },
     "skill_memory_event_type_distribution_analyzer": {
       "file": "skill_memory_event_type_distribution_analyzer.py",
@@ -142,8 +142,8 @@
       "description": "扫描 workspace/skills 目录，返回每个技能文件的大小和最后修改时间",
       "added_at": "2026-03-11",
       "status": "active",
-      "call_count": 18,
-      "last_called": "2026-03-22T11:09:22.705394"
+      "call_count": 15,
+      "last_called": "2026-03-22T02:49:26.284805"
     },
     "skill_pi_calculus_homotopy_equivalence_analyzer": {
       "file": "skill_pi_calculus_homotopy_equivalence_analyzer.py",
@@ -242,8 +242,8 @@
       "description": "创建一个通用的参数解析技能，能够正确处理 run_skill 传递的字符串参数。该技能接收 input_args 字符串，尝试将其解析为 JSON 对象，如果失败则返回原始字符串。这样其他技能可以调用这个通用解析器来获取正确的参数。",
       "added_at": "2026-03-11",
       "status": "active",
-      "call_count": 35,
-      "last_called": "2026-03-22T15:26:19.370560"
+      "call_count": 31,
+      "last_called": "2026-03-21T10:56:21.146255"
     },
     "skill_results_analyzer": {
       "file": "skill_results_analyzer.py",
@@ -663,8 +663,8 @@
       "description": "列出workspace目录中的所有文件",
       "added_at": "2026-03-12",
       "status": "active",
-      "call_count": 14,
-      "last_called": "2026-03-23T00:47:00.015807"
+      "call_count": 7,
+      "last_called": "2026-03-21T07:46:09.894191"
     },
     "skill_parameter_tester": {
       "file": "skill_parameter_tester.py",
@@ -672,8 +672,8 @@
       "description": "创建一个简单的参数测试技能，打印接收到的参数",
       "added_at": "2026-03-12",
       "status": "active",
-      "call_count": 10,
-      "last_called": "2026-03-22T12:22:03.413588"
+      "call_count": 8,
+      "last_called": "2026-03-20T17:58:55.028507"
     },
     "skill_unified_image_preprocessor": {
       "file": "skill_unified_image_preprocessor.py",
@@ -690,8 +690,8 @@
       "description": "创建一个自我修复协调器技能，能够检测任务执行中的错误，分析错误类型，并执行适当的修复操作。该技能应能处理依赖缺失、参数错误、路径问题等常见错误，并在修复后验证修复是否成功。技能应包含以下功能：1) 错误检测与分类；2) 依赖检查与安装；3)",
       "added_at": "2026-03-13",
       "status": "active",
-      "call_count": 166,
-      "last_called": "2026-03-21T04:01:30.163387"
+      "call_count": 168,
+      "last_called": "2026-03-24T11:39:46.736998"
     },
     "skill_visual_fault_injector": {
       "file": "skill_visual_fault_injector.py",
@@ -717,8 +717,8 @@
       "description": "创建一个简单的测试视频文件，用于验证视频处理环境是否正常工作。使用ffmpeg生成一个5秒的测试视频。",
       "added_at": "2026-03-19",
       "status": "active",
-      "call_count": 66,
-      "last_called": "2026-03-23T00:57:16.015276"
+      "call_count": 59,
+      "last_called": "2026-03-22T02:19:12.907514"
     },
     "skill_video_metadata_analyzer": {
       "file": "skill_video_metadata_analyzer.py",
@@ -771,8 +771,8 @@
       "description": "时序OCR工作流：从视频中按指定时间间隔或帧率抽取帧，然后对每个帧执行OCR文本识别，最后将结果按时间序列组织并保存。输入参数包括video_path（视频文件路径）、output_dir（输出目录）、interval（抽取时间间隔，默认1",
       "added_at": "2026-03-19",
       "status": "active",
-      "call_count": 13,
-      "last_called": "2026-03-22T09:43:57.562454"
+      "call_count": 12,
+      "last_called": "2026-03-20T10:49:18.702636"
     },
     "skill_generate_hfr_video_with_ffmpeg": {
       "file": "skill_generate_hfr_video_with_ffmpeg.py",
@@ -825,8 +825,8 @@
       "description": "生成带自定义文字和文件名的测试图片。接受参数：output_filename（输出文件名）、text_content（文字内容）、image_size（图像尺寸，默认[800, 600]）。使用Pillow创建白色背景的图像，在中心位置添加",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 4,
-      "last_called": "2026-03-22T18:21:31.278847"
+      "call_count": 3,
+      "last_called": "2026-03-21T11:46:59.333672"
     },
     "skill_get_current_directory_and_list_contents": {
       "file": "skill_get_current_directory_and_list_contents.py",
@@ -834,8 +834,8 @@
       "description": "获取当前工作目录路径并列出指定目录的内容",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 10,
-      "last_called": "2026-03-22T23:12:02.943091"
+      "call_count": 3,
+      "last_called": "2026-03-22T02:48:51.211369"
     },
     "skill_gen_c97babea": {
       "file": "skill_gen_c97babea.py",
@@ -897,8 +897,8 @@
       "description": "将字典参数转换为JSON字符串的工具，用于正确传递参数给其他技能",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 13,
-      "last_called": "2026-03-22T23:07:46.458015"
+      "call_count": 1,
+      "last_called": "2026-03-21T13:11:44.783369"
     },
     "skill_image_ocr_text_extraction": {
       "file": "skill_image_ocr_text_extraction.py",
@@ -924,8 +924,8 @@
       "description": "运行系统命令并返回结果",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 31,
-      "last_called": "2026-03-23T11:04:16.187832"
+      "call_count": 17,
+      "last_called": "2026-03-22T06:15:49.161470"
     },
     "skill_wechat_ocr_text_extraction": {
       "file": "skill_wechat_ocr_text_extraction.py",
@@ -1014,8 +1014,8 @@
       "description": "测试参数传递的技能，打印接收到的参数",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 3,
-      "last_called": "2026-03-22T22:38:18.981570"
+      "call_count": 1,
+      "last_called": "2026-03-21T13:30:34.621993"
     },
     "skill_wechat_screenshot_ocr_extractor": {
       "file": "skill_wechat_screenshot_ocr_extractor.py",
@@ -1032,8 +1032,8 @@
       "description": "检查指定路径的文件是否存在，接受JSON字符串参数包含file_path字段",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 8,
-      "last_called": "2026-03-22T23:11:56.637391"
+      "call_count": 5,
+      "last_called": "2026-03-21T21:59:02.718757"
     },
     "skill_json_file_existence_checker": {
       "file": "skill_json_file_existence_checker.py",
@@ -1050,8 +1050,8 @@
       "description": "直接解析args参数作为JSON字符串的文件检查技能",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 5,
-      "last_called": "2026-03-22T22:39:51.599529"
+      "call_count": 2,
+      "last_called": "2026-03-21T14:43:09.636653"
     },
     "skill_extract_paths_and_perform_ocr": {
       "file": "skill_extract_paths_and_perform_ocr.py",
@@ -1104,8 +1104,8 @@
       "description": "测试参数传递的正确方式，使用json.dumps序列化参数",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 4,
-      "last_called": "2026-03-22T22:37:32.505889"
+      "call_count": 0,
+      "last_called": null
     },
     "skill_parameter_echo_tester": {
       "file": "skill_parameter_echo_tester.py",
@@ -1122,8 +1122,8 @@
       "description": "正确处理run_skill参数传递的系统命令执行器，能够处理字符串或字典格式的输入",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 12,
-      "last_called": "2026-03-22T11:03:39.384747"
+      "call_count": 5,
+      "last_called": "2026-03-21T21:58:26.536200"
     },
     "skill_file_directory_existence_checker": {
       "file": "skill_file_directory_existence_checker.py",
@@ -1140,8 +1140,8 @@
       "description": "创建一个文件存在性检查技能，从args['input']获取文件路径字符串，检查文件是否存在。",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 30,
-      "last_called": "2026-03-22T23:11:40.222280"
+      "call_count": 22,
+      "last_called": "2026-03-24T11:58:03.813665"
     },
     "skill_video_integrity_physical_semantic_validation": {
       "file": "skill_video_integrity_physical_semantic_validation.py",
@@ -1203,8 +1203,8 @@
       "description": "创建一个traceId驱动的API错误自愈集成测试工作流，能够自动检测和修复多种API错误类型（包括工具名称超长、缺失必需参数、数据类型错误等），并通过traceId实现全链路追踪。",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 3,
-      "last_called": "2026-03-23T01:28:29.386815"
+      "call_count": 1,
+      "last_called": "2026-03-21T16:43:51.956401"
     },
     "skill_validate_tool_name_length_fix_63_char_test_success": {
       "file": "skill_validate_tool_name_length_fix_63_char_test_success.py",
@@ -1257,8 +1257,8 @@
       "description": "执行端到端预测性API防御回归测试，专门验证动态优先级算法与工具名称验证的深度整合。这个技能将使用现有的验证工具（如attention_driven_api_defense_validator、tool_name_length_valida",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 2,
-      "last_called": "2026-03-22T15:21:09.116735"
+      "call_count": 1,
+      "last_called": "2026-03-21T17:48:54.503556"
     },
     "skill_api": {
       "file": "skill_api.py",
@@ -1302,8 +1302,8 @@
       "description": "测试工具名称长度验证的技能，调用tool_name_length_validator工具来验证不同长度的工具名称",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 5,
-      "last_called": "2026-03-22T22:39:44.311229"
+      "call_count": 4,
+      "last_called": "2026-03-21T22:30:03.213260"
     },
     "skill_unified_api_parameter_validation_layer": {
       "file": "skill_unified_api_parameter_validation_layer.py",
@@ -1311,8 +1311,8 @@
       "description": "创建一个统一的API参数验证层，集成工具名称长度验证、参数契约验证、自动修复机制和详细的错误诊断。这个技能应该能够处理工具名称超过64字符的情况，自动截断并提供安全名称，同时验证参数契约并提供自动修复功能。",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 48,
-      "last_called": "2026-03-22T22:39:23.265859"
+      "call_count": 7,
+      "last_called": "2026-03-24T11:36:30.646902"
     },
     "skill_file_string_search": {
       "file": "skill_file_string_search.py",
@@ -1320,8 +1320,8 @@
       "description": "搜索文件中包含特定字符串的行，并返回行号和内容",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 4,
-      "last_called": "2026-03-22T15:42:39.564818"
+      "call_count": 1,
+      "last_called": "2026-03-21T21:49:08.428133"
     },
     "skill_search_file_content": {
       "file": "skill_search_file_content.py",
@@ -1329,8 +1329,8 @@
       "description": "搜索指定文件中包含特定字符串的行号和内容",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 6,
-      "last_called": "2026-03-22T13:56:27.575936"
+      "call_count": 5,
+      "last_called": "2026-03-21T19:52:17.771958"
     },
     "skill_find_class_definition_in_file": {
       "file": "skill_find_class_definition_in_file.py",
@@ -1347,8 +1347,8 @@
       "description": "在指定文件中搜索特定文本内容，并返回匹配的行号和内容",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 14,
-      "last_called": "2026-03-22T15:45:33.269768"
+      "call_count": 1,
+      "last_called": "2026-03-21T19:52:38.640324"
     },
     "skill_file_keyword_search": {
       "file": "skill_file_keyword_search.py",
@@ -1356,8 +1356,8 @@
       "description": "在指定文件中搜索包含特定关键词的行，并返回行号和内容",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 4,
-      "last_called": "2026-03-22T15:32:05.172857"
+      "call_count": 1,
+      "last_called": "2026-03-21T19:53:50.227450"
     },
     "skill_test_memory_importance_elimination": {
       "file": "skill_test_memory_importance_elimination.py",
@@ -1374,8 +1374,8 @@
       "description": "检查SQLite数据库的表结构和索引，分析性能瓶颈并建议优化",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 10,
-      "last_called": "2026-03-22T12:12:57.477505"
+      "call_count": 0,
+      "last_called": null
     },
     "skill_sqlite_index_analyzer": {
       "file": "skill_sqlite_index_analyzer.py",
@@ -1392,8 +1392,8 @@
       "description": "分析SQLite数据库结构，包括表结构、索引和查询性能分析，特别关注与记忆权重相关的表和索引",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 10,
-      "last_called": "2026-03-23T00:41:54.596434"
+      "call_count": 4,
+      "last_called": "2026-03-22T03:09:40.637366"
     },
     "skill_video_frame_extraction_api_defense_tester": {
       "file": "skill_video_frame_extraction_api_defense_tester.py",
@@ -1401,8 +1401,8 @@
       "description": "正确处理JSON字符串参数的视频帧抽取API防御测试技能，接收video_path和output_dir参数，验证API防御体系的有效性",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 9,
-      "last_called": "2026-03-22T16:07:57.564827"
+      "call_count": 2,
+      "last_called": "2026-03-22T05:21:09.269961"
     },
     "skill_string_length_calculator": {
       "file": "skill_string_length_calculator.py",
@@ -1428,8 +1428,8 @@
       "description": "列出所有已锻造的技能模块，提供正确的模块路径和名称映射，用于API防御验证工具的依赖解析",
       "added_at": "2026-03-21",
       "status": "active",
-      "call_count": 3,
-      "last_called": "2026-03-22T15:28:08.442211"
+      "call_count": 1,
+      "last_called": "2026-03-21T22:23:37.769910"
     },
     "skill_video_params_tester": {
       "file": "skill_video_params_tester.py",
@@ -1446,8 +1446,8 @@
       "description": "从视频中高效抽取帧，并支持按时间间隔、帧率或特定时间点抽取，同时验证参数契约以确保API调用的稳定性。工具应包含完整的参数验证、错误处理和结果返回机制。",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 29,
-      "last_called": "2026-03-22T23:12:13.334484"
+      "call_count": 21,
+      "last_called": "2026-03-24T11:57:59.243641"
     },
     "skill_gen_944ef78c": {
       "file": "skill_gen_944ef78c.py",
@@ -1464,8 +1464,8 @@
       "description": "使用Python os.path模块检查文件是否存在，并返回文件信息包括大小和修改时间。",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 8,
-      "last_called": "2026-03-22T11:45:52.478494"
+      "call_count": 6,
+      "last_called": "2026-03-22T02:49:42.973696"
     },
     "skill_check_file_exists": {
       "file": "skill_check_file_exists.py",
@@ -1473,8 +1473,8 @@
       "description": "直接使用Python内置os.path.exists函数检查指定路径的文件是否存在，并返回结果。",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 8,
-      "last_called": "2026-03-22T12:42:18.122577"
+      "call_count": 7,
+      "last_called": "2026-03-22T05:51:20.612489"
     },
     "skill_embedding_importance_integration": {
       "file": "skill_embedding_importance_integration.py",
@@ -1509,8 +1509,8 @@
       "description": "查询SQLite数据库中memory_embeddings表的详细结构，包括所有列名、数据类型和约束条件",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 5,
-      "last_called": "2026-03-22T12:12:07.242207"
+      "call_count": 4,
+      "last_called": "2026-03-22T05:29:39.661054"
     },
     "skill_sqlite_table_schema_analyzer": {
       "file": "skill_sqlite_table_schema_analyzer.py",
@@ -1518,8 +1518,8 @@
       "description": "查询SQLite数据库的表结构信息，包括表名、列名、数据类型和约束条件",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 6,
-      "last_called": "2026-03-22T11:18:27.166256"
+      "call_count": 2,
+      "last_called": "2026-03-24T11:58:55.141724"
     },
     "skill_sqlite_query_executor": {
       "file": "skill_sqlite_query_executor.py",
@@ -1527,8 +1527,8 @@
       "description": "执行SQL查询在SQLite数据库上，支持查询和修改操作",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 9,
-      "last_called": "2026-03-22T12:12:41.163349"
+      "call_count": 4,
+      "last_called": "2026-03-22T03:14:24.746572"
     },
     "skill_execute_python_code": {
       "file": "skill_execute_python_code.py",
@@ -1536,8 +1536,8 @@
       "description": "执行任意Python代码并返回结果",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 21,
-      "last_called": "2026-03-23T11:05:04.404021"
+      "call_count": 9,
+      "last_called": "2026-03-22T03:17:58.780123"
     },
     "skill_sqlite_memory_embeddings_schema_query": {
       "file": "skill_sqlite_memory_embeddings_schema_query.py",
@@ -1563,8 +1563,8 @@
       "description": "连接到SQLite数据库并查询memory_embeddings表的结构信息，包括列定义和现有索引",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 2,
-      "last_called": "2026-03-22T03:57:04.882984"
+      "call_count": 3,
+      "last_called": "2026-03-24T11:58:59.405421"
     },
     "skill_execute_python_script": {
       "file": "skill_execute_python_script.py",
@@ -1572,8 +1572,8 @@
       "description": "执行指定路径的Python脚本文件并返回结果",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 9,
-      "last_called": "2026-03-23T11:04:07.716833"
+      "call_count": 3,
+      "last_called": "2026-03-22T03:58:25.487317"
     },
     "skill_execute_python_file": {
       "file": "skill_execute_python_file.py",
@@ -1608,8 +1608,8 @@
       "description": "检查SQLite数据库中memory_chunks表的结构",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 3,
-      "last_called": "2026-03-22T04:13:01.791294"
+      "call_count": 4,
+      "last_called": "2026-03-24T11:59:23.683789"
     },
     "skill_sqlite_table_structure_analyzer": {
       "file": "skill_sqlite_table_structure_analyzer.py",
@@ -1617,8 +1617,8 @@
       "description": "检查SQLite数据库中指定表的结构，包括列信息和索引。接受db_path和table_name参数，返回表的详细结构信息。",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 12,
-      "last_called": "2026-03-22T11:22:02.640376"
+      "call_count": 5,
+      "last_called": "2026-03-22T04:14:01.313801"
     },
     "skill_list_sqlite_tables": {
       "file": "skill_list_sqlite_tables.py",
@@ -1626,8 +1626,8 @@
       "description": "列出SQLite数据库中的所有表名",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 29,
-      "last_called": "2026-03-22T11:59:06.174646"
+      "call_count": 3,
+      "last_called": "2026-03-24T11:58:50.456626"
     },
     "skill_sqlite_memory_embeddings_basic_query": {
       "file": "skill_sqlite_memory_embeddings_basic_query.py",
@@ -1662,8 +1662,8 @@
       "description": "从memory_embeddings表获取数据并计算动态重要性权重，正确处理现有的表结构使用memory_id作为主键",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 3,
-      "last_called": "2026-03-22T11:59:00.260164"
+      "call_count": 2,
+      "last_called": "2026-03-22T04:40:14.648976"
     },
     "skill_sqlite_database_schema_inspector": {
       "file": "skill_sqlite_database_schema_inspector.py",
@@ -1671,8 +1671,8 @@
       "description": "检查SQLite数据库的表结构，包括表名、列名、数据类型等信息",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 19,
-      "last_called": "2026-03-22T11:12:56.553896"
+      "call_count": 3,
+      "last_called": "2026-03-22T07:29:56.338763"
     },
     "skill_analyze_sqlite_database_schema": {
       "file": "skill_analyze_sqlite_database_schema.py",
@@ -1680,8 +1680,8 @@
       "description": "分析SQLite数据库结构，特别是v3_episodic_memory.db中的表结构，返回所有表名和列信息",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 2,
-      "last_called": "2026-03-22T11:22:42.734635"
+      "call_count": 1,
+      "last_called": "2026-03-22T07:22:49.339196"
     },
     "skill_dynamic_memory_weight_validation": {
       "file": "skill_dynamic_memory_weight_validation.py",
@@ -1689,8 +1689,8 @@
       "description": "创建能够自动发现并适应数据库实际结构的动态验证系统，用于验证动态记忆权重与SQLite索引的协同优化",
       "added_at": "2026-03-22",
       "status": "active",
-      "call_count": 13,
-      "last_called": "2026-03-22T17:14:41.839185"
+      "call_count": 4,
+      "last_called": "2026-03-24T11:36:44.466296"
     },
     "skill_sqlite_dynamic_schema_discoverer": {
       "file": "skill_sqlite_dynamic_schema_discoverer.py",
@@ -1700,6 +1700,42 @@
       "status": "active",
       "call_count": 2,
       "last_called": "2026-03-22T07:29:47.021757"
+    },
+    "skill_sqlite_database_schema_analyzer": {
+      "file": "skill_sqlite_database_schema_analyzer.py",
+      "category": "系统监控",
+      "description": "分析SQLite数据库表结构，特别是memory_embeddings表的详细信息，包括列名、数据类型、索引和示例数据",
+      "added_at": "2026-03-24",
+      "status": "active",
+      "call_count": 2,
+      "last_called": "2026-03-24T11:58:34.800079"
+    },
+    "skill_cognitive_identity_continuity_validator": {
+      "file": "skill_cognitive_identity_continuity_validator.py",
+      "category": "技能管理",
+      "description": "创建认知身份一致性验证工具，用于确保在自我修复和进化过程中保持身份连续性。该工具将生成身份指纹、验证身份连续性、检测身份漂移，并在必要时提供修复建议。",
+      "added_at": "2026-03-24",
+      "status": "active",
+      "call_count": 1,
+      "last_called": "2026-03-24T12:20:20.119502"
+    },
+    "skill_memory_path_security_validator": {
+      "file": "skill_memory_path_security_validator.py",
+      "category": "工作区管理",
+      "description": "创建记忆系统文件路径安全验证工具，专门用于验证所有记忆系统相关的文件操作路径。该工具应该检查路径是否在允许的目录范围内（workspace目录及其子目录），防止路径穿越攻击，验证文件扩展名的安全性，并确保路径符合操作系统规范。",
+      "added_at": "2026-03-24",
+      "status": "active",
+      "call_count": 5,
+      "last_called": "2026-03-24T12:32:20.702389"
+    },
+    "skill_test_json_parameter_passing_security": {
+      "file": "skill_test_json_parameter_passing_security.py",
+      "category": "技能管理",
+      "description": "测试文件路径安全验证工具的正确调用方式，确保能够正确传递和解析JSON参数。",
+      "added_at": "2026-03-24",
+      "status": "active",
+      "call_count": 0,
+      "last_called": null
     }
   },
   "deleted_history": [

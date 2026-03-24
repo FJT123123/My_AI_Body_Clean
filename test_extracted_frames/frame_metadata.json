@@ -1,0 +1,67 @@
+{
+  "video_source": "/var/folders/tb/_3ydfwx958v0_9m4nklzkr3c0000gn/T/4k_stress_test.mp4",
+  "extract_method": "interval",
+  "total_frames": 10,
+  "extracted_frames": [
+    {
+      "frame_index": 0,
+      "time_point": 0,
+      "output_path": "./test_extracted_frames/frame_0000_0.00s.jpg",
+      "timestamp": "2026-03-20T02:43:04.471683"
+    },
+    {
+      "frame_index": 1,
+      "time_point": 0.5,
+      "output_path": "./test_extracted_frames/frame_0001_0.50s.jpg",
+      "timestamp": "2026-03-20T02:43:04.598214"
+    },
+    {
+      "frame_index": 2,
+      "time_point": 1.0,
+      "output_path": "./test_extracted_frames/frame_0002_1.00s.jpg",
+      "timestamp": "2026-03-20T02:43:04.770758"
+    },
+    {
+      "frame_index": 3,
+      "time_point": 1.5,
+      "output_path": "./test_extracted_frames/frame_0003_1.50s.jpg",
+      "timestamp": "2026-03-20T02:43:04.986119"
+    },
+    {
+      "frame_index": 4,
+      "time_point": 2.0,
+      "output_path": "./test_extracted_frames/frame_0004_2.00s.jpg",
+      "timestamp": "2026-03-20T02:43:05.244615"
+    },
+    {
+      "frame_index": 5,
+      "time_point": 2.5,
+      "output_path": "./test_extracted_frames/frame_0005_2.50s.jpg",
+      "timestamp": "2026-03-20T02:43:05.547851"
+    },
+    {
+      "frame_index": 6,
+      "time_point": 3.0,
+      "output_path": "./test_extracted_frames/frame_0006_3.00s.jpg",
+      "timestamp": "2026-03-20T02:43:05.901265"
+    },
+    {
+      "frame_index": 7,
+      "time_point": 3.5,
+      "output_path": "./test_extracted_frames/frame_0007_3.50s.jpg",
+      "timestamp": "2026-03-20T02:43:06.298144"
+    },
+    {
+      "frame_index": 8,
+      "time_point": 4.0,
+      "output_path": "./test_extracted_frames/frame_0008_4.00s.jpg",
+      "timestamp": "2026-03-20T02:43:06.731957"
+    },
+    {
+      "frame_index": 9,
+      "time_point": 4.5,
+      "output_path": "./test_extracted_frames/frame_0009_4.50s.jpg",
+      "timestamp": "2026-03-20T02:43:07.209466"
+    }
+  ]
+}

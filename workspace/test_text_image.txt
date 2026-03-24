@@ -1,0 +1,3 @@
+This is a test file to demonstrate text recognition capabilities. 
+The actual image processing would require an image with visible text.
+For now, I'm creating this text file as a placeholder.

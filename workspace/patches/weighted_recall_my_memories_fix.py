@@ -115,19 +115,14 @@ def apply_weighted_recall_my_memories_fix():
             }
     
     # 替换全局函数
+    import builtins
     import sys
     
-    # 获取目标命名空间（尝试当前模块，否则回退到全局命名空间）
-    target = sys.modules.get(__name__)
-    if target:
-        target.weighted_recall_my_memories = fixed_weighted_recall_my_memories
+    # 获取当前模块
+    current_module = sys.modules[__name__]
     
-    # 如果在全局命名空间中，也替换它
-    if 'weighted_recall_my_memories' in globals():
-        globals()['weighted_recall_my_memories'] = fixed_weighted_recall_my_memories
-    else:
-        # 强制注入到 globals
-        globals()['weighted_recall_my_memories'] = fixed_weighted_recall_my_memories
+    # 替换函数
+    current_module.weighted_recall_my_memories = fixed_weighted_recall_my_memories
     
     return "weighted_recall_my_memories参数契约修复完成"
 

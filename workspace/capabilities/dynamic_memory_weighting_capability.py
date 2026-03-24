@@ -67,17 +67,8 @@ class DynamicMemoryWeightingCapability:
                 else:
                     # 尝试其他格式
                     memory_time = datetime.fromisoformat(timestamp_str.replace('Z', '+00:00'))
-            elif isinstance(timestamp_str, (int, float)):
-                # Handle epoch timestamp floats
-                memory_time = datetime.fromtimestamp(float(timestamp_str))
             else:
                 memory_time = timestamp_str
-            
-            # 确保 memory_time 是带时区的或者都是无时区的，防止 offset-naive 和 offset-aware 报错
-            if memory_time.tzinfo is not None and current_time.tzinfo is None:
-                current_time = current_time.replace(tzinfo=memory_time.tzinfo)
-            elif memory_time.tzinfo is None and current_time.tzinfo is not None:
-                memory_time = memory_time.replace(tzinfo=current_time.tzinfo)
             
             # 计算时间差（天数）
             time_diff = (current_time - memory_time).total_seconds() / 86400.0

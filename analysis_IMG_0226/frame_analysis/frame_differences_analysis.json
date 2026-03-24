@@ -1,0 +1,12 @@
+{
+  "frame_count": 11,
+  "analyzed_pairs": 10,
+  "differences": [
+    {
+      "frame_pair": [
+        0,
+        1
+      ],
+      "mean_difference": 9.385377604166667,
+      "max_difference": 148.0,
+      "significant_change": 

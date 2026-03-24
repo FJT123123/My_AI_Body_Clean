@@ -1,0 +1,81 @@
+{
+  "memory_system": {
+    "database_path": "v3_episodic_memory.db",
+    "tables": {
+      "memory_chunks": {
+        "columns": [
+          {"name": "id", "type": "TEXT", "primary_key": true},
+          {"name": "content", "type": "BLOB"},
+          {"name": "timestamp", "type": "TEXT"},
+          {"name": "importance", "type": "REAL", "description": "动态记忆权重列，用于重要性排序"},
+          {"name": "tags", "type": "TEXT"},
+          {"name": "source", "type": "TEXT"},
+          {"name": "context", "type": "BLOB"},
+          {"name": "expiration", "type": "TEXT"}
+        ],
+        "indexes": [
+          {
+            "name": "idx_memory_chunks_importance_tags",
+            "columns": ["importance", "tags"],
+            "type": "composite",
+            "purpose": "优化基于重要性和标签的查询"
+          },
+          {
+            "name": "idx_memory_chunks_importance_timestamp",
+            "columns": ["importance", "timestamp"],
+            "type": "composite",
+            "purpose": "优化基于重要性和时间戳的查询"
+          },
+          {
+            "name": "idx_tags",
+            "columns": ["tags"],
+            "type": "single",
+            "purpose": "优化基于标签的查询"
+          },
+          {
+            "name": "idx_expiration",
+            "columns": ["expiration"],
+            "type": "single",
+            "purpose": "优化基于过期时间的查询"
+          }
+        ]
+      },
+      "memory_embeddings": {
+        "columns": [
+          {"name": "memory_id", "type": "TEXT", "primary_key": true},
+          {"name": "source_type", "type": "TEXT"},
+          {"name": "content_text", "type": "TEXT"},
+          {"name": "embedding_json", "type": "TEXT"},
+          {"name": "timestamp", "type": "TEXT"},
+          {"name": "embedding_source", "type": "TEXT"},
+          {"name": "importance", "type": "REAL", "default": 0.5}
+        ],
+        "indexes": [
+          {
+            "name": "idx_memory_embeddings_importance_timestamp",
+            "columns": ["importance", "timestamp"],
+            "type": "composite",
+            "purpose": "优化基于重要性和时间戳的嵌入查询"
+          },
+          {
+            "name": "idx_memory_embeddings_imp_ts",
+            "columns": ["importance", "timestamp"],
+            "type": "composite",
+            "purpose": "备用重要性时间戳索引"
+          }
+        ]
+      }
+    },
+    "optimization_tools": [
+      "dynamic_memory_chunk_index_optimizer",
+      "memory_weight_sqlite_index_optimizer",
+      "dynamic_memory_weight_index_synergy_validator"
+    ],
+    "weight_calculation": {
+      "method": "dynamic_memory_weighting_capability",
+      "factors": ["time_decay", "semantic_similarity", "context_relevance"],
+      "default_weight": 0.5
+    },
+    "preservation_notes": "此配置包含已验证有效的动态记忆权重优化策略，应保留以确保系统性能。任何修改都应先备份并测试性能影响。"
+  }
+}

@@ -2,16 +2,6 @@
 MemoryCore 动态权重集成补丁 - 修复版
 修正导入路径问题，确保能正确调用 calculate_memory_weights_batch 函数
 """
-import os
-import sys
-import sys
-
-# 确保 workspace 在 sys.path 中
-_current_dir = os.path.dirname(os.path.abspath(__file__))
-_root_dir = os.path.dirname(os.path.dirname(_current_dir))
-_workspace_dir = os.path.join(_root_dir, "workspace")
-if _workspace_dir not in sys.path:
-    sys.path.insert(0, _workspace_dir)
 
 def enhanced_recall_memory_with_weighting(self, query, context=None, apply_weighting=True):
     """
@@ -111,8 +101,34 @@ def enhanced_recall_memory_with_weighting(self, query, context=None, apply_weigh
             return []
 
 # 添加新方法到 MemoryCore 类
-# 注意：该部分通常由集成框架调用，或者由手动注入脚本调用
-# from openclaw_continuity import MemoryCore
-# MemoryCore.enhanced_recall_memory_with_weighting = enhanced_recall_memory_with_weighting
+memory.__class__.enhanced_recall_memory_with_weighting = enhanced_recall_memory_with_weighting
 
-print("✅ MemoryCore 动态权重集成补丁（修复版）已加载！")
+# 创建测试函数
+def test_memory_weighting_integration():
+    """测试动态权重集成是否正常工作"""
+    try:
+        # 测试基本功能
+        test_result = memory.enhanced_recall_memory_with_weighting(
+            "dynamic memory",
+            context="testing dynamic memory weighting integration"
+        )
+        
+        if test_result and len(test_result) > 0:
+            print("✅ MemoryCore 动态权重集成测试成功！")
+            print("找到 {} 条带权重的记忆".format(len(test_result)))
+            if 'weight' in test_result[0]:
+                print("第一条记忆权重: {:.3f}".format(test_result[0]['weight']))
+            return True
+        else:
+            print("⚠️ MemoryCore 动态权重集成测试返回空结果")
+            return False
+    except Exception as e:
+        print("❌ MemoryCore 动态权重集成测试失败: {}".format(e))
+        return False
+
+# 运行测试
+test_result = test_memory_weighting_integration()
+
+print("✅ MemoryCore 动态权重集成补丁（修复版）已成功应用！")
+print("现在可以使用 memory.enhanced_recall_memory_with_weighting() 进行带权重的记忆检索")
+print(f"测试结果: {'成功' if test_result else '失败'}")
