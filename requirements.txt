@@ -1,0 +1,19 @@
+# Core runtime
+python-dotenv
+pydantic
+langchain-core
+langchain-openai
+langgraph
+
+# Memory and data processing
+sentence-transformers
+numpy
+pandas
+pytz
+python-dateutil
+tzdata
+
+# Integrations used by existing capabilities
+langchain-community
+langchain-tavily
+neo4j
